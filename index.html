@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>ד"ר פפיסמדוב מיכאל | CRM</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B6CA8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ד&quot;ר קליניק">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1B6CA8;--primary-dark:#154F7A;--primary-light:#E8F4FD;
+  --accent:#2AA876;--accent-light:#E8F7F2;
+  --teal:#4DB8C8;--teal-light:#EAF8FA;
+  --text:#1A2332;--text-sub:#5A6A7E;
+  --border:#E6EDF3;--border-strong:#D6E1EA;
+  --bg:#F4F8FB;--white:#fff;--gold:#C9A84C;
+  --red:#E24B4A;--red-light:#FCEBEB;--amber:#EF9F27;--amber-light:#FAEEDA;
+  --r-sm:10px;--r-md:14px;--r-lg:18px;
+  --sh-1:0 1px 2px rgba(26,35,50,.04);
+  --sh-2:0 2px 8px rgba(26,35,50,.05),0 1px 2px rgba(26,35,50,.03);
+  --sh-3:0 10px 28px rgba(26,35,50,.08),0 2px 6px rgba(26,35,50,.04);
+  --sh-4:0 22px 52px rgba(26,35,50,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Heebo',sans-serif;font-size:14px;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;letter-spacing:-.003em}
+
+/* LOGIN */
+.login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--primary-dark),var(--primary),var(--teal));padding:20px}
+.login-box{background:var(--white);border-radius:22px;padding:38px 30px;width:100%;max-width:372px;box-shadow:0 24px 64px rgba(15,27,38,.2)}
+.login-logo{text-align:center;margin-bottom:24px}
+.login-logo-icon{width:58px;height:58px;background:linear-gradient(135deg,var(--primary),var(--teal));border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:26px;color:#fff}
+.login-logo-text{font-size:19px;font-weight:700;color:var(--text);letter-spacing:-.022em}
+.login-logo-sub{font-size:12px;color:var(--text-sub);margin-top:2px}
+.login-title{font-size:23px;font-weight:700;margin-bottom:5px;letter-spacing:-.025em}
+.login-sub{font-size:13px;color:var(--text-sub);margin-bottom:22px}
+.login-field{margin-bottom:14px}
+.login-label{font-size:12px;color:var(--text-sub);margin-bottom:5px;display:block;font-weight:500}
+.login-input{width:100%;padding:14px 15px;border:1.5px solid var(--border-strong);border-radius:var(--r-sm);font-size:15px;font-family:'Heebo',sans-serif;background:#FAFAFA;color:var(--text);outline:none;transition:all .15s}
+.login-input:focus{border-color:var(--primary);background:var(--white)}
+.login-btn{width:100%;padding:15px;border-radius:var(--r-sm);border:none;background:var(--primary);box-shadow:0 4px 14px rgba(27,108,168,.3);color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:'Heebo',sans-serif;margin-top:6px}
+.login-btn:active{opacity:.88}
+.login-err{color:var(--red);font-size:12px;margin-top:10px;display:none;text-align:center;background:var(--red-light);padding:8px 12px;border-radius:8px}
+
+/* APP */
+.lang-switch{position:relative;z-index:60}
+.lang-toggle{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-size:12px;padding:6px 10px;border-radius:99px;cursor:pointer;font-family:'Heebo',sans-serif;transition:all .15s;width:100%;justify-content:center}
+.lang-toggle:hover{background:var(--white);border-color:var(--primary)}
+.lang-toggle .chev{font-size:9px;opacity:.7;transition:transform .2s}
+.lang-switch.open .chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;bottom:calc(100% + 6px);right:0;left:0;background:var(--white);border-radius:11px;box-shadow:0 6px 24px rgba(0,0,0,.15);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(6px);transition:all .18s;border:1px solid var(--border)}
+.lang-switch.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-item{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;font-size:13px;color:var(--text);transition:background .12s;direction:ltr}
+.lang-item:hover{background:var(--bg)}
+.lang-item.active{background:var(--primary-light);font-weight:600;color:var(--primary)}
+.lang-item .check{margin-left:auto;color:var(--primary)}
+.login-lang .lang-menu{bottom:auto;top:calc(100% + 6px);transform:translateY(-6px)}
+.login-lang .lang-switch.open .lang-menu{transform:translateY(0)}
+.login-lang .lang-switch{min-width:150px}
+.app{display:flex;height:100vh;overflow:hidden;background:var(--bg)}
+.sidebar{width:246px;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;z-index:50}
+.sb-top{padding:20px 16px 16px;border-bottom:1px solid var(--border)}
+.sb-brand{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.sb-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--teal));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0}
+.sb-name{font-size:14.5px;font-weight:700;color:var(--text);letter-spacing:-.015em}
+.sb-ver{font-size:10px;color:var(--text-sub)}
+.logout-btn{background:none;border:none;font-size:12px;color:var(--text-sub);cursor:pointer;font-family:'Heebo',sans-serif;display:flex;align-items:center;gap:4px;padding:4px 0;margin-top:2px}
+.logout-btn:hover{color:var(--red)}
+.search-wrap{position:relative}
+.search-wrap input{width:100%;padding:9px 10px 9px 32px;border:1px solid var(--border);border-radius:9px;font-size:13px;font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);outline:none}
+.search-wrap input:focus{border-color:var(--primary);background:var(--white)}
+.search-wrap i{position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--text-sub)}
+.nav-section{padding:14px 12px 0}
+.nav-label{font-size:10px;font-weight:700;color:var(--text-sub);letter-spacing:.13em;padding:2px 6px 10px;text-transform:uppercase;opacity:.5}
+.nav-item{display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:var(--r-sm);cursor:pointer;font-size:14px;color:var(--text-sub);border:1px solid transparent;margin-bottom:4px;transition:background .15s,color .15s;position:relative;font-weight:500}
+.nav-item:hover:not(.active){background:var(--bg);color:var(--text)}
+.nav-item.active{background:var(--primary-light);color:var(--primary);font-weight:600}
+.nav-item.active::before{content:'';position:absolute;inset-inline-start:0;top:24%;bottom:24%;width:3px;border-radius:2px;background:var(--primary)}
+.nav-item.active i{color:var(--primary)}
+.nav-item i{font-size:17px;width:20px;text-align:center;color:var(--text-sub)}
+.nav-badge{margin-right:auto;background:var(--red);color:#fff;font-size:10px;font-weight:600;padding:2px 6px;border-radius:99px}
+.nav-item.active .nav-badge{background:#fff;color:var(--primary)}
+.client-list{flex:1;overflow-y:auto;padding:6px 8px}
+.ci{display:flex;align-items:center;gap:9px;padding:10px;border-radius:9px;cursor:pointer;border:1px solid transparent;margin-bottom:2px;transition:all .1s}
+.ci:hover,.ci.active{background:var(--bg);border-color:var(--border)}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.ci-meta{min-width:0;flex:1}
+.ci-name{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-sub{font-size:11px;color:var(--text-sub);margin-top:1px}
+.add-client-btn{margin:6px 10px 10px;padding:10px;border-radius:9px;border:1.5px dashed var(--border);background:transparent;color:var(--text-sub);cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px;justify-content:center;font-family:'Heebo',sans-serif;transition:all .12s}
+.add-client-btn:hover{background:var(--bg);border-color:var(--primary);color:var(--primary)}
+.sb-footer{padding:10px 14px;border-top:1px solid var(--border)}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:40}
+.topbar{display:none;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);flex-shrink:0}
+.topbar-title{font-size:15px;font-weight:600;flex:1;text-align:center}
+.tb-btn{width:38px;height:38px;border-radius:9px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:19px;color:var(--text-sub)}
+.main-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.page-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.page-pad{padding:26px}
+.bottom-nav{display:none;background:var(--white);border-top:1px solid var(--border);flex-shrink:0;padding-bottom:env(safe-area-inset-bottom)}
+.bn-row{display:flex;justify-content:space-around}
+.bn-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 12px;cursor:pointer;border:none;background:none;font-family:'Heebo',sans-serif;color:#aaa;font-size:10px;font-weight:500;min-width:56px}
+.bn-item.active{color:var(--primary)}
+.bn-item i{font-size:22px}
+.bn-dot{position:relative}
+.bn-dot-badge{position:absolute;top:-2px;right:-4px;width:8px;height:8px;background:var(--red);border-radius:50%;border:1.5px solid #fff}
+
+/* CLIENT HEADER */
+.mh{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-shrink:0;background:var(--white)}
+.mh-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0}
+.mh-info{flex:1;min-width:0}
+.mh-name{font-size:19px;font-weight:700;letter-spacing:-.022em}
+.mh-sub{font-size:12px;color:var(--text-sub);margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.badge{font-size:11px;padding:3px 9px;border-radius:99px;font-weight:500;white-space:nowrap}
+.b-vip{background:#EEEDFE;color:#3C3489}
+.b-new{background:var(--accent-light);color:#085041}
+.b-reg{background:#F1EFE8;color:#444}
+.b-sens{background:var(--red-light);color:#791F1F}
+.tabs{display:flex;border-bottom:1px solid var(--border);padding:0 20px;flex-shrink:0;background:var(--white);overflow-x:auto;gap:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:14px 13px;font-size:13.5px;color:var(--text-sub);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;font-weight:500;transition:color .14s,border-color .14s}
+.tab.active{color:var(--text);border-bottom-color:var(--primary);font-weight:600}
+.content{flex:1;overflow-y:auto;padding:24px;background:var(--bg)}
+
+/* DASHBOARD */
+.dash-header{margin-bottom:28px}
+.dash-title{font-size:25px;font-weight:700;letter-spacing:-.028em;line-height:1.22}
+.dash-sub{font-size:13.5px;color:var(--text-sub);margin-top:6px}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:26px}
+.kpi{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;position:relative;overflow:hidden;box-shadow:none;transition:transform .18s,box-shadow .18s,border-color .18s}
+.kpi:hover{transform:translateY(-2px);box-shadow:var(--sh-2);border-color:var(--border-strong)}
+.kpi-accent{position:absolute;top:0;right:0;width:4px;height:100%;border-radius:0 14px 14px 0}
+.kpi-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:10px}
+.kpi-val{font-size:30px;font-weight:700;line-height:1;letter-spacing:-.025em}
+.kpi-label{font-size:10.5px;color:var(--text-sub);margin-top:7px;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+.dash-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:18px;box-shadow:var(--sh-1)}
+.dc-header{padding:17px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.dc-title{font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:8px;letter-spacing:-.005em}
+.dc-title i{font-size:16px;color:var(--text-sub)}
+.dc-action{font-size:12px;color:var(--text-sub);cursor:pointer;display:flex;align-items:center;gap:4px;padding:5px 9px;border-radius:7px;border:1px solid var(--border);background:transparent;font-family:'Heebo',sans-serif}
+.dc-body{padding:17px 20px}
+.today-appt{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--bg)}
+.today-appt:last-child{border-bottom:none;padding-bottom:0}
+.ta-time{font-size:13px;font-weight:600;min-width:46px;color:var(--primary)}
+.ta-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.ta-info{flex:1;min-width:0}
+.ta-name{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ta-treat{font-size:11px;color:var(--text-sub);margin-top:1px}
+.ta-badge{font-size:10px;padding:3px 8px;border-radius:99px;font-weight:500;white-space:nowrap}
+.appt-pending{background:var(--amber-light);color:#633806}
+.appt-confirmed{background:var(--accent-light);color:#085041}
+.rem-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--bg)}
+.rem-item:last-child{border-bottom:none;padding-bottom:0}
+.ri-dot{width:8px;height:8px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.ri-body{flex:1;min-width:0}
+.ri-text{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ri-client{font-size:11px;color:var(--text-sub);margin-top:1px}
+.overdue-text{color:var(--red);font-size:11px;font-weight:600}
+.today-text{color:var(--amber);font-size:11px;font-weight:600}
+
+/* CARDS */
+.sec-label{font-size:10.5px;font-weight:700;color:var(--text-sub);letter-spacing:.13em;margin-bottom:12px;text-transform:uppercase;opacity:.72}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;margin-bottom:10px;box-shadow:none;transition:border-color .16s,box-shadow .16s}
+.card:hover{border-color:var(--border-strong)}
+.card.overdue{border-color:#F09595;background:#FFFAFA}
+.card.today-card{border-color:var(--amber);background:#FFFDF5}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.stat{background:var(--bg);border-radius:10px;padding:10px 12px}
+.stat-val{font-size:23px;font-weight:700;color:var(--text);letter-spacing:-.025em;line-height:1}
+.stat-lbl{font-size:11px;color:var(--text-sub);margin-top:2px}
+.treat-card{display:flex;gap:12px;align-items:flex-start}
+.treat-date{font-size:11px;color:var(--text-sub);white-space:nowrap;padding-top:2px;min-width:54px}
+.treat-body{flex:1;min-width:0}
+.treat-name{font-size:13px;font-weight:500}
+.treat-detail{font-size:12px;color:var(--text-sub);margin-top:3px;line-height:1.5}
+.treat-price{font-size:12px;font-weight:600;color:var(--accent);margin-top:4px}
+.rem-card{display:flex;align-items:flex-start;gap:10px}
+.rem-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.d-red{background:var(--red)}.d-amber{background:var(--amber)}.d-teal{background:var(--accent)}
+.rem-body{flex:1}
+.rem-text{font-size:13px;font-weight:500}
+.rem-due{font-size:11px;color:var(--text-sub);margin-top:2px}
+.chip{display:inline-block;font-size:11px;padding:3px 9px;border-radius:99px;margin:2px}
+.skin-chip{background:#F1EFE8;color:#444}
+.allergy-chip{background:var(--red-light);color:#791F1F}
+.source-chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:3px 9px;border-radius:99px;background:var(--primary-light);color:var(--primary);font-weight:500}
+.empty{text-align:center;padding:32px 0;color:#bbb;font-size:13px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.info-field{display:flex;flex-direction:column;gap:3px}
+.info-label{font-size:11px;color:var(--text-sub);font-weight:500}
+.info-value{font-size:13px;color:var(--text)}
+
+/* FORMS */
+textarea.fi,input.fi,select.fi{width:100%;padding:12px 14px;border:1.5px solid var(--border-strong);border-radius:var(--r-sm);font-size:15px;font-family:'Heebo',sans-serif;background:var(--white);color:var(--text);outline:none;-webkit-appearance:none;transition:border-color .14s,box-shadow .14s}
+textarea.fi:focus,input.fi:focus,select.fi:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(27,108,168,.11)}
+textarea.fi:focus,input.fi:focus,select.fi:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(27,108,168,.11)}
+.add-row{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.add-area{margin-top:14px}
+.source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+.source-opt{padding:11px 6px;border:1.5px solid var(--border);border-radius:10px;font-size:12px;cursor:pointer;text-align:center;background:var(--white);transition:all .12s}
+.source-opt.selected{border-color:var(--primary);background:var(--primary);color:#fff}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 17px;border-radius:var(--r-sm);font-size:13px;font-weight:500;cursor:pointer;font-family:'Heebo',sans-serif;transition:all .12s;border:1.5px solid transparent;white-space:nowrap}
+.btn:active{opacity:.82}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--teal));color:#fff;border-color:transparent;box-shadow:0 3px 12px rgba(27,108,168,.24);transition:transform .14s,box-shadow .18s}
+.btn-primary:hover{box-shadow:0 6px 20px rgba(27,108,168,.3)}
+.btn-secondary{background:var(--white);color:var(--text);border-color:var(--border-strong);box-shadow:var(--sh-1)}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+.btn-danger{background:var(--white);color:var(--red);border-color:#F09595}
+.btn-success{background:var(--accent-light);color:#085041;border-color:#B6E4CC}
+.btn-google{background:var(--white);color:#444;border-color:var(--border)}
+.btn-sm{padding:7px 12px;font-size:12px}
+.btn-icon{width:36px;height:36px;padding:0;justify-content:center;border-radius:9px}
+
+/* CALENDAR */
+.cal-wrap{display:flex;flex-direction:column;height:100%;overflow:hidden}
+.cal-scroll{flex:1;overflow:hidden;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--white);display:flex;flex-direction:column;box-shadow:var(--sh-2)}
+.cal-head{display:grid;grid-template-columns:48px repeat(7,1fr);border-bottom:1px solid var(--border);flex-shrink:0}
+.cal-day-hdr{padding:8px 2px;text-align:center;border-left:1px solid var(--border);background:var(--bg)}
+.cal-day-hdr:first-child{border-left:none}
+.cal-day-name{font-size:10px;font-weight:700;color:var(--text-sub)}
+.cal-day-num{font-size:14px;font-weight:500;margin-top:2px}
+.cal-body{flex:1;overflow-y:auto}
+.cal-row{display:grid;grid-template-columns:48px repeat(7,1fr)}
+.cal-time{height:52px;padding:0 4px;display:flex;align-items:flex-start;justify-content:flex-end;border-bottom:1px solid #F0EEE8;border-right:1px solid var(--border)}
+.cal-time span{font-size:9px;color:#ccc;padding-top:4px;white-space:nowrap}
+.cal-cell{height:52px;border-left:1px solid var(--border);border-bottom:1px solid #F0EEE8;position:relative;cursor:pointer}
+.cal-cell:hover{background:var(--primary-light)}
+.appt-block{position:absolute;left:1px;right:1px;border-radius:7px;padding:2px 5px;font-size:10px;font-weight:500;cursor:pointer;overflow:hidden;z-index:2;border:1px solid transparent}
+.appt-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.appt-time-label{font-size:9px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* LOADING */
+.loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;z-index:500;flex-direction:column;gap:12px}
+.loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:13px;color:var(--text-sub)}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(15,27,38,.45);backdrop-filter:blur(3px);display:flex;align-items:flex-end;justify-content:center;z-index:200;padding:0}
+.modal{background:var(--white);border-radius:26px 26px 0 0;padding:14px 24px 36px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:var(--sh-4)}
+.modal-handle{width:36px;height:4px;background:var(--border);border-radius:99px;margin:0 auto 16px}
+.modal-title{font-size:19px;font-weight:700;margin-bottom:22px;display:flex;align-items:center;gap:10px;letter-spacing:-.022em}
+.modal-title i{font-size:20px;color:var(--text-sub)}
+.fg{margin-bottom:15px}
+.fl{font-size:12.5px;color:var(--text-sub);margin-bottom:7px;font-weight:600}
+.ma{display:flex;gap:8px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+
+/* TOAST */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:13px 24px;border-radius:99px;font-size:13.5px;font-weight:500;z-index:300;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;box-shadow:var(--sh-3)}
+.toast.show{opacity:1}
+
+/* LINK BOX */
+.link-box{background:var(--primary-light);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.link-box-title{font-size:12px;font-weight:600;color:var(--primary);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.link-box-url{font-size:12px;color:var(--primary);background:var(--white);padding:8px 10px;border-radius:7px;border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;word-break:break-all}
+
+/* EDIT FIELD */
+.edit-field{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.edit-label{font-size:11px;color:var(--text-sub);font-weight:500;min-width:80px}
+.edit-val{font-size:13px;flex:1}
+.edit-input{flex:1;padding:7px 10px;border:1.5px solid var(--primary);border-radius:8px;font-size:13px;font-family:'Heebo',sans-serif;outline:none}
+
+@media(min-width:680px){
+  .topbar{display:none!important}.bottom-nav{display:none!important}
+  .sidebar{position:static!important;transform:none!important}
+  .sidebar-overlay{display:none!important}
+  .modal-bg{align-items:center;padding:20px}
+  .modal{border-radius:16px;max-width:460px;padding:24px}
+  .modal-handle{display:none}
+  .page-pad{padding:24px}
+  .kpi-grid{grid-template-columns:repeat(4,1fr)}
+  .toast{bottom:24px}
+}
+@media(max-width:679px){
+  .sidebar{position:fixed;top:0;left:0;bottom:0;width:82%;max-width:300px;transform:translateX(-100%);box-shadow:4px 0 20px rgba(0,0,0,.1)}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay{display:block;opacity:0;pointer-events:none;transition:opacity .25s}
+  .sidebar-overlay.show{opacity:1;pointer-events:auto}
+  .topbar{display:flex!important}
+  .bottom-nav{display:block!important}
+  .main-wrap{display:flex;flex-direction:column;overflow:hidden}
+  .page-pad{padding:14px}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .cal-wrap{padding:0 12px 12px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div class="toast" id="toast"></div>
+<script>
+const SUPABASE_URL='https://ppbxmqrddkjgyzkjpgxx.supabase.co';
+const SUPABASE_KEY='sb_publishable_VDzu1TNHOUAdAFw1bDkeiA_NVTwjxaR';
+
+
+// ============ מערכת שפות ============
+const I18N={
+ he:{dir:'rtl',
+  welcome:'ברוכים הבאים 👋',loginSub:'התחברו כדי להמשיך',username:'שם משתמש',password:'סיסמה',
+  login:'כניסה',loggingIn:'מתחבר…',loginErr:'שם משתמש או סיסמה שגויים',sysName:'מערכת ניהול',sysFull:'מערכת ניהול קליניקה',
+  nav:'ניווט',dashboard:'דשבורד',calendar:'יומן תורים',calendarShort:'יומן',clients:'לקוחות',bookingLink:'קישור הזמנה',
+  newClient:'לקוח חדש',logout:'יציאה',loading:'טוען נתונים…',
+  hello:'שלום',apptsToday:'תורים היום',noApptsToday:'אין תורים היום',newAppt:'תור חדש',appt:'תור',client:'לקוח',
+  kpiClients:'לקוחות',kpiTreatments:'טיפולים',kpiRevenue:'הכנסה',kpiPending:'תורים ממתינים',
+  urgentReminders:'תזכורות דחופות',allUpdated:'הכל מעודכן!',allUpdatedEmoji:'הכל מעודכן! 🎉',
+  birthdays:'ימי הולדת קרובים 🎂',greeting:'ברכה',age:'גיל',todayBday:'🎉 היום!',tomorrow:'מחר',inDays:'בעוד {n} ימים',
+  monthStats:'סטטיסטיקות החודש 📊',newClientsMonth:'לקוחות חדשים',apptsMonth:'תורים החודש',revenueMonth:'הכנסות החודש',confirmedMonth:'תורים מאושרים',
+  bookingLinkTitle:'קישור הזמנת תור',sendWhatsapp:'שלח בוואטסאפ',copyLink:'העתק קישור',close:'סגור',
+  notifJournal:'יומן התראות',noNotifs:'אין התראות חדשות',newApptReq:'בקשת תור חדשה',bdayToday:'יום הולדת היום! 🎉',bdayTomorrow:'יום הולדת מחר',
+  reminderOverdue:'תזכורת באיחור',reminderToday:'תזכורת להיום',notifCount:'{n} התראות חדשות',
+  today:'היום',jumpDate:'קפוץ לתאריך',searchAppt:'חיפוש תור לפי שם לקוח…',noApptsFound:'לא נמצאו תורים',
+  searchClient:'חיפוש לקוח…',noClientsFound:'לא נמצאו לקוחות',clientsCount:'{n} לקוחות במערכת',backToList:'חזרה לרשימה',
+  overview:'סקירה',treatments:'טיפולים',reminders:'תזכורות',appointments:'תורים',profile:'פרופיל',
+  nextAppt:'התור הבא',clinicalNotes:'הערות קליניות',lastTreatment:'טיפול אחרון',noNotesYet:'אין הערות עדיין.',
+  treatHistory:'היסטוריית טיפולים',noTreatments:'אין טיפולים עדיין.',add:'הוסף',
+  followupReminders:'תזכורות מעקב',allDone:'כל התזכורות בוצעו!',completed:'הושלמו',newReminder:'תזכורת חדשה…',done:'בוצע',undo:'בטל',
+  noAppts:'אין תורים.',contactDetails:'פרטי קשר',phone:'טלפון',email:'אימייל',consent:'הסכמה',source:'ערוץ הגעה',
+  skinType:'סוג עור',allergies:'אלרגיות',noneKnown:'אין ידועות',notSpecified:'לא צוין',noPhone:'אין טלפון',
+  docHistory:'היסטוריית תיעוד',noDoc:'אין תיעוד עדיין.',addDoc:'הוסף תיעוד חדש…',addToDoc:'הוסף לתיעוד',
+  clientPhoto:'תמונת לקוח',uploadPhoto:'העלה תמונה',editDetails:'עריכת פרטים',editClient:'ערוך פרטי לקוח',
+  sendBookingWa:'שלח קישור הזמנה בוואטסאפ',consentForms:'טפסי הסכמה',formsStatus:'סטטוס טפסי הסכמה של הלקוח:',
+  signed:'נחתם',notSigned:'טרם נחתם',view:'צפה',send:'שלח',sendAgain:'שלח שוב',
+  formGeneral:'הסכמה כללית',formBotox:'בוטוקס',formFiller:'פילר',formFacial:'טיפול פנים',
+  sendForm:'שליחת טופס',howToSend:'בחר כיצד לשלוח את הטופס ל',sendToEmail:'שלח לאימייל',noEmailClient:'אין אימייל ללקוח — הוסף בעריכת פרטים',
+  signedForm:'טופס חתום',patientSig:'חתימת המטופל/ת:',noSig:'אין חתימה שמורה',downloadSig:'הורד חתימה',signedDigitally:'נחתם דיגיטלית בתאריך',
+  fullName:'שם מלא',fullNameReq:'שם מלא *',clientNameReq:'שם הלקוח *',dobEmoji:'תאריך לידה 🎂',
+  status:'סטטוס',tierNew:'לקוח חדש',tierRegular:'קבוע',tierVip:'VIP',cancel:'ביטול',save:'שמור',saveChanges:'שמור שינויים',
+  addClient:'הוסף לקוח',treatNameReq:'שם הטיפול *',date:'תאריך',provider:'מטפל/ת',dose:'מינון / מוצר',
+  notes:'הערות',price:'מחיר (₪)',registerTreat:'רישום טיפול',
+  emailConfirm:'אימייל (לשליחת אישור)',treatment:'טיפול',time:'שעה',durationMin:'משך (דקות)',duration:'משך',
+  setAppt:'קבע תור',apptDetails:'פרטי תור',edit:'ערוך',manageLink:'קישור ניהול',link:'שייך',
+  pendingLabel:'⏳ ממתין לאישור',confirmedLabel:'✓ מאושר',doneLabel:'הסתיים',
+  approve:'אשר',reject:'דחה',pending:'ממתין',confirmed:'מאושר',finished:'הסתיים',
+  editAppt:'עריכת תור',linkToClient:'שייך תור ללקוח',chooseExisting:'בחר לקוח קיים',orCreate:'או צור לקוח חדש מפרטי התור:',
+  createAndLink:'צור לקוח ושייך',noNameInAppt:'אין שם לקוח בתור.',
+  pendingAppts:'תורים ממתינים לאישור',linkValid7:'הקישור תקף ל-7 ימים',
+  // toasts
+  tSaved:'✓ בוצע!',tClientAdded:'לקוח נוסף! 🎉',tClientCreated:'לקוח נוצר ושויך! 🎉',tTreatSaved:'טיפול נשמר ✓',
+  tApptSet:'תור נקבע! 📅',tApptUpdated:'תור עודכן ✓',tApptApproved:'תור אושר ✓',tApptRejected:'תור נדחה',tApptDeleted:'תור נמחק',
+  tReminderAdded:'תזכורת נוספה',tDocAdded:'תיעוד נוסף ✓',tPhotoUploaded:'תמונה הועלתה! 📸',tDetailsUpdated:'פרטים עודכנו ✓',
+  tLinked:'שויך ללקוח ✓',tLinkCopied:'קישור הועתק! 📋',tCopyManually:'העתק ידנית',tNoApptsWeek:'אין תורים השבוע',
+  tExportGoogle:'📅 יוצא לגוגל!',tEmailSent:'📧 אימייל אישור נשלח!',tEmailToClient:'📧 אימייל אישור נשלח ללקוח!',
+  tFormSent:'📧 הטופס נשלח לאימייל!',tSignLinkSent:'📧 אימייל עם קישור חתימה נשלח!',
+  tErrLoad:'שגיאה בטעינת נתונים',tErrSave:'שגיאה בשמירה',tErr:'שגיאה',tNoEmail:'אין אימייל ללקוח זה — הוסף אימייל בפרופיל',
+  tEnterDoc:'נא להזין תיעוד',
+  aEnterName:'נא להזין שם.',aEnterClientName:'נא להזין שם לקוח.',aChooseClient:'נא לבחור לקוח.',
+  aEnterTreatName:'נא להזין שם טיפול.',aFillDateTime:'נא למלא תאריך ושעה.',aFillNameDateTime:'נא למלא שם, תאריך ושעה.',
+  confirmDeleteAppt:'למחוק את התור?',confirmRejectAppt:'לדחות את התור?',
+  fdGeneral:'טיפול אסתטי',fdBotox:'הזרקת בוטוקס (Botulinum Toxin)',fdFiller:'הזרקת חומרי מילוי (Hyaluronic Acid)',fdFacial:'טיפול פנים מתקדם',
+  frGeneral:'כאב קל, אדמומיות, נפיחות וחבורות זמניות באזור הטיפול; במקרים נדירים תגובה אלרגית; תוצאות משתנות בין אדם לאדם ואינן מובטחות.',
+  frBotox:'כאב, אדמומיות ונפיחות קלה באזור ההזרקה; כאב ראש זמני; במקרים נדירים צניחת עפעף זמנית, אסימטריה, או חולשת שרירים מקומית; התוצאה מתחילה תוך 3-7 ימים ונמשכת 3-4 חודשים.',
+  frFiller:'כאב, אדמומיות, נפיחות וחבורות באזור ההזרקה; גושים או אי-סדירות זמניים; במקרים נדירים חסימת כלי דם, זיהום, או תגובה אלרגית; ייתכן צורך בטיפול משלים.',
+  frFacial:'אדמומיות וקילופים זמניים; רגישות מוגברת לשמש; במקרים נדירים גירוי או תגובה אלרגית למוצרים; יש להימנע מחשיפה לשמש ולהשתמש בקרם הגנה לאחר הטיפול.',
+  srcInstagram:'אינסטגרם',srcFacebook:'פייסבוק',srcGoogle:'גוגל',srcReferral:'המלצה',srcTiktok:'טיקטוק',srcOther:'אחר',
+  dShort:['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ש׳'],
+  dLong:['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'],
+  mShort:['ינו','פבר','מרץ','אפר','מאי','יוני','יולי','אוג','ספט','אוק','נוב','דצמ'],
+  mLong:['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'],
+  dayPrefix:'יום ',weekStartsOn:0,
+  installApp:'התקן אפליקציה',
+  users:'משתמשים',usersTitle:'ניהול משתמשים',newUser:'משתמש חדש',editUser:'עריכת משתמש',
+  uName:'שם מלא',uUsername:'שם משתמש',uPassword:'סיסמה',uPasswordKeep:'סיסמה (השאר ריק לא לשנות)',uRole:'תפקיד',uActive:'פעיל',
+  roleAdmin:'מנהל',roleStaff:'מטפל/ת',roleReception:'קבלה',
+  usersHint:'כל משתמש יכול ליצור ולנהל משתמשים ברמה שלו ומטה בלבד.',
+  uCreate:'צור משתמש',uSave:'שמור',uDelete:'מחק משתמש',uYou:'זה אתה',
+  uErrFields:'נא למלא שם משתמש וסיסמה',uErrExists:'שם המשתמש כבר קיים',
+  tUserAdded:'משתמש נוצר ✓',tUserUpdated:'משתמש עודכן ✓',tUserDeleted:'משתמש נמחק',
+  confirmDelUser:'למחוק את המשתמש?',noPermission:'אין לך הרשאה לפעולה זו',
+  phName:'שם מלא',phClientName:'שם הלקוח',phNone:'אין ידועות',phTreatEx:'בוטוקס, פילר…',
+  phDoseEx:'למשל: 20 יחידות',phTreatName:'למשל: בוטוקס',phSkinEx:'למשל: יבש, בוגר'},
+
+ ru:{dir:'ltr',
+  welcome:'Добро пожаловать 👋',loginSub:'Войдите, чтобы продолжить',username:'Имя пользователя',password:'Пароль',
+  login:'Вход',loggingIn:'Вход…',loginErr:'Неверное имя пользователя или пароль',sysName:'Система управления',sysFull:'Система управления клиникой',
+  nav:'Навигация',dashboard:'Панель',calendar:'Календарь записей',calendarShort:'Календарь',clients:'Клиенты',bookingLink:'Ссылка на запись',
+  newClient:'Новый клиент',logout:'Выход',loading:'Загрузка данных…',
+  hello:'Здравствуйте',apptsToday:'Записи на сегодня',noApptsToday:'Сегодня записей нет',newAppt:'Новая запись',appt:'Запись',client:'Клиент',
+  kpiClients:'Клиенты',kpiTreatments:'Процедуры',kpiRevenue:'Доход',kpiPending:'Ожидают',
+  urgentReminders:'Срочные напоминания',allUpdated:'Всё в порядке!',allUpdatedEmoji:'Всё в порядке! 🎉',
+  birthdays:'Ближайшие дни рождения 🎂',greeting:'Поздравить',age:'Возраст',todayBday:'🎉 Сегодня!',tomorrow:'Завтра',inDays:'Через {n} дн.',
+  monthStats:'Статистика месяца 📊',newClientsMonth:'Новые клиенты',apptsMonth:'Записей за месяц',revenueMonth:'Доход за месяц',confirmedMonth:'Подтверждено',
+  bookingLinkTitle:'Ссылка для записи',sendWhatsapp:'Отправить в WhatsApp',copyLink:'Копировать ссылку',close:'Закрыть',
+  notifJournal:'Журнал уведомлений',noNotifs:'Новых уведомлений нет',newApptReq:'Новая заявка на запись',bdayToday:'День рождения сегодня! 🎉',bdayTomorrow:'День рождения завтра',
+  reminderOverdue:'Просроченное напоминание',reminderToday:'Напоминание на сегодня',notifCount:'{n} новых уведомлений',
+  today:'Сегодня',jumpDate:'Перейти к дате',searchAppt:'Поиск записи по имени…',noApptsFound:'Записи не найдены',
+  searchClient:'Поиск клиента…',noClientsFound:'Клиенты не найдены',clientsCount:'{n} клиентов в системе',backToList:'К списку',
+  overview:'Обзор',treatments:'Процедуры',reminders:'Напоминания',appointments:'Записи',profile:'Профиль',
+  nextAppt:'Следующая запись',clinicalNotes:'Клинические заметки',lastTreatment:'Последняя процедура',noNotesYet:'Заметок пока нет.',
+  treatHistory:'История процедур',noTreatments:'Процедур пока нет.',add:'Добавить',
+  followupReminders:'Напоминания',allDone:'Все напоминания выполнены!',completed:'Завершено',newReminder:'Новое напоминание…',done:'Выполнено',undo:'Отменить',
+  noAppts:'Записей нет.',contactDetails:'Контакты',phone:'Телефон',email:'Email',consent:'Согласие',source:'Источник',
+  skinType:'Тип кожи',allergies:'Аллергии',noneKnown:'Не выявлено',notSpecified:'Не указано',noPhone:'Нет телефона',
+  docHistory:'История записей',noDoc:'Записей пока нет.',addDoc:'Добавить запись…',addToDoc:'Добавить',
+  clientPhoto:'Фото клиента',uploadPhoto:'Загрузить фото',editDetails:'Редактирование',editClient:'Изменить данные',
+  sendBookingWa:'Отправить ссылку в WhatsApp',consentForms:'Формы согласия',formsStatus:'Статус форм согласия клиента:',
+  signed:'Подписано',notSigned:'Не подписано',view:'Просмотр',send:'Отправить',sendAgain:'Отправить снова',
+  formGeneral:'Общее согласие',formBotox:'Ботокс',formFiller:'Филлер',formFacial:'Процедура для лица',
+  sendForm:'Отправка формы',howToSend:'Как отправить форму для',sendToEmail:'Отправить на email',noEmailClient:'Нет email — добавьте в данных клиента',
+  signedForm:'Подписанная форма',patientSig:'Подпись пациента:',noSig:'Подпись не сохранена',downloadSig:'Скачать подпись',signedDigitally:'Подписано электронно',
+  fullName:'Полное имя',fullNameReq:'Полное имя *',clientNameReq:'Имя клиента *',dobEmoji:'Дата рождения 🎂',
+  status:'Статус',tierNew:'Новый клиент',tierRegular:'Постоянный',tierVip:'VIP',cancel:'Отмена',save:'Сохранить',saveChanges:'Сохранить',
+  addClient:'Добавить клиента',treatNameReq:'Название процедуры *',date:'Дата',provider:'Специалист',dose:'Дозировка / продукт',
+  notes:'Заметки',price:'Цена (₪)',registerTreat:'Регистрация процедуры',
+  emailConfirm:'Email (для подтверждения)',treatment:'Процедура',time:'Время',durationMin:'Длительность (мин)',duration:'Длительность',
+  setAppt:'Записать',apptDetails:'Детали записи',edit:'Изменить',manageLink:'Ссылка управления',link:'Привязать',
+  pendingLabel:'⏳ Ожидает подтверждения',confirmedLabel:'✓ Подтверждено',doneLabel:'Завершено',
+  approve:'Подтвердить',reject:'Отклонить',pending:'Ожидает',confirmed:'Подтверждено',finished:'Завершено',
+  editAppt:'Изменение записи',linkToClient:'Привязать к клиенту',chooseExisting:'Выберите клиента',orCreate:'или создайте нового из данных записи:',
+  createAndLink:'Создать и привязать',noNameInAppt:'В записи нет имени клиента.',
+  pendingAppts:'Записи, ожидающие подтверждения',linkValid7:'Ссылка действительна 7 дней',
+  tSaved:'✓ Готово!',tClientAdded:'Клиент добавлен! 🎉',tClientCreated:'Клиент создан и привязан! 🎉',tTreatSaved:'Процедура сохранена ✓',
+  tApptSet:'Запись создана! 📅',tApptUpdated:'Запись обновлена ✓',tApptApproved:'Запись подтверждена ✓',tApptRejected:'Запись отклонена',tApptDeleted:'Запись удалена',
+  tReminderAdded:'Напоминание добавлено',tDocAdded:'Запись добавлена ✓',tPhotoUploaded:'Фото загружено! 📸',tDetailsUpdated:'Данные обновлены ✓',
+  tLinked:'Привязано к клиенту ✓',tLinkCopied:'Ссылка скопирована! 📋',tCopyManually:'Скопируйте вручную',tNoApptsWeek:'На этой неделе записей нет',
+  tExportGoogle:'📅 Экспорт в Google!',tEmailSent:'📧 Письмо отправлено!',tEmailToClient:'📧 Письмо отправлено клиенту!',
+  tFormSent:'📧 Форма отправлена на email!',tSignLinkSent:'📧 Ссылка на подпись отправлена!',
+  tErrLoad:'Ошибка загрузки данных',tErrSave:'Ошибка сохранения',tErr:'Ошибка',tNoEmail:'У клиента нет email — добавьте в профиле',
+  tEnterDoc:'Введите текст записи',
+  aEnterName:'Введите имя.',aEnterClientName:'Введите имя клиента.',aChooseClient:'Выберите клиента.',
+  aEnterTreatName:'Введите название процедуры.',aFillDateTime:'Заполните дату и время.',aFillNameDateTime:'Заполните имя, дату и время.',
+  confirmDeleteAppt:'Удалить запись?',confirmRejectAppt:'Отклонить запись?',
+  fdGeneral:'эстетическая процедура',fdBotox:'инъекция ботокса (Botulinum Toxin)',fdFiller:'инъекция филлеров (гиалуроновая кислота)',fdFacial:'продвинутая процедура для лица',
+  frGeneral:'Лёгкая боль, покраснение, отёк и временные синяки; в редких случаях аллергическая реакция; результаты индивидуальны и не гарантированы.',
+  frBotox:'Боль, покраснение и лёгкий отёк в месте инъекции; временная головная боль; в редких случаях временное опущение века, асимметрия или локальная мышечная слабость; результат через 3-7 дней, длится 3-4 месяца.',
+  frFiller:'Боль, покраснение, отёк и синяки в месте инъекции; временные уплотнения или неровности; в редких случаях окклюзия сосуда, инфекция или аллергия; может потребоваться коррекция.',
+  frFacial:'Временное покраснение и шелушение; повышенная чувствительность к солнцу; в редких случаях раздражение или аллергия на продукты; избегайте солнца и используйте защитный крем.',
+  srcInstagram:'Instagram',srcFacebook:'Facebook',srcGoogle:'Google',srcReferral:'Рекомендация',srcTiktok:'TikTok',srcOther:'Другое',
+  dShort:['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+  dLong:['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+  mShort:['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'],
+  mLong:['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'],
+  dayPrefix:'',weekStartsOn:1,
+  installApp:'Установить приложение',
+  users:'Пользователи',usersTitle:'Управление пользователями',newUser:'Новый пользователь',editUser:'Изменить пользователя',
+  uName:'Полное имя',uUsername:'Логин',uPassword:'Пароль',uPasswordKeep:'Пароль (пусто — не менять)',uRole:'Роль',uActive:'Активен',
+  roleAdmin:'Администратор',roleStaff:'Специалист',roleReception:'Ресепшн',
+  usersHint:'Каждый пользователь может создавать и управлять пользователями своего уровня и ниже.',
+  uCreate:'Создать',uSave:'Сохранить',uDelete:'Удалить пользователя',uYou:'Это вы',
+  uErrFields:'Заполните логин и пароль',uErrExists:'Такой логин уже существует',
+  tUserAdded:'Пользователь создан ✓',tUserUpdated:'Пользователь обновлён ✓',tUserDeleted:'Пользователь удалён',
+  confirmDelUser:'Удалить пользователя?',noPermission:'У вас нет прав на это действие',
+  phName:'Полное имя',phClientName:'Имя клиента',phNone:'Не выявлено',phTreatEx:'Ботокс, филлер…',
+  phDoseEx:'напр.: 20 единиц',phTreatName:'напр.: Ботокс',phSkinEx:'напр.: сухая, зрелая'},
+
+ ka:{dir:'ltr',
+  welcome:'კეთილი იყოს თქვენი მობრძანება 👋',loginSub:'შედით გასაგრძელებლად',username:'მომხმარებელი',password:'პაროლი',
+  login:'შესვლა',loggingIn:'შესვლა…',loginErr:'არასწორი მომხმარებელი ან პაროლი',sysName:'მართვის სისტემა',sysFull:'კლინიკის მართვის სისტემა',
+  nav:'ნავიგაცია',dashboard:'პანელი',calendar:'ჯავშნების კალენდარი',calendarShort:'კალენდარი',clients:'კლიენტები',bookingLink:'ჩაწერის ბმული',
+  newClient:'ახალი კლიენტი',logout:'გასვლა',loading:'მონაცემები იტვირთება…',
+  hello:'გამარჯობა',apptsToday:'დღევანდელი ჯავშნები',noApptsToday:'დღეს ჯავშნები არ არის',newAppt:'ახალი ჯავშანი',appt:'ჯავშანი',client:'კლიენტი',
+  kpiClients:'კლიენტები',kpiTreatments:'პროცედურები',kpiRevenue:'შემოსავალი',kpiPending:'მოლოდინში',
+  urgentReminders:'გადაუდებელი შეხსენებები',allUpdated:'ყველაფერი წესრიგშია!',allUpdatedEmoji:'ყველაფერი წესრიგშია! 🎉',
+  birthdays:'უახლოესი დაბადების დღეები 🎂',greeting:'მილოცვა',age:'ასაკი',todayBday:'🎉 დღეს!',tomorrow:'ხვალ',inDays:'{n} დღეში',
+  monthStats:'თვის სტატისტიკა 📊',newClientsMonth:'ახალი კლიენტები',apptsMonth:'ჯავშნები თვეში',revenueMonth:'შემოსავალი თვეში',confirmedMonth:'დადასტურებული',
+  bookingLinkTitle:'ჩაწერის ბმული',sendWhatsapp:'WhatsApp-ით გაგზავნა',copyLink:'ბმულის კოპირება',close:'დახურვა',
+  notifJournal:'შეტყობინებების ჟურნალი',noNotifs:'ახალი შეტყობინებები არ არის',newApptReq:'ახალი ჩაწერის მოთხოვნა',bdayToday:'დაბადების დღე დღეს! 🎉',bdayTomorrow:'დაბადების დღე ხვალ',
+  reminderOverdue:'ვადაგადაცილებული შეხსენება',reminderToday:'დღევანდელი შეხსენება',notifCount:'{n} ახალი შეტყობინება',
+  today:'დღეს',jumpDate:'თარიღზე გადასვლა',searchAppt:'ჯავშნის ძებნა სახელით…',noApptsFound:'ჯავშნები ვერ მოიძებნა',
+  searchClient:'კლიენტის ძებნა…',noClientsFound:'კლიენტები ვერ მოიძებნა',clientsCount:'{n} კლიენტი სისტემაში',backToList:'სიაში დაბრუნება',
+  overview:'მიმოხილვა',treatments:'პროცედურები',reminders:'შეხსენებები',appointments:'ჯავშნები',profile:'პროფილი',
+  nextAppt:'შემდეგი ჯავშანი',clinicalNotes:'კლინიკური ჩანაწერები',lastTreatment:'ბოლო პროცედურა',noNotesYet:'ჩანაწერები ჯერ არ არის.',
+  treatHistory:'პროცედურების ისტორია',noTreatments:'პროცედურები ჯერ არ არის.',add:'დამატება',
+  followupReminders:'შეხსენებები',allDone:'ყველა შეხსენება შესრულებულია!',completed:'დასრულებული',newReminder:'ახალი შეხსენება…',done:'შესრულდა',undo:'გაუქმება',
+  noAppts:'ჯავშნები არ არის.',contactDetails:'საკონტაქტო',phone:'ტელეფონი',email:'ელ. ფოსტა',consent:'თანხმობა',source:'წყარო',
+  skinType:'კანის ტიპი',allergies:'ალერგიები',noneKnown:'არ არის ცნობილი',notSpecified:'მითითებული არ არის',noPhone:'ტელეფონი არ არის',
+  docHistory:'ჩანაწერების ისტორია',noDoc:'ჩანაწერები ჯერ არ არის.',addDoc:'ახალი ჩანაწერი…',addToDoc:'დამატება',
+  clientPhoto:'კლიენტის ფოტო',uploadPhoto:'ფოტოს ატვირთვა',editDetails:'რედაქტირება',editClient:'მონაცემების შეცვლა',
+  sendBookingWa:'ბმულის გაგზავნა WhatsApp-ით',consentForms:'თანხმობის ფორმები',formsStatus:'კლიენტის თანხმობის ფორმების სტატუსი:',
+  signed:'ხელმოწერილი',notSigned:'ხელმოუწერელი',view:'ნახვა',send:'გაგზავნა',sendAgain:'ხელახლა გაგზავნა',
+  formGeneral:'ზოგადი თანხმობა',formBotox:'ბოტოქსი',formFiller:'ფილერი',formFacial:'სახის პროცედურა',
+  sendForm:'ფორმის გაგზავნა',howToSend:'როგორ გავაგზავნოთ ფორმა',sendToEmail:'ელ. ფოსტით გაგზავნა',noEmailClient:'ელ. ფოსტა არ არის — დაამატეთ მონაცემებში',
+  signedForm:'ხელმოწერილი ფორმა',patientSig:'პაციენტის ხელმოწერა:',noSig:'ხელმოწერა არ არის შენახული',downloadSig:'ხელმოწერის ჩამოტვირთვა',signedDigitally:'ხელმოწერილია ელექტრონულად',
+  fullName:'სრული სახელი',fullNameReq:'სრული სახელი *',clientNameReq:'კლიენტის სახელი *',dobEmoji:'დაბადების თარიღი 🎂',
+  status:'სტატუსი',tierNew:'ახალი კლიენტი',tierRegular:'მუდმივი',tierVip:'VIP',cancel:'გაუქმება',save:'შენახვა',saveChanges:'შენახვა',
+  addClient:'კლიენტის დამატება',treatNameReq:'პროცედურის სახელი *',date:'თარიღი',provider:'სპეციალისტი',dose:'დოზა / პროდუქტი',
+  notes:'შენიშვნები',price:'ფასი (₪)',registerTreat:'პროცედურის რეგისტრაცია',
+  emailConfirm:'ელ. ფოსტა (დადასტურებისთვის)',treatment:'პროცედურა',time:'დრო',durationMin:'ხანგრძლივობა (წთ)',duration:'ხანგრძლივობა',
+  setAppt:'ჩაწერა',apptDetails:'ჯავშნის დეტალები',edit:'რედაქტირება',manageLink:'მართვის ბმული',link:'მიბმა',
+  pendingLabel:'⏳ ელოდება დადასტურებას',confirmedLabel:'✓ დადასტურებული',doneLabel:'დასრულებული',
+  approve:'დადასტურება',reject:'უარყოფა',pending:'მოლოდინში',confirmed:'დადასტურებული',finished:'დასრულებული',
+  editAppt:'ჯავშნის შეცვლა',linkToClient:'კლიენტთან მიბმა',chooseExisting:'აირჩიეთ კლიენტი',orCreate:'ან შექმენით ახალი ჯავშნის მონაცემებით:',
+  createAndLink:'შექმნა და მიბმა',noNameInAppt:'ჯავშანში სახელი არ არის.',
+  pendingAppts:'ჯავშნები დადასტურების მოლოდინში',linkValid7:'ბმული მოქმედებს 7 დღე',
+  tSaved:'✓ შესრულდა!',tClientAdded:'კლიენტი დაემატა! 🎉',tClientCreated:'კლიენტი შეიქმნა და მიება! 🎉',tTreatSaved:'პროცედურა შენახულია ✓',
+  tApptSet:'ჯავშანი შეიქმნა! 📅',tApptUpdated:'ჯავშანი განახლდა ✓',tApptApproved:'ჯავშანი დადასტურდა ✓',tApptRejected:'ჯავშანი უარყოფილია',tApptDeleted:'ჯავშანი წაიშალა',
+  tReminderAdded:'შეხსენება დაემატა',tDocAdded:'ჩანაწერი დაემატა ✓',tPhotoUploaded:'ფოტო აიტვირთა! 📸',tDetailsUpdated:'მონაცემები განახლდა ✓',
+  tLinked:'კლიენტთან მიება ✓',tLinkCopied:'ბმული დაკოპირდა! 📋',tCopyManually:'დააკოპირეთ ხელით',tNoApptsWeek:'ამ კვირაში ჯავშნები არ არის',
+  tExportGoogle:'📅 ექსპორტი Google-ში!',tEmailSent:'📧 წერილი გაიგზავნა!',tEmailToClient:'📧 წერილი გაეგზავნა კლიენტს!',
+  tFormSent:'📧 ფორმა გაიგზავნა!',tSignLinkSent:'📧 ხელმოწერის ბმული გაიგზავნა!',
+  tErrLoad:'მონაცემების ჩატვირთვის შეცდომა',tErrSave:'შენახვის შეცდომა',tErr:'შეცდომა',tNoEmail:'კლიენტს ელ. ფოსტა არ აქვს — დაამატეთ პროფილში',
+  tEnterDoc:'შეიყვანეთ ჩანაწერი',
+  aEnterName:'შეიყვანეთ სახელი.',aEnterClientName:'შეიყვანეთ კლიენტის სახელი.',aChooseClient:'აირჩიეთ კლიენტი.',
+  aEnterTreatName:'შეიყვანეთ პროცედურის სახელი.',aFillDateTime:'შეავსეთ თარიღი და დრო.',aFillNameDateTime:'შეავსეთ სახელი, თარიღი და დრო.',
+  confirmDeleteAppt:'წავშალოთ ჯავშანი?',confirmRejectAppt:'უარვყოთ ჯავშანი?',
+  fdGeneral:'ესთეტიკური პროცედურა',fdBotox:'ბოტოქსის ინექცია (Botulinum Toxin)',fdFiller:'ფილერის ინექცია (ჰიალურონის მჟავა)',fdFacial:'სახის მოწინავე პროცედურა',
+  frGeneral:'მსუბუქი ტკივილი, სიწითლე, შეშუპება და დროებითი სისხლჩაქცევები; იშვიათად ალერგიული რეაქცია; შედეგები ინდივიდუალურია.',
+  frBotox:'ტკივილი, სიწითლე და მსუბუქი შეშუპება ინექციის ადგილას; დროებითი თავის ტკივილი; იშვიათად ქუთუთოს ჩამოშვება ან ასიმეტრია; შედეგი 3-7 დღეში, გრძელდება 3-4 თვე.',
+  frFiller:'ტკივილი, სიწითლე, შეშუპება და სისხლჩაქცევები; დროებითი გამკვრივება; იშვიათად სისხლძარღვის ბლოკირება, ინფექცია ან ალერგია; შესაძლოა საჭირო გახდეს კორექცია.',
+  frFacial:'დროებითი სიწითლე და აქერცვლა; მზისადმი მგრძნობელობა; იშვიათად გაღიზიანება ან ალერგია; მოერიდეთ მზეს და გამოიყენეთ დამცავი კრემი.',
+  srcInstagram:'Instagram',srcFacebook:'Facebook',srcGoogle:'Google',srcReferral:'რეკომენდაცია',srcTiktok:'TikTok',srcOther:'სხვა',
+  dShort:['კვ','ორ','სა','ოთ','ხუ','პა','შა'],
+  dLong:['კვირა','ორშაბათი','სამშაბათი','ოთხშაბათი','ხუთშაბათი','პარასკევი','შაბათი'],
+  mShort:['იან','თებ','მარ','აპრ','მაი','ივნ','ივლ','აგვ','სექ','ოქტ','ნოე','დეკ'],
+  mLong:['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'],
+  dayPrefix:'',weekStartsOn:1,
+  installApp:'აპლიკაციის დაყენება',
+  users:'მომხმარებლები',usersTitle:'მომხმარებლების მართვა',newUser:'ახალი მომხმარებელი',editUser:'მომხმარებლის რედაქტირება',
+  uName:'სრული სახელი',uUsername:'მომხმარებელი',uPassword:'პაროლი',uPasswordKeep:'პაროლი (ცარიელი — არ შეიცვლება)',uRole:'როლი',uActive:'აქტიური',
+  roleAdmin:'ადმინისტრატორი',roleStaff:'სპეციალისტი',roleReception:'რეცეფცია',
+  usersHint:'თითოეულ მომხმარებელს შეუძლია შექმნას და მართოს მხოლოდ თავისი ან დაბალი დონის მომხმარებლები.',
+  uCreate:'შექმნა',uSave:'შენახვა',uDelete:'წაშლა',uYou:'ეს თქვენ ხართ',
+  uErrFields:'შეავსეთ მომხმარებელი და პაროლი',uErrExists:'ასეთი მომხმარებელი უკვე არსებობს',
+  tUserAdded:'მომხმარებელი შეიქმნა ✓',tUserUpdated:'მომხმარებელი განახლდა ✓',tUserDeleted:'მომხმარებელი წაიშალა',
+  confirmDelUser:'წავშალოთ მომხმარებელი?',noPermission:'არ გაქვთ ამ ქმედების უფლება',
+  phName:'სრული სახელი',phClientName:'კლიენტის სახელი',phNone:'არ არის ცნობილი',phTreatEx:'ბოტოქსი, ფილერი…',
+  phDoseEx:'მაგ.: 20 ერთეული',phTreatName:'მაგ.: ბოტოქსი',phSkinEx:'მაგ.: მშრალი, მომწიფებული'},
+
+ en:{dir:'ltr',
+  welcome:'Welcome 👋',loginSub:'Log in to continue',username:'Username',password:'Password',
+  login:'Log in',loggingIn:'Logging in…',loginErr:'Incorrect username or password',sysName:'Management System',sysFull:'Clinic Management System',
+  nav:'Navigation',dashboard:'Dashboard',calendar:'Appointments',calendarShort:'Calendar',clients:'Clients',bookingLink:'Booking Link',
+  newClient:'New Client',logout:'Log out',loading:'Loading data…',
+  hello:'Hello',apptsToday:"Today's Appointments",noApptsToday:'No appointments today',newAppt:'New Appointment',appt:'Appointment',client:'Client',
+  kpiClients:'Clients',kpiTreatments:'Treatments',kpiRevenue:'Revenue',kpiPending:'Pending',
+  urgentReminders:'Urgent Reminders',allUpdated:'All caught up!',allUpdatedEmoji:'All caught up! 🎉',
+  birthdays:'Upcoming Birthdays 🎂',greeting:'Greeting',age:'Age',todayBday:'🎉 Today!',tomorrow:'Tomorrow',inDays:'In {n} days',
+  monthStats:'This Month 📊',newClientsMonth:'New Clients',apptsMonth:'Appointments',revenueMonth:'Revenue',confirmedMonth:'Confirmed',
+  bookingLinkTitle:'Booking Link',sendWhatsapp:'Send via WhatsApp',copyLink:'Copy Link',close:'Close',
+  notifJournal:'Notifications',noNotifs:'No new notifications',newApptReq:'New booking request',bdayToday:'Birthday today! 🎉',bdayTomorrow:'Birthday tomorrow',
+  reminderOverdue:'Overdue reminder',reminderToday:"Today's reminder",notifCount:'{n} new notifications',
+  today:'Today',jumpDate:'Jump to date',searchAppt:'Search appointment by client name…',noApptsFound:'No appointments found',
+  searchClient:'Search client…',noClientsFound:'No clients found',clientsCount:'{n} clients in system',backToList:'Back to list',
+  overview:'Overview',treatments:'Treatments',reminders:'Reminders',appointments:'Appointments',profile:'Profile',
+  nextAppt:'Next Appointment',clinicalNotes:'Clinical Notes',lastTreatment:'Last Treatment',noNotesYet:'No notes yet.',
+  treatHistory:'Treatment History',noTreatments:'No treatments yet.',add:'Add',
+  followupReminders:'Follow-up Reminders',allDone:'All reminders completed!',completed:'Completed',newReminder:'New reminder…',done:'Done',undo:'Undo',
+  noAppts:'No appointments.',contactDetails:'Contact Details',phone:'Phone',email:'Email',consent:'Consent',source:'Source',
+  skinType:'Skin Type',allergies:'Allergies',noneKnown:'None known',notSpecified:'Not specified',noPhone:'No phone',
+  docHistory:'Documentation History',noDoc:'No documentation yet.',addDoc:'Add new entry…',addToDoc:'Add Entry',
+  clientPhoto:'Client Photo',uploadPhoto:'Upload Photo',editDetails:'Edit Details',editClient:'Edit Client Details',
+  sendBookingWa:'Send booking link via WhatsApp',consentForms:'Consent Forms',formsStatus:'Client consent form status:',
+  signed:'Signed',notSigned:'Not signed',view:'View',send:'Send',sendAgain:'Send again',
+  formGeneral:'General Consent',formBotox:'Botox',formFiller:'Filler',formFacial:'Facial Treatment',
+  sendForm:'Send Form',howToSend:'Choose how to send the form to',sendToEmail:'Send to email',noEmailClient:'No email — add it in client details',
+  signedForm:'Signed Form',patientSig:'Patient signature:',noSig:'No signature saved',downloadSig:'Download signature',signedDigitally:'Digitally signed on',
+  fullName:'Full Name',fullNameReq:'Full Name *',clientNameReq:'Client Name *',dobEmoji:'Date of Birth 🎂',
+  status:'Status',tierNew:'New client',tierRegular:'Regular',tierVip:'VIP',cancel:'Cancel',save:'Save',saveChanges:'Save Changes',
+  addClient:'Add Client',treatNameReq:'Treatment Name *',date:'Date',provider:'Provider',dose:'Dose / Product',
+  notes:'Notes',price:'Price (₪)',registerTreat:'Register Treatment',
+  emailConfirm:'Email (for confirmation)',treatment:'Treatment',time:'Time',durationMin:'Duration (min)',duration:'Duration',
+  setAppt:'Book',apptDetails:'Appointment Details',edit:'Edit',manageLink:'Manage Link',link:'Link',
+  pendingLabel:'⏳ Awaiting approval',confirmedLabel:'✓ Confirmed',doneLabel:'Completed',
+  approve:'Approve',reject:'Reject',pending:'Pending',confirmed:'Confirmed',finished:'Completed',
+  editAppt:'Edit Appointment',linkToClient:'Link to Client',chooseExisting:'Choose existing client',orCreate:'or create a new client from appointment details:',
+  createAndLink:'Create & Link',noNameInAppt:'No client name in appointment.',
+  pendingAppts:'Appointments awaiting approval',linkValid7:'Link valid for 7 days',
+  tSaved:'✓ Done!',tClientAdded:'Client added! 🎉',tClientCreated:'Client created & linked! 🎉',tTreatSaved:'Treatment saved ✓',
+  tApptSet:'Appointment booked! 📅',tApptUpdated:'Appointment updated ✓',tApptApproved:'Appointment approved ✓',tApptRejected:'Appointment rejected',tApptDeleted:'Appointment deleted',
+  tReminderAdded:'Reminder added',tDocAdded:'Entry added ✓',tPhotoUploaded:'Photo uploaded! 📸',tDetailsUpdated:'Details updated ✓',
+  tLinked:'Linked to client ✓',tLinkCopied:'Link copied! 📋',tCopyManually:'Copy manually',tNoApptsWeek:'No appointments this week',
+  tExportGoogle:'📅 Exported to Google!',tEmailSent:'📧 Confirmation email sent!',tEmailToClient:'📧 Confirmation email sent to client!',
+  tFormSent:'📧 Form sent by email!',tSignLinkSent:'📧 Signature link sent!',
+  tErrLoad:'Error loading data',tErrSave:'Error saving',tErr:'Error',tNoEmail:'This client has no email — add one in the profile',
+  tEnterDoc:'Please enter documentation text',
+  aEnterName:'Please enter a name.',aEnterClientName:'Please enter a client name.',aChooseClient:'Please choose a client.',
+  aEnterTreatName:'Please enter a treatment name.',aFillDateTime:'Please fill in date and time.',aFillNameDateTime:'Please fill in name, date and time.',
+  confirmDeleteAppt:'Delete this appointment?',confirmRejectAppt:'Reject this appointment?',
+  fdGeneral:'aesthetic treatment',fdBotox:'Botox injection (Botulinum Toxin)',fdFiller:'dermal filler injection (Hyaluronic Acid)',fdFacial:'advanced facial treatment',
+  frGeneral:'Mild pain, redness, swelling and temporary bruising at the treatment area; in rare cases an allergic reaction; results vary between individuals and are not guaranteed.',
+  frBotox:'Pain, redness and mild swelling at the injection site; temporary headache; in rare cases temporary eyelid drooping, asymmetry, or localized muscle weakness; results begin within 3-7 days and last 3-4 months.',
+  frFiller:'Pain, redness, swelling and bruising at the injection site; temporary lumps or irregularities; in rare cases vascular occlusion, infection, or allergic reaction; a follow-up may be needed.',
+  frFacial:'Temporary redness and peeling; increased sun sensitivity; in rare cases irritation or allergic reaction to products; avoid sun exposure and use sunscreen after treatment.',
+  srcInstagram:'Instagram',srcFacebook:'Facebook',srcGoogle:'Google',srcReferral:'Referral',srcTiktok:'TikTok',srcOther:'Other',
+  dShort:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+  dLong:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+  mShort:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  mLong:['January','February','March','April','May','June','July','August','September','October','November','December'],
+  dayPrefix:'',weekStartsOn:1,
+  installApp:'Install App',
+  users:'Users',usersTitle:'User Management',newUser:'New User',editUser:'Edit User',
+  uName:'Full name',uUsername:'Username',uPassword:'Password',uPasswordKeep:'Password (leave blank to keep)',uRole:'Role',uActive:'Active',
+  roleAdmin:'Admin',roleStaff:'Practitioner',roleReception:'Reception',
+  usersHint:'Each user can create and manage users at their own level and below.',
+  uCreate:'Create user',uSave:'Save',uDelete:'Delete user',uYou:"That's you",
+  uErrFields:'Please fill in username and password',uErrExists:'That username already exists',
+  tUserAdded:'User created ✓',tUserUpdated:'User updated ✓',tUserDeleted:'User deleted',
+  confirmDelUser:'Delete this user?',noPermission:"You don't have permission for this action",
+  phName:'Full name',phClientName:'Client name',phNone:'None known',phTreatEx:'Botox, Filler…',
+  phDoseEx:'e.g. 20 units',phTreatName:'e.g. Botox',phSkinEx:'e.g. dry, mature'}
+};
+const LANGS=[{code:'he',name:'עברית',flag:'🇮🇱'},{code:'ru',name:'Русский',flag:'🇷🇺'},{code:'ka',name:'ქართული',flag:'🇬🇪'},{code:'en',name:'English',flag:'🇬🇧'}];
+let LANG=localStorage.getItem('clinic_lang')||'he';
+if(!I18N[LANG])LANG='he';
+function t(key,vars){let s=(I18N[LANG]&&I18N[LANG][key])||I18N.he[key]||key;if(vars)for(const k in vars)s=s.replace('{'+k+'}',vars[k]);return s;}
+function toggleLangMenu(){const el=document.getElementById('lang-switch');if(el)el.classList.toggle('open');}
+function setLang(l){LANG=l;try{localStorage.setItem('clinic_lang',l);}catch(e){}
+  const el=document.getElementById('lang-switch');if(el)el.classList.remove('open');
+  document.documentElement.lang=LANG;document.body.dir=I18N[LANG].dir;
+  if(typeof S!=='undefined'&&S.calWeek)S.calWeek=weekStart(addDays(S.calWeek,3));
+  renderRoot();}
+function langMenuHTML(){
+  const cur=LANGS.find(x=>x.code===LANG);
+  return`<div class="lang-switch" id="lang-switch">
+    <button class="lang-toggle" onclick="event.stopPropagation();toggleLangMenu()"><span>🌐</span><span>${cur?cur.name:'עברית'}</span><span class="chev">▼</span></button>
+    <div class="lang-menu">${LANGS.map(l=>`<div class="lang-item ${l.code===LANG?'active':''}" onclick="event.stopPropagation();setLang('${l.code}')"><span>${l.flag}</span><span>${l.name}</span>${l.code===LANG?'<span class="check">✓</span>':''}</div>`).join('')}</div>
+  </div>`;
+}
+document.addEventListener('click',()=>{const el=document.getElementById('lang-switch');if(el)el.classList.remove('open');});
+
+const PALETTES=[{bg:'#EEEDFE',c:'#3C3489'},{bg:'#E1F5EE',c:'#085041'},{bg:'#FAECE7',c:'#712B13'},{bg:'#FBEAF0',c:'#72243E'},{bg:'#E6F1FB',c:'#0C447C'},{bg:'#FAEEDA',c:'#633806'},{bg:'#EAF3DE',c:'#27500A'},{bg:'#F1EFE8',c:'#444441'}];
+function FORM_TYPES_LIST(){return[
+  {key:'general',label:t('formGeneral'),icon:'ti-file-text',desc:t('fdGeneral'),risks:t('frGeneral')},
+  {key:'botox',label:t('formBotox'),icon:'ti-vaccine',desc:t('fdBotox'),risks:t('frBotox')},
+  {key:'filler',label:t('formFiller'),icon:'ti-droplet',desc:t('fdFiller'),risks:t('frFiller')},
+  {key:'facial',label:t('formFacial'),icon:'ti-sparkles',desc:t('fdFacial'),risks:t('frFacial')}
+];}
+function SOURCES_LIST(){return[
+  {key:'instagram',label:t('srcInstagram'),icon:'ti-brand-instagram'},
+  {key:'facebook',label:t('srcFacebook'),icon:'ti-brand-facebook'},
+  {key:'google',label:t('srcGoogle'),icon:'ti-brand-google'},
+  {key:'referral',label:t('srcReferral'),icon:'ti-users'},
+  {key:'tiktok',label:t('srcTiktok'),icon:'ti-brand-tiktok'},
+  {key:'other',label:t('srcOther'),icon:'ti-dots'}
+];}
+const HOURS=Array.from({length:16},(_,i)=>i+7);
+let AUTH_USER='admin';
+let ME=null;
+const RANK={admin:3,staff:2,reception:1};
+function myRank(){return ME?(RANK[ME.role]||0):0}
+function can(what){
+  const r=myRank();
+  if(what==='money')return r>=3;
+  if(what==='delete')return r>=3;
+  if(what==='users')return r>=2;
+  if(what==='treatments')return r>=2;
+  return true;
+}
+const AUTH_KEY='clinic_crm_auth';
+
+const API_URL=`${SUPABASE_URL}/functions/v1/clinic-api`;
+// שומר את סיסמת המנהל בזיכרון בזמן הסשן (לא נחשף בקוד)
+let ADMIN_PW='';
+
+async function apiCall(payload){
+  const res=await fetch(API_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':`Bearer ${SUPABASE_KEY}`},
+    body:JSON.stringify({...payload,username:AUTH_USER,password:ADMIN_PW})
+  });
+  if(!res.ok)return null;
+  const j=await res.json();
+  return j;
+}
+
+// ממיר query string ישן (?id=eq.X) ל-filters
+function parseFilters(query){
+  const filters=[];
+  if(!query)return filters;
+  const q=query.replace(/^\?/,'');
+  q.split('&').forEach(part=>{
+    if(part.startsWith('order='))return; // מיון מתבצע בצד הלקוח
+    const[col,val]=part.split('=');
+    if(col&&val&&val.startsWith('eq.')){filters.push({column:col,value:decodeURIComponent(val.slice(3))});}
+  });
+  return filters;
+}
+
+async function sbFetch(table,query=''){
+  const r=await apiCall({action:'select',table,select:'*'});
+  if(!r||!r.data)return null;
+  let rows=r.data;
+  // מיון בצד הלקוח לפי ה-query המקורי
+  if(query.includes('order=')){
+    const m=query.match(/order=([\w]+)\.(asc|desc)/);
+    if(m){const[,col,dir]=m;rows.sort((a,b)=>{const av=a[col]||'',bv=b[col]||'';return dir==='desc'?String(bv).localeCompare(String(av)):String(av).localeCompare(String(bv));});}
+  }
+  return rows;
+}
+
+async function sbPost(table,body){
+  const r=await apiCall({action:'insert',table,data:body});
+  return r&&r.data?r.data:null;
+}
+
+async function sbPatch(table,query,body){
+  const filters=parseFilters(query);
+  const r=await apiCall({action:'update',table,filters,data:body});
+  return r&&!r.error;
+}
+
+async function sbDelete(table,query){
+  const filters=parseFilters(query);
+  const r=await apiCall({action:'delete',table,filters});
+  return r&&!r.error;
+}
+
+// EMAIL
+
+// ============ מילון מיילים ללקוח (לפי שפת הלקוח, לא שפת ה-CRM) ============
+const EMAIL_I18N={
+ he:{dir:'rtl',locale:'he-IL',clinicSub:'קליניקה לרפואה אסתטית',hello:'שלום',
+   apptSubject:'✅ אישור תור — ד"ר פפיסמדוב מיכאל',apptConfirmed:'✅ התור שלך אושר סופית!',
+   date:'תאריך',time:'שעה',treatment:'טיפול',manageBtn:'📅 ניהול / שינוי התור',
+   apptFooter:'נשמח לראותך! ניתן לשנות או לבטל את התור דרך הכפתור למעלה.',
+   consentSubject:'✍️ טופס הסכמה לטיפול — ד"ר פפיסמדוב מיכאל',consentIntro:'לפני הטיפול, אנא חתום/י על טופס ההסכמה הדיגיטלי:',
+   consentBtn:'לחתימה על הטופס ←',linkValid:'הקישור תקף ל-7 ימים',
+   formSubject:'חתימה על',formIntro:'לפני הטיפול נבקשך לחתום על',orCopy:'או העתק קישור:',
+   forms:{general:'הסכמה כללית',botox:'בוטוקס',filler:'פילר',facial:'טיפול פנים'},
+   waBook:'שלום! לקביעת תור אצל {clinic}: {url}',
+   waBookName:'שלום {name}! לקביעת תור אצל {clinic}: {url}',
+   waManage:'שלום {name}! לניהול או שינוי התור שלך ({treat}, {date} {time}) אצל {clinic}: {url}',
+   waForm:'שלום {name}! לחתימה על {label} אצל {clinic}: {url}',
+   waBday:'שלום {name}! 🎂 כל צוות {clinic} מאחל לך יום הולדת שמח! לרגל החגיגה מחכה לך הטבה מיוחדת בטיפול הבא. נשמח לראותך! 🎁'},
+ ru:{dir:'ltr',locale:'ru-RU',clinicSub:'Клиника эстетической медицины',hello:'Здравствуйте',
+   apptSubject:'✅ Подтверждение записи — Доктор Клиник',apptConfirmed:'✅ Ваша запись подтверждена!',
+   date:'Дата',time:'Время',treatment:'Процедура',manageBtn:'📅 Управление записью',
+   apptFooter:'Будем рады вас видеть! Изменить или отменить запись можно по кнопке выше.',
+   consentSubject:'✍️ Форма согласия — Доктор Клиник',consentIntro:'Перед процедурой, пожалуйста, подпишите цифровую форму согласия:',
+   consentBtn:'Подписать форму →',linkValid:'Ссылка действительна 7 дней',
+   formSubject:'Подпись формы:',formIntro:'Перед процедурой просим подписать',orCopy:'или скопируйте ссылку:',
+   forms:{general:'Общее согласие',botox:'Ботокс',filler:'Филлер',facial:'Процедура для лица'},
+   waBook:'Здравствуйте! Записаться в {clinic}: {url}',
+   waBookName:'Здравствуйте, {name}! Записаться в {clinic}: {url}',
+   waManage:'Здравствуйте, {name}! Управление вашей записью ({treat}, {date} {time}) в {clinic}: {url}',
+   waForm:'Здравствуйте, {name}! Подписать {label} в {clinic}: {url}',
+   waBday:'Здравствуйте, {name}! 🎂 Команда {clinic} поздравляет вас с днём рождения! В честь праздника вас ждёт специальное предложение на следующую процедуру. Будем рады видеть! 🎁'},
+ ka:{dir:'ltr',locale:'ka-GE',clinicSub:'ესთეტიკური მედიცინის კლინიკა',hello:'გამარჯობა',
+   apptSubject:'✅ ჯავშნის დადასტურება — დოქტორ კლინიკი',apptConfirmed:'✅ თქვენი ჯავშანი დადასტურდა!',
+   date:'თარიღი',time:'დრო',treatment:'პროცედურა',manageBtn:'📅 ჯავშნის მართვა',
+   apptFooter:'სიამოვნებით გიხილავთ! ჯავშნის შეცვლა ან გაუქმება შესაძლებელია ზემოთ მოცემული ღილაკით.',
+   consentSubject:'✍️ თანხმობის ფორმა — დოქტორ კლინიკი',consentIntro:'პროცედურამდე გთხოვთ ხელი მოაწეროთ ციფრულ თანხმობის ფორმას:',
+   consentBtn:'ფორმაზე ხელმოწერა →',linkValid:'ბმული მოქმედებს 7 დღე',
+   formSubject:'ხელმოწერა:',formIntro:'პროცედურამდე გთხოვთ ხელი მოაწეროთ',orCopy:'ან დააკოპირეთ ბმული:',
+   forms:{general:'ზოგადი თანხმობა',botox:'ბოტოქსი',filler:'ფილერი',facial:'სახის პროცედურა'},
+   waBook:'გამარჯობა! ჩასაწერად {clinic}-ში: {url}',
+   waBookName:'გამარჯობა, {name}! ჩასაწერად {clinic}-ში: {url}',
+   waManage:'გამარჯობა, {name}! თქვენი ჯავშნის მართვა ({treat}, {date} {time}) {clinic}-ში: {url}',
+   waForm:'გამარჯობა, {name}! {label}-ზე ხელმოსაწერად {clinic}-ში: {url}',
+   waBday:'გამარჯობა, {name}! 🎂 {clinic}-ის გუნდი გილოცავთ დაბადების დღეს! სადღესასწაულოდ გელოდებათ სპეციალური შეთავაზება შემდეგ პროცედურაზე. სიამოვნებით გიხილავთ! 🎁'},
+ en:{dir:'ltr',locale:'en-GB',clinicSub:'Aesthetic Medicine Clinic',hello:'Hello',
+   apptSubject:'✅ Appointment Confirmed — Dr. Clinic',apptConfirmed:'✅ Your appointment is confirmed!',
+   date:'Date',time:'Time',treatment:'Treatment',manageBtn:'📅 Manage / Change Appointment',
+   apptFooter:'We look forward to seeing you! You can change or cancel via the button above.',
+   consentSubject:'✍️ Treatment Consent Form — Dr. Clinic',consentIntro:'Before your treatment, please sign the digital consent form:',
+   consentBtn:'Sign the Form →',linkValid:'Link valid for 7 days',
+   formSubject:'Signature required:',formIntro:'Before your treatment, please sign',orCopy:'or copy the link:',
+   forms:{general:'General Consent',botox:'Botox',filler:'Filler',facial:'Facial Treatment'},
+   waBook:'Hello! Book an appointment at {clinic}: {url}',
+   waBookName:'Hello {name}! Book an appointment at {clinic}: {url}',
+   waManage:'Hello {name}! Manage or change your appointment ({treat}, {date} {time}) at {clinic}: {url}',
+   waForm:'Hello {name}! Sign your {label} for {clinic}: {url}',
+   waBday:'Hello {name}! 🎂 Everyone at {clinic} wishes you a happy birthday! To celebrate, a special offer is waiting for you on your next treatment. Hope to see you soon! 🎁'}
+};
+const CLINIC_NAME='ד"ר פפיסמדוב מיכאל';
+function wa(lang,key,vars){
+  let s=et(lang,key)||'';
+  vars=vars||{}; vars.clinic=vars.clinic||CLINIC_NAME;
+  for(const k in vars)s=s.split('{'+k+'}').join(vars[k]);
+  return s;
+}
+function waOpen(phone,text){
+  const p=(phone||'').replace(/[^0-9]/g,'');
+  const num=p.startsWith('0')?'972'+p.slice(1):p;
+  window.open('https://wa.me/'+num+'?text='+encodeURIComponent(text),'_blank');
+}
+function et(lang,key){const L=EMAIL_I18N[lang]||EMAIL_I18N.he;return L[key]!==undefined?L[key]:EMAIL_I18N.he[key];}
+function clientLang(id){const c=S.clients.find(x=>x.id===id);return (c&&c.lang)||'he';}
+
+async function sendEmail(to,subject,html){
+  if(!to)return;
+  try{
+    await fetch('https://ppbxmqrddkjgyzkjpgxx.supabase.co/functions/v1/send-email',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${SUPABASE_KEY}`},
+      body:JSON.stringify({to,subject,html})
+    });
+  }catch(e){console.log('Email error:',e)}
+}
+
+async function sendApptEmail(appt){
+  const email=appt.client_email||'';
+  if(!email)return;
+  const L=appt.lang||clientLang(appt.client_id)||'he';
+  const html=`<div dir="${et(L,'dir')}" style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;padding:24px">
+    <div style="background:linear-gradient(135deg,#154F7A,#1B6CA8,#4DB8C8);padding:24px;border-radius:12px;text-align:center;margin-bottom:24px">
+      <h2 style="color:#fff;margin:0">ד"ר פפיסמדוב מיכאל</h2>
+      <p style="color:rgba(255,255,255,.8);margin:4px 0 0;font-size:13px">${et(L,'clinicSub')}</p>
+    </div>
+    <p>${et(L,'hello')} <strong>${appt.client_name}</strong>,</p>
+    <p style="color:#085041;margin-bottom:16px;font-weight:600">${et(L,'apptConfirmed')}</p>
+    <div style="background:#E8F7F2;border:1px solid #B6E4CC;border-radius:12px;padding:20px;margin-bottom:20px">
+      <p style="margin-bottom:8px">📅 <strong>${et(L,'date')}:</strong> ${appt.date}</p>
+      <p style="margin-bottom:8px">🕐 <strong>${et(L,'time')}:</strong> ${appt.time}</p>
+      <p style="margin-bottom:0">💆 <strong>${et(L,'treatment')}:</strong> ${appt.treatment}</p>
+    </div>
+    <div style="text-align:center;margin:20px 0">
+      <a href="${getManageUrl(appt.id)}" style="background:#1B6CA8;color:#fff;text-decoration:none;padding:12px 24px;border-radius:10px;font-weight:600;display:inline-block;font-size:14px">${et(L,'manageBtn')}</a>
+    </div>
+    <p style="color:#888;font-size:13px">${et(L,'apptFooter')}</p>
+    <hr style="border:1px solid #DDE8F0;margin:20px 0">
+    <p style="font-size:11px;color:#aaa;text-align:center">ד"ר פפיסמדוב מיכאל | ${et(L,'clinicSub')}</p>
+  </div>`;
+  await sendEmail(email,et(L,'apptSubject'),html);
+}
+
+async function sendConsentEmail(clientId,clientName,clientEmail){
+  if(!clientEmail){toast(t('tNoEmail'));return;}
+  const L=clientLang(clientId);
+  const url=window.location.origin+window.location.pathname.replace('index.html','')+'consent.html?client='+clientId;
+  const html=`<div dir="${et(L,'dir')}" style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;padding:24px">
+    <div style="background:linear-gradient(135deg,#154F7A,#1B6CA8,#4DB8C8);padding:24px;border-radius:12px;text-align:center;margin-bottom:24px">
+      <h2 style="color:#fff;margin:0">ד"ר פפיסמדוב מיכאל</h2>
+      <p style="color:rgba(255,255,255,.8);margin:4px 0 0;font-size:13px">${et(L,'clinicSub')}</p>
+    </div>
+    <p>${et(L,'hello')} <strong>${clientName}</strong>,</p>
+    <p style="color:#555;margin-bottom:20px">${et(L,'consentIntro')}</p>
+    <div style="text-align:center;margin:24px 0">
+      <a href="${url}" style="background:linear-gradient(135deg,#1B6CA8,#4DB8C8);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:600;display:inline-block">${et(L,'consentBtn')}</a>
+    </div>
+    <p style="color:#888;font-size:12px;text-align:center">${et(L,'linkValid')}</p>
+    <hr style="border:1px solid #DDE8F0;margin:20px 0">
+    <p style="font-size:11px;color:#aaa;text-align:center">ד"ר פפיסמדוב מיכאל | ${et(L,'clinicSub')}</p>
+  </div>`;
+  await sendEmail(clientEmail,et(L,'consentSubject'),html);
+  toast(t('tSignLinkSent'));
+}
+
+
+// AUTH
+function isLoggedIn(){return sessionStorage.getItem(AUTH_KEY)==='1'}
+async function doLogin(u,p){
+  try{
+    const res=await fetch(API_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${SUPABASE_KEY}`},
+      body:JSON.stringify({action:'login',username:u,password:p})
+    });
+    const j=await res.json();
+    if(j&&j.ok&&j.user){
+      ME=j.user; AUTH_USER=u; ADMIN_PW=p;
+      sessionStorage.setItem(AUTH_KEY,'1');
+      sessionStorage.setItem('clinic_pw',p);
+      sessionStorage.setItem('clinic_user',u);
+      sessionStorage.setItem('clinic_me',JSON.stringify(j.user));
+      return true;
+    }
+  }catch(e){console.log('Login error:',e)}
+  return false;
+}
+function doLogout(){sessionStorage.clear();ME=null;ADMIN_PW='';renderRoot()}
+
+// UTILS
+function localISO(d){const dt=new Date(d);const off=dt.getTimezoneOffset();const local=new Date(dt.getTime()-off*60000);return local.toISOString().slice(0,10)}
+function weekStart(d){
+  const dt=new Date(d);
+  const startsOn=(I18N[LANG]&&I18N[LANG].weekStartsOn!==undefined)?I18N[LANG].weekStartsOn:0;
+  const diff=(dt.getDay()-startsOn+7)%7;
+  dt.setDate(dt.getDate()-diff);
+  return dt;
+}
+function addDays(d,n){const dt=new Date(d);dt.setDate(dt.getDate()+n);return dt}
+function fmtDate(d){return localISO(d)}
+function today(){return localISO(new Date())}
+function fmt(d){if(!d)return'';const[y,m,day]=d.split('-');const M=I18N[LANG].mShort||I18N.he.mShort;return`${+day} ${M[+m-1]}`}
+function fmtFull(d){if(!d)return'';const[y,m,day]=d.split('-');const M=I18N[LANG].mLong||I18N.he.mLong;return`${+day} ${M[+m-1]} ${y}`}
+function fmtDay(){const days=I18N[LANG].dLong||I18N.he.dLong;const d=new Date();return`${I18N[LANG].dayPrefix||''}${days[d.getDay()]}, ${fmt(today())}`}
+function duePri(d){if(!d)return'normal';if(d<today())return'overdue';if(d===today())return'today';return'normal'}
+function initials(n){return n.split(' ').map(w=>w[0]).join('').slice(0,2)}
+function getSrc(k){return SOURCES_LIST().find(s=>s.key===k)||null}
+function escHtml(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function getClientName(id){const c=S.clients.find(c=>c.id===id);return c?c.name:'לא ידוע'}
+function getClientColor(id){const c=S.clients.find(c=>c.id===id);return c?c.color%PALETTES.length:0}
+function allPendingRem(){return S.reminders.filter(r=>!r.done).map(r=>{const c=S.clients.find(x=>x.id===r.client_id);return{...r,clientName:c?c.name:'?'}})}
+function getC(){return S.clients.find(c=>c.id===S.activeId)}
+function totalRev(c){return S.treatments.filter(t=>t.client_id===c.id).reduce((s,t)=>s+(t.price||0),0)}
+function clientTreatments(cid){return S.treatments.filter(t=>t.client_id===cid).sort((a,b)=>b.date.localeCompare(a.date))}
+function clientReminders(cid){return S.reminders.filter(r=>r.client_id===cid)}
+function clientAppts(cid){return S.appointments.filter(a=>a.client_id===cid).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time))}
+function pendingRem(c){return clientReminders(c.id).filter(r=>!r.done).length}
+function getBookingUrl(){return window.location.origin+window.location.pathname.replace('index.html','')+'booking.html'}
+function getManageUrl(apptId){return window.location.origin+window.location.pathname.replace('index.html','')+'manage.html?id='+apptId}
+function sendManageLink(apptId){
+  const a=S.appointments.find(x=>x.id===apptId);if(!a)return;
+  const L=a.lang||clientLang(a.client_id)||'he';
+  waOpen(a.client_phone, wa(L,'waManage',{name:a.client_name,treat:a.treatment,date:a.date,time:a.time,url:getManageUrl(apptId)}));
+}
+
+let S={clients:[],appointments:[],treatments:[],reminders:[],forms:[],sendForm:null,users:[],editUser:null,activeId:null,activeTab:'overview',activePage:'dashboard',modal:null,search:'',newSrc:'',calWeek:weekStart(new Date()),prefillDate:'',prefillTime:'',sidebarOpen:false,editingClient:false,clientListView:true,apptSearch:'',showNotif:false,viewForm:null};
+
+function showLoading(){const el=document.getElementById('root');if(!document.getElementById('loading'))el.insertAdjacentHTML('beforeend','<div class="loading-overlay" id="loading"><div class="loading-spinner"></div><div class="loading-text">'+t('loading')+'</div></div>')}
+function hideLoading(){const el=document.getElementById('loading');if(el)el.remove()}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600)}
+function renderRoot(){document.getElementById('root').innerHTML=isLoggedIn()?buildApp():buildLogin()}
+
+async function loadAll(){
+  showLoading();
+  try{
+    const[clients,appointments,treatments,reminders,forms]=await Promise.all([
+      sbFetch('clients','?order=created_at.desc'),
+      sbFetch('appointments','?order=date.asc,time.asc'),
+      sbFetch('treatments','?order=date.desc'),
+      sbFetch('reminders','?order=due.asc'),
+      sbFetch('consent_forms','?order=signed_at.desc')
+    ]);
+    await loadUsers();
+    S.clients=clients||[];S.appointments=appointments||[];S.treatments=treatments||[];S.reminders=reminders||[];S.forms=forms||[];
+    if(S.clients.length&&!S.activeId)S.activeId=S.clients[0].id;
+  }catch(e){toast(t('tErrLoad'))}
+  hideLoading();renderRoot();
+}
+
+// LOGIN
+function buildLogin(){return`<div class="login-page"><div class="login-box">
+  <div class="login-logo"><div class="login-logo-icon"><i class="ti ti-heartbeat"></i></div><div class="login-logo-text">ד"ר פפיסמדוב מיכאל</div><div class="login-logo-sub">${t('sysFull')}</div>
+  </div>
+  <div class="login-lang" style="display:flex;justify-content:center;margin-bottom:18px">${langMenuHTML()}</div>
+  <div class="login-title">${t('welcome')}</div>
+  <div class="login-sub">${t('loginSub')}</div>
+  <div class="login-field"><label class="login-label">${t('username')}</label><input class="login-input" id="l-user" type="text" placeholder="admin" autocomplete="username"></div>
+  <div class="login-field"><label class="login-label">${t('password')}</label><input class="login-input" id="l-pass" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')tryLogin()"></div>
+  <button class="login-btn" onclick="tryLogin()"><i class="ti ti-lock-open"></i> ${t('login')}</button>
+  <div class="login-err" id="login-err">${t('loginErr')}</div>
+</div></div>`}
+async function tryLogin(){
+  const u=document.getElementById('l-user').value.trim();
+  const p=document.getElementById('l-pass').value;
+  const btn=document.querySelector('.login-btn');
+  if(btn){btn.disabled=true;btn.innerHTML='<i class="ti ti-loader"></i> '+t('loggingIn');}
+  const ok=await doLogin(u,p);
+  if(ok){renderRoot();loadAll();}
+  else{
+    document.getElementById('login-err').style.display='block';
+    if(btn){btn.disabled=false;btn.innerHTML='<i class="ti ti-login"></i> '+t('login');}
+  }
+}
+
+// APP
+function buildApp(){
+  const q=S.search.toLowerCase();
+  const filtered=S.clients.filter(c=>c.name.toLowerCase().includes(q));
+  const urgentRems=allPendingRem().filter(r=>duePri(r.due)!=='normal').length;
+  const pendingAppts=S.appointments.filter(a=>a.status==='pending').length;
+  const pageLabels={dashboard:t('dashboard'),calendar:t('calendar'),clients:t('clients'),users:t('usersTitle')};
+
+
+  const sidebar=`<div class="sidebar ${S.sidebarOpen?'open':''}" id="sidebar">
+    <div class="sb-top">
+      <div class="sb-brand"><div class="sb-icon"><i class="ti ti-heartbeat"></i></div><div style="flex:1"><div class="sb-name">ד"ר פפיסמדוב מיכאל</div><div class="sb-ver">${ME?escHtml(ME.name||ME.username)+' · '+roleLabel(ME.role):t('sysName')}</div></div><button onclick="toggleNotif()" style="position:relative;background:none;border:none;cursor:pointer;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--primary)" title="${t('notifJournal')}"><i class="ti ti-notebook" style="font-size:22px"></i>${getNotifications().length>0?`<span style="position:absolute;top:4px;left:4px;background:#E24B4A;color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:99px;display:flex;align-items:center;justify-content:center;padding:0 3px">${getNotifications().length}</span>`:''}</button></div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">${t('nav')}</div>
+      <div class="nav-item ${S.activePage==='dashboard'?'active':''}" onclick="gotoPage('dashboard')"><i class="ti ti-layout-dashboard"></i>${t('dashboard')}${urgentRems>0?`<span class="nav-badge">${urgentRems}</span>`:''}</div>
+      <div class="nav-item ${S.activePage==='calendar'?'active':''}" onclick="gotoPage('calendar')"><i class="ti ti-calendar-event"></i>${t('calendar')}${pendingAppts>0?`<span class="nav-badge">${pendingAppts}</span>`:''}</div>
+      <div class="nav-item ${S.activePage==='clients'?'active':''}" onclick="gotoPage('clients')"><i class="ti ti-users"></i>${t('clients')}</div>
+      <div class="nav-item" onclick="showModal('bookingLink')"><i class="ti ti-link"></i>${t('bookingLink')}</div>
+      ${can('users')?`<div class="nav-item ${S.activePage==='users'?'active':''}" onclick="gotoPage('users')"><i class="ti ti-user-shield"></i>${t('users')}</div>`:''}
+    </div>
+    <div style="flex:1"></div>
+    <button class="add-client-btn" onclick="showModal('newClient')"><i class="ti ti-user-plus"></i> ${t('newClient')}</button>
+    <button id="installBtn" onclick="installApp()" style="display:none;align-items:center;justify-content:center;gap:7px;margin:0 14px 8px;padding:9px;border-radius:10px;border:1.5px solid var(--primary);background:var(--primary-light);color:var(--primary);font-size:13px;font-weight:600;cursor:pointer;font-family:'Heebo',sans-serif;width:calc(100% - 28px)"><i class="ti ti-download"></i> ${t('installApp')}</button>
+    <div style="padding:0 14px 8px">${langMenuHTML()}</div>
+    <div class="sb-footer"><button class="logout-btn" onclick="doLogout()"><i class="ti ti-logout"></i> ${t('logout')}</button></div>
+  </div>`;
+
+  const overlay=`<div class="sidebar-overlay ${S.sidebarOpen?'show':''}" onclick="closeSidebar()"></div>`;
+  const topbar=`<div class="topbar">
+    <button class="tb-btn" onclick="toggleSidebar()"><i class="ti ti-menu-2"></i></button>
+    <div class="topbar-title">${pageLabels[S.activePage]||'לקוחות'}</div>
+    <button class="tb-btn" onclick="toggleNotif()" style="position:relative"><i class="ti ti-notebook"></i>${getNotifications().length>0?`<span style="position:absolute;top:2px;left:2px;background:#E24B4A;color:#fff;font-size:9px;font-weight:700;min-width:15px;height:15px;border-radius:99px;display:flex;align-items:center;justify-content:center;padding:0 3px">${getNotifications().length}</span>`:''}</button>
+  </div>`;
+  const bottomNav=`<div class="bottom-nav"><div class="bn-row">
+    <button class="bn-item ${S.activePage==='dashboard'?'active':''}" onclick="gotoPage('dashboard')"><span class="bn-dot"><i class="ti ti-layout-dashboard"></i>${urgentRems>0?'<span class="bn-dot-badge"></span>':''}</span>דשבורד</button>
+    <button class="bn-item ${S.activePage==='calendar'?'active':''}" onclick="gotoPage('calendar')"><span class="bn-dot"><i class="ti ti-calendar-event"></i>${pendingAppts>0?'<span class="bn-dot-badge"></span>':''}</span>${t('calendarShort')}</button>
+    <button class="bn-item ${S.activePage==='clients'?'active':''}" onclick="gotoPage('clients')"><i class="ti ti-users"></i>${t('clients')}</button>
+    <button class="bn-item" onclick="showModal('newAppt')"><i class="ti ti-calendar-plus"></i>${t('appt')}</button>
+    <button class="bn-item" onclick="showModal('newClient')"><i class="ti ti-user-plus"></i>${t('client')}</button>
+  </div></div>`;
+
+  let pageContent='';
+  if(S.activePage==='dashboard'){pageContent=`<div class="page-scroll"><div class="page-pad">${buildDashboard()}</div></div>`;}
+  else if(S.activePage==='users'){pageContent=`<div class="page-scroll"><div class="page-pad">${buildUsers()}</div></div>`;}
+  else if(S.activePage==='calendar'){pageContent=`<div style="flex:1;overflow:hidden;display:flex;flex-direction:column"><div class="cal-wrap page-pad" style="flex:1">${buildCalendar()}</div></div>`;}
+  else{
+    const c=getC();
+    const showList=S.clientListView||!c;
+    if(showList){
+      pageContent=`<div class="page-scroll"><div class="page-pad">${buildClientsList()}</div></div>`;
+    } else {
+      const tabs={overview:t('overview'),treatments:t('treatments'),reminders:t('reminders'),appointments:t('appointments'),profile:t('profile')};
+      pageContent=`<div style="padding:10px 16px 0;background:var(--white)"><button class="btn btn-secondary btn-sm" onclick="backToClientList()"><i class="ti ti-arrow-right"></i> ${t('backToList')}</button></div>
+      ${buildClientHeader(c)}
+      <div class="tabs">${Object.entries(tabs).map(([k,v])=>`<div class="tab ${S.activeTab===k?'active':''}" onclick="setTab('${k}')">${v}</div>`).join('')}</div>
+      <div class="content">${buildContent(c)}</div>`;
+    }
+  }
+
+  return`<div class="app" id="app">${overlay}${sidebar}
+    <div class="main-wrap">${topbar}
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden">${pageContent}</div>
+      ${bottomNav}
+    </div>
+    ${S.modal?buildModal():''}
+    ${S.showNotif?buildNotifPanel():''}
+  </div>`;
+}
+
+// DASHBOARD
+function buildNotifPanel(){
+  const notes=getNotifications();
+  return`<div class="modal-bg" onclick="if(event.target===event.currentTarget)toggleNotif()" style="align-items:flex-start;justify-content:flex-start">
+    <div style="background:var(--white);border-radius:0 0 16px 0;width:100%;max-width:380px;max-height:88vh;overflow-y:auto;box-shadow:4px 4px 24px rgba(0,0,0,.15)">
+      <div style="padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;position:sticky;top:0;background:var(--white);z-index:2">
+        <i class="ti ti-notebook" style="font-size:22px;color:var(--primary)"></i>
+        <div style="flex:1"><div style="font-size:16px;font-weight:600">${t('notifJournal')}</div><div style="font-size:12px;color:var(--text-sub)">${t('notifCount',{n:notes.length})}</div></div>
+        <button onclick="toggleNotif()" style="background:none;border:none;cursor:pointer;font-size:22px;color:var(--text-sub)"><i class="ti ti-x"></i></button>
+      </div>
+      <div style="padding:12px">
+        ${notes.length===0?`<div class="empty" style="padding:40px 0"><i class="ti ti-check" style="font-size:36px;display:block;margin-bottom:10px;color:var(--accent)"></i>${t('noNotifs')}<br><span style="font-size:12px">${t('allUpdatedEmoji')}</span></div>`:notes.map(n=>`<div onclick="${n.action};S.showNotif=false" style="display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:11px;cursor:pointer;margin-bottom:6px;border:1px solid var(--border);transition:all .12s" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='transparent'">
+          <div style="width:38px;height:38px;border-radius:10px;background:${n.bg};color:${n.color};display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ${n.icon}" style="font-size:18px"></i></div>
+          <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600">${n.title}</div><div style="font-size:12px;color:var(--text-sub);margin-top:2px">${n.sub}</div></div>
+          <i class="ti ti-chevron-left" style="color:var(--text-sub);font-size:16px;flex-shrink:0;margin-top:8px"></i>
+        </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+function getNotifications(){
+  const notes=[];
+  // בקשות תור ממתינות
+  S.appointments.filter(a=>a.status==='pending').forEach(a=>{
+    notes.push({icon:'ti-calendar-clock',color:'#EF9F27',bg:'#FAEEDA',title:t('newApptReq'),sub:`${a.client_name||getClientName(a.client_id)} · ${escHtml(a.treatment)} · ${fmt(a.date)} ${a.time}`,action:`showApptDetail('${a.id}')`});
+  });
+  // ימי הולדת היום/מחר
+  upcomingBirthdays().filter(b=>b.diff<=1).forEach(b=>{
+    notes.push({icon:'ti-cake',color:'#E0589B',bg:'#FDF0F6',title:b.diff===0?t('bdayToday'):t('bdayTomorrow'),sub:`${b.name}${b.turning?` · ${t('age')} ${b.turning}`:''}`,action:`openClientCard('${b.id}')`});
+  });
+  // תזכורות שהגיע זמנן (היום/באיחור)
+  allPendingRem().filter(r=>duePri(r.due)!=='normal').forEach(r=>{
+    const od=duePri(r.due)==='overdue';
+    notes.push({icon:'ti-clock',color:od?'#E24B4A':'#EF9F27',bg:od?'#FCEBEB':'#FAEEDA',title:od?t('reminderOverdue'):t('reminderToday'),sub:`${escHtml(r.text)} · ${escHtml(r.clientName)}`,action:`gotoClientReminders('${r.client_id}')`});
+  });
+  return notes;
+}
+function gotoClientReminders(cid){S.activeId=cid;S.activePage='clients';S.clientListView=false;S.activeTab='reminders';S.showNotif=false;renderRoot();}
+function toggleNotif(){S.showNotif=!S.showNotif;renderRoot();}
+
+function upcomingBirthdays(){
+  const today=new Date();
+  const result=[];
+  S.clients.forEach(c=>{
+    if(!c.dob)return;
+    const dob=new Date(c.dob);
+    if(isNaN(dob))return;
+    // יום הולדת השנה
+    const thisYear=new Date(today.getFullYear(),dob.getMonth(),dob.getDate());
+    let diff=Math.ceil((thisYear-today)/(24*3600*1000));
+    if(diff<0){diff+=365;} // עבר השנה — חשב לשנה הבאה
+    if(diff<=14){ // בתוך שבועיים
+      const turning=today.getFullYear()-dob.getFullYear()+(thisYear<today?1:0);
+      let label;
+      if(diff===0)label=t('todayBday');
+      else if(diff===1)label=t('tomorrow');
+      else label=t('inDays',{n:diff});
+      result.push({id:c.id,name:c.name,phone:c.phone,color:c.color||0,diff,label,turning});
+    }
+  });
+  return result.sort((a,b)=>a.diff-b.diff);
+}
+function sendBirthdayWhatsApp(phone,name){
+  const cl=S.clients.find(x=>x.name===name&&x.phone===phone);
+  const L=(cl&&cl.lang)||'he';
+  waOpen(phone, wa(L,'waBday',{name:name}));
+}
+
+// ============ ניהול משתמשים ============
+const ROLE_META={
+  admin:{rank:3,icon:'ti-crown',color:'#8A6A38',bg:'#FAF3E6'},
+  staff:{rank:2,icon:'ti-stethoscope',color:'#0B5140',bg:'#E8F7F2'},
+  reception:{rank:1,icon:'ti-clipboard-text',color:'#0C447C',bg:'#E8F4FD'}
+};
+function roleLabel(r){return t(r==='admin'?'roleAdmin':r==='staff'?'roleStaff':'roleReception')}
+function assignableRoles(forSelf){
+  const r=myRank();
+  // editing yourself keeps your own role available; otherwise strictly below you
+  return ['reception','staff','admin'].filter(x=>forSelf?ROLE_META[x].rank<=r:ROLE_META[x].rank<r);
+}
+function canCreateUsers(){return assignableRoles(false).length>0}
+function canManage(u){
+  if(!ME)return false;
+  const tr=ROLE_META[u.role]?ROLE_META[u.role].rank:0;
+  if(u.id===ME.id)return true;              // always yourself
+  return tr<myRank();                        // strictly below you
+}
+
+async function loadUsers(){
+  const r=await apiCall({action:'select',table:'users',select:'id,username,name,role,active,created_at'});
+  const all=(r&&r.data)?r.data:[];
+  // show only people strictly below you — plus yourself
+  S.users=all.filter(u=>{
+    if(ME&&u.id===ME.id)return true;
+    return (ROLE_META[u.role]?ROLE_META[u.role].rank:0)<myRank();
+  });
+}
+
+function buildUsers(){
+  const list=[...S.users].sort((a,b)=>(ROLE_META[b.role]?.rank||0)-(ROLE_META[a.role]?.rank||0));
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;flex-wrap:wrap">
+    <div><div class="dash-title">${t('usersTitle')}</div><div class="dash-sub">${list.length} ${t('users')}</div></div>
+    ${canCreateUsers()?`<button class="btn btn-primary" onclick="openUser(null)"><i class="ti ti-user-plus"></i> ${t('newUser')}</button>`:''}
+  </div>
+  <p style="font-size:13px;color:var(--text-sub);margin-bottom:20px;line-height:1.6">${t('usersHint')}</p>`;
+
+  if(!list.length){h+=`<div class="empty" style="padding:30px 0">—</div>`;return h;}
+
+  h+=list.map(u=>{
+    const m=ROLE_META[u.role]||ROLE_META.reception;
+    const mine=ME&&u.id===ME.id;
+    const editable=canManage(u);
+    return `<div class="card" style="display:flex;align-items:center;gap:13px;${u.active?'':'opacity:.55'}">
+      <div style="width:42px;height:42px;border-radius:12px;background:${m.bg};color:${m.color};display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ${m.icon}" style="font-size:19px"></i></div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap">
+          ${escHtml(u.name||u.username)}
+          ${mine?`<span style="font-size:10.5px;font-weight:600;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:99px">${t('uYou')}</span>`:''}
+          ${u.active?'':'<span style="font-size:10.5px;color:var(--red)">✕</span>'}
+        </div>
+        <div style="font-size:12.5px;color:var(--text-sub);margin-top:3px">@${escHtml(u.username)} · <span style="color:${m.color};font-weight:600">${roleLabel(u.role)}</span></div>
+      </div>
+      ${editable?`<button class="btn btn-secondary btn-sm" onclick="openUser('${u.id}')"><i class="ti ti-edit"></i></button>`:''}
+    </div>`;
+  }).join('');
+  return h;
+}
+
+function openUser(id){
+  const av=assignableRoles(false);
+  S.editUser = id ? (S.users.find(x=>x.id===id)||null) : {id:null,username:'',name:'',role:av[av.length-1]||'reception',active:true};
+  if(id&&!S.editUser)return;
+  S.modal='user';
+  renderRoot();
+}
+
+function buildUserModal(){
+  const u=S.editUser; if(!u)return '';
+  const isNew=!u.id;
+  const mineFlag=ME&&u.id===ME.id;
+  const roles=assignableRoles(mineFlag);
+  const mine=ME&&u.id===ME.id;
+  return `<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title"><i class="ti ti-user-shield"></i> ${isNew?t('newUser'):t('editUser')}</div>
+    <div class="fg"><div class="fl">${t('uName')}</div><input class="fi" id="u-name" value="${escHtml(u.name||'')}" dir="auto"></div>
+    <div class="fg"><div class="fl">${t('uUsername')}</div><input class="fi" id="u-username" value="${escHtml(u.username||'')}" dir="ltr" ${isNew?'':'readonly style="background:var(--bg);color:var(--text-sub)"'}></div>
+    <div class="fg"><div class="fl">${isNew?t('uPassword'):t('uPasswordKeep')}</div><input class="fi" id="u-password" type="text" dir="ltr" autocomplete="new-password"></div>
+    <div class="fg"><div class="fl">${t('uRole')}</div>
+      <select class="fi" id="u-role" ${mine?'disabled style="background:var(--bg);color:var(--text-sub)"':''}>
+        ${roles.map(r=>`<option value="${r}" ${u.role===r?'selected':''}>${roleLabel(r)}</option>`).join('')}
+      </select>
+    </div>
+    ${mine?'':`<div class="fg"><label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px">
+      <input type="checkbox" id="u-active" ${u.active!==false?'checked':''} style="width:19px;height:19px;accent-color:var(--primary);cursor:pointer">
+      ${t('uActive')}
+    </label></div>`}
+    <div id="u-err"></div>
+    <div class="ma">
+      ${(!isNew&&!mine)?`<button class="btn btn-danger btn-sm" onclick="deleteUser('${u.id}')"><i class="ti ti-trash"></i></button>`:''}
+      <button class="btn btn-secondary" onclick="closeModal()">${t('cancel')}</button>
+      <button class="btn btn-primary" onclick="saveUser()"><i class="ti ti-check"></i> ${isNew?t('uCreate'):t('uSave')}</button>
+    </div>
+  </div></div>`;
+}
+
+async function saveUser(){
+  const u=S.editUser; if(!u)return;
+  const isNew=!u.id;
+  const name=document.getElementById('u-name').value.trim();
+  const username=document.getElementById('u-username').value.trim();
+  const password=document.getElementById('u-password').value;
+  const roleEl=document.getElementById('u-role');
+  const role=roleEl&&!roleEl.disabled?roleEl.value:u.role;
+  const activeEl=document.getElementById('u-active');
+  const active=activeEl?activeEl.checked:(u.active!==false);
+  const err=document.getElementById('u-err');
+
+  if(!username||(isNew&&!password)){err.innerHTML=`<div style="background:var(--red-light);color:var(--red);padding:10px 13px;border-radius:9px;font-size:13px;margin-bottom:10px">${t('uErrFields')}</div>`;return;}
+
+  if(isNew){
+    if(S.users.some(x=>x.username.toLowerCase()===username.toLowerCase())){
+      err.innerHTML=`<div style="background:var(--red-light);color:var(--red);padding:10px 13px;border-radius:9px;font-size:13px;margin-bottom:10px">${t('uErrExists')}</div>`;return;
+    }
+    const r=await apiCall({action:'insert',table:'users',data:{username,password,name:name||username,role,active}});
+    if(r&&r.data){await loadUsers();S.modal=null;S.editUser=null;renderRoot();toast(t('tUserAdded'));}
+    else toast(r&&r.error?t('noPermission'):t('tErrSave'));
+  }else{
+    const patch={name:name||username,role,active};
+    if(password)patch.password=password;
+    const r=await apiCall({action:'update',table:'users',filters:[{column:'id',value:u.id}],data:patch});
+    if(r&&!r.error){
+      // if you changed your own password, keep the session valid
+      if(ME&&u.id===ME.id&&password){ADMIN_PW=password;sessionStorage.setItem('clinic_pw',password);}
+      await loadUsers();S.modal=null;S.editUser=null;renderRoot();toast(t('tUserUpdated'));
+    }else toast(t('noPermission'));
+  }
+}
+
+async function deleteUser(id){
+  if(!confirm(t('confirmDelUser')))return;
+  const r=await apiCall({action:'delete',table:'users',filters:[{column:'id',value:id}]});
+  if(r&&!r.error){await loadUsers();S.modal=null;S.editUser=null;renderRoot();toast(t('tUserDeleted'));}
+  else toast(t('noPermission'));
+}
+
+function buildDashboard(){
+  const todayStr=today();
+  const todayAppts=S.appointments.filter(a=>a.date===todayStr).sort((a,b)=>a.time.localeCompare(b.time));
+  const totalRevenue=S.treatments.reduce((s,t)=>s+(t.price||0),0);
+  const urgentRems=allPendingRem().filter(r=>duePri(r.due)!=='normal').length;
+  const pendingAppts=S.appointments.filter(a=>a.status==='pending').length;
+  const upRems=allPendingRem().sort((a,b)=>(a.due||'9999').localeCompare(b.due||'9999')).slice(0,4);
+  const birthdays=upcomingBirthdays();
+  // סטטיסטיקות חודשיות
+  const now=new Date();
+  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const newClientsThisMonth=S.clients.filter(c=>c.created_at&&c.created_at.startsWith(thisMonth)).length;
+  const apptsThisMonth=S.appointments.filter(a=>a.date&&a.date.startsWith(thisMonth));
+  const revenueThisMonth=S.treatments.filter(t=>t.date&&t.date.startsWith(thisMonth)).reduce((s,t)=>s+(t.price||0),0);
+  const confirmedThisMonth=apptsThisMonth.filter(a=>a.status==='confirmed'||a.status==='done').length;
+
+  return`<div class="dash-header"><div class="dash-title">${t('hello')}, ד"ר פפיסמדוב מיכאל 👋</div><div class="dash-sub">${fmtDay()} · ${todayAppts.length} תורים היום</div></div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-accent" style="background:var(--primary)"></div><div class="kpi-icon" style="background:var(--primary-light);color:var(--primary)"><i class="ti ti-users"></i></div><div class="kpi-val">${S.clients.length}</div><div class="kpi-label">${t('kpiClients')}</div></div>
+    <div class="kpi"><div class="kpi-accent" style="background:var(--accent)"></div><div class="kpi-icon" style="background:var(--accent-light);color:var(--accent)"><i class="ti ti-needle"></i></div><div class="kpi-val">${S.treatments.length}</div><div class="kpi-label">${t('kpiTreatments')}</div></div>
+    ${can('money')?`<div class="kpi"><div class="kpi-accent" style="background:#27500A"></div><div class="kpi-icon" style="background:#EAF3DE;color:#27500A"><i class="ti ti-currency-shekel"></i></div><div class="kpi-val">₪${(totalRevenue/1000).toFixed(1)}K</div><div class="kpi-label">${t('kpiRevenue')}</div></div>`:''}
+    <div class="kpi"><div class="kpi-accent" style="background:${pendingAppts>0?'var(--amber)':'var(--accent)'}"></div><div class="kpi-icon" style="background:${pendingAppts>0?'var(--amber-light)':'var(--accent-light)'};color:${pendingAppts>0?'#633806':'#085041'}"><i class="ti ti-calendar-clock"></i></div><div class="kpi-val">${pendingAppts}</div><div class="kpi-label">${t('kpiPending')}</div></div>
+  </div>
+
+  ${pendingAppts>0?`<div class="dash-card" style="border-color:var(--amber)">
+    <div class="dc-header" style="background:var(--amber-light)"><div class="dc-title" style="color:#633806"><i class="ti ti-bell-ringing" style="color:var(--amber)"></i>${t('pendingAppts')} (${pendingAppts})</div></div>
+    <div class="dc-body">${S.appointments.filter(a=>a.status==='pending').slice(0,3).map(a=>`<div class="today-appt">
+      <div class="ta-time">${a.time}</div><div class="ta-dot" style="background:var(--amber)"></div>
+      <div class="ta-info"><div class="ta-name">${escHtml(a.client_name||'לא ידוע')}</div><div class="ta-treat">${escHtml(a.treatment)} · ${fmt(a.date)}</div></div>
+      <div style="display:flex;gap:4px">
+        <button class="btn btn-success btn-sm" onclick="confirmAppt('${a.id}')"><i class="ti ti-check"></i></button>
+        <button class="btn btn-danger btn-sm" onclick="cancelAppt('${a.id}')"><i class="ti ti-x"></i></button>
+      </div>
+    </div>`).join('')}</div>
+  </div>`:''}
+
+  ${birthdays.length>0?`<div class="dash-card" style="border-color:#F0A6C8">
+    <div class="dc-header" style="background:#FDF0F6"><div class="dc-title" style="color:#9D2C5E"><i class="ti ti-cake" style="color:#E0589B"></i>${t('birthdays')}</div></div>
+    <div class="dc-body">${birthdays.map(b=>{const p=PALETTES[b.color%PALETTES.length];return`<div class="today-appt" style="cursor:pointer" onclick="openClientCard('${b.id}')">
+      <div class="ta-dot" style="background:#E0589B"></div>
+      <div class="ta-info"><div class="ta-name">${escHtml(b.name)}</div><div class="ta-treat">${b.label}${b.turning?` · ${t('age')} ${b.turning}`:''}</div></div>
+      <button class="btn btn-success btn-sm" style="background:#25D366;border-color:#25D366;color:#fff" onclick="event.stopPropagation();sendBirthdayWhatsApp('${escHtml(b.phone||'')}','${escHtml(b.name)}')"><i class="ti ti-brand-whatsapp"></i> ${t('greeting')}</button>
+    </div>`;}).join('')}</div>
+  </div>`:''}
+
+  <div class="dash-card">
+    <div class="dc-header"><div class="dc-title"><i class="ti ti-calendar-today"></i>${t('apptsToday')}</div><button class="dc-action" onclick="gotoPage('calendar')">${t('calendarShort')} ←</button></div>
+    <div class="dc-body">
+      ${todayAppts.length===0?`<div class="empty" style="padding:16px 0"><i class="ti ti-calendar-off" style="font-size:26px;display:block;margin-bottom:6px"></i>${t('noApptsToday')}</div>`:''}
+      ${todayAppts.map(a=>{const p=PALETTES[getClientColor(a.client_id)];const sMap={pending:'appt-pending',confirmed:'appt-confirmed'};return`<div class="today-appt"><div class="ta-time">${a.time}</div><div class="ta-dot" style="background:${p.c}"></div><div class="ta-info"><div class="ta-name">${escHtml(a.client_name||getClientName(a.client_id))}</div><div class="ta-treat">${escHtml(a.treatment)} · ${a.duration}דק׳</div></div><span class="ta-badge ${sMap[a.status]||'appt-confirmed'}">${{pending:'ממתין',confirmed:'מאושר'}[a.status]||'מאושר'}</span></div>`;}).join('')}
+      <div style="margin-top:10px"><button class="btn btn-primary btn-sm" onclick="showModal('newAppt')"><i class="ti ti-plus"></i> ${t('newAppt')}</button></div>
+    </div>
+  </div>
+
+  <div class="dash-card">
+    <div class="dc-header"><div class="dc-title"><i class="ti ti-clock"></i>${t('urgentReminders')}</div></div>
+    <div class="dc-body">${upRems.length===0?`<div class="empty" style="padding:12px 0"><i class="ti ti-check" style="font-size:22px;display:block;margin-bottom:6px"></i>${t('allUpdated')}</div>`:upRems.map(r=>{const pp=duePri(r.due);const dc={overdue:'d-red',today:'d-amber',normal:'d-teal'}[pp];const cls={overdue:'overdue-text',today:'today-text',normal:''}[pp];const lbl={overdue:'באיחור!',today:'היום',normal:fmt(r.due)}[pp];return`<div class="rem-item"><div class="ri-dot ${dc}"></div><div class="ri-body"><div class="ri-text">${escHtml(r.text)}</div><div class="ri-client">${escHtml(r.clientName)}</div></div><div class="${cls}">${lbl}</div></div>`;}).join('')}</div>
+  </div>
+
+  <div class="dash-card">
+    <div class="dc-header"><div class="dc-title"><i class="ti ti-chart-line"></i>${t('monthStats')}</div></div>
+    <div class="dc-body">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+        <div style="background:var(--primary-light);border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:700;color:var(--primary)">${newClientsThisMonth}</div><div style="font-size:11px;color:var(--text-sub);margin-top:3px">${t('newClientsMonth')}</div></div>
+        <div style="background:var(--accent-light);border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:700;color:var(--accent)">${apptsThisMonth.length}</div><div style="font-size:11px;color:var(--text-sub);margin-top:3px">${t('apptsMonth')}</div></div>
+        ${can('money')?`<div style="background:#EAF3DE;border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:700;color:#27500A">₪${revenueThisMonth.toLocaleString()}</div><div style="font-size:11px;color:var(--text-sub);margin-top:3px">${t('revenueMonth')}</div></div>`:''}
+        <div style="background:#FDF0F6;border-radius:10px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:700;color:#9D2C5E">${confirmedThisMonth}</div><div style="font-size:11px;color:var(--text-sub);margin-top:3px">${t('confirmedMonth')}</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-card">
+    <div class="dc-header"><div class="dc-title"><i class="ti ti-link"></i>${t('bookingLinkTitle')}</div></div>
+    <div class="dc-body">
+      <div class="link-box">
+        <div class="link-box-title"><i class="ti ti-world"></i> שלח ללקוחות</div>
+        <div class="link-box-url" onclick="copyBookingLink()"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${getBookingUrl()}</span><i class="ti ti-copy" style="flex-shrink:0"></i></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// CALENDAR
+function buildCalendar(){
+  const days=I18N[LANG].dShort||I18N.he.dShort;
+  const weekDates=Array.from({length:7},(_,i)=>fmtDate(addDays(S.calWeek,i)));
+  const todayStr=today();
+  const[,fm,fd]=weekDates[0].split('-');const[ty,tm,td]=weekDates[6].split('-');
+  const months=I18N[LANG].mShort||I18N.he.mShort;
+  const rangeLabel=`${+fd} ${months[+fm-1]} – ${+td} ${months[+tm-1]} ${ty}`;
+
+  let html=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;flex-shrink:0;flex-wrap:wrap">
+    <button class="btn btn-secondary btn-icon" onclick="calPrev()"><i class="ti ti-chevron-right"></i></button>
+    <div style="font-size:14px;font-weight:600;flex:1">${rangeLabel}</div>
+    <button class="btn btn-secondary btn-icon" onclick="calNext()"><i class="ti ti-chevron-left"></i></button>
+    <button class="btn btn-secondary btn-sm" onclick="calToday()"><i class="ti ti-calendar"></i> ${t('today')}</button>
+    <input type="date" class="fi" style="width:auto;padding:7px 10px;font-size:13px" value="${fmtDate(S.calWeek)}" onchange="calJumpTo(this.value)" title="${t('jumpDate')}">
+    <button class="btn btn-primary btn-sm" onclick="showModal('newAppt')"><i class="ti ti-plus"></i> ${t('appt')}</button>
+    <button class="btn btn-google btn-sm" onclick="exportWeekToGoogle()"><i class="ti ti-brand-google"></i></button>
+  </div>
+  <div style="margin-bottom:10px;flex-shrink:0"><div style="position:relative"><i class="ti ti-search" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--text-sub);font-size:15px"></i><input type="text" placeholder="${t('searchAppt')}" value="${escHtml(S.apptSearch||'')}" oninput="apptSearchInput(this.value)" style="width:100%;padding:9px 34px 9px 12px;border:1px solid var(--border);border-radius:9px;font-size:13px;font-family:Heebo,sans-serif;outline:none"></div>${S.apptSearch?`<div style="margin-top:8px">${buildApptSearchResults()}</div>`:''}</div>
+  <div class="cal-scroll"><div class="cal-head"><div class="cal-day-hdr"></div>`;
+  weekDates.forEach((d,i)=>{const isToday=d===todayStr;const[,,day]=d.split('-');const dow=new Date(d+'T00:00:00').getDay();html+=`<div class="cal-day-hdr"><div class="cal-day-name">${days[dow]}</div><div class="cal-day-num">${isToday?`<span style="width:24px;height:24px;background:var(--primary);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px">${+day}</span>`:`${+day}`}</div></div>`;});
+  html+=`</div><div class="cal-body">`;
+  HOURS.forEach(h=>{
+    html+=`<div class="cal-row"><div class="cal-time"><span>${String(h).padStart(2,'0')}:00</span></div>`;
+    weekDates.forEach(d=>{
+      const appts=S.appointments.filter(a=>a.date===d&&parseInt((a.time||'0').split(':')[0])===h);
+      let cells='';
+      const total=appts.length;
+      appts.forEach((a,idx)=>{const p=PALETTES[getClientColor(a.client_id)];const name=a.client_name||getClientName(a.client_id);const mins=parseInt((a.time||'0').split(':')[1])||0;const top=Math.round((mins/60)*52);const ht=Math.max(20,Math.round((a.duration/60)*52)-2);const isPending=a.status==='pending';const w=total>1?(100/total):100;const leftPos=total>1?(idx*w):0;cells+=`<div class="appt-block" style="top:${top}px;height:${ht}px;width:calc(${w}% - 2px);right:calc(${leftPos}% + 1px);left:auto;background:${isPending?'var(--amber-light)':p.bg};color:${isPending?'#633806':p.c};border-color:${isPending?'var(--amber)':p.c+'30'}" onclick="event.stopPropagation();showApptDetail('${a.id}')"><div class="appt-name">${escHtml(name)}${isPending?' ⏳':''}</div><div class="appt-time-label">${a.time} · ${escHtml(a.treatment)}</div></div>`;});
+      html+=`<div class="cal-cell" onclick="quickAddAppt('${d}','${String(h).padStart(2,'0')}:00')">${cells}</div>`;
+    });
+    html+=`</div>`;
+  });
+  html+=`</div></div>`;
+  return html;
+}
+
+// CLIENT VIEWS
+function buildClientsList(){
+  const q=S.search.toLowerCase();
+  const filtered=S.clients.filter(c=>c.name.toLowerCase().includes(q));
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div><div class="dash-title">${t('clients')}</div><div class="dash-sub">${t('clientsCount',{n:S.clients.length})}</div></div>
+    <button class="btn btn-primary" onclick="showModal('newClient')"><i class="ti ti-user-plus"></i> ${t('newClient')}</button>
+  </div>
+  <div class="card" style="padding:0;margin-bottom:12px">
+    <div style="position:relative;padding:8px"><i class="ti ti-search" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--text-sub);font-size:16px"></i>
+    <input type="text" placeholder="${t('searchClient')}" value="${escHtml(S.search)}" oninput="S.search=this.value;reClientsList()" style="width:100%;padding:10px 38px 10px 12px;border:1px solid var(--border);border-radius:9px;font-size:14px;font-family:'Heebo',sans-serif;outline:none"></div>
+  </div>
+  <div id="clients-list-container">${renderClientRows(filtered)}</div>`;
+  return h;
+}
+
+function renderClientRows(list){
+  if(!list.length)return`<div class="empty" style="padding:30px 0"><i class="ti ti-users" style="font-size:36px;display:block;margin-bottom:10px"></i>${t('noClientsFound')}</div>`;
+  return list.map(c=>{
+    const p=PALETTES[c.color%PALETTES.length];
+    const pr=pendingRem(c);
+    const tierMap={vip:['b-vip','VIP'],new:['b-new','חדש'],regular:['b-reg','קבוע']};
+    const[tc,tl]=tierMap[c.tier]||['b-reg','קבוע'];
+    return`<div class="card" style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:8px" onclick="openClientCard('${c.id}')">
+      ${c.photo_url?`<img src="${escHtml(c.photo_url)}" style="width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--border)">`:`<div class="av" style="background:${p.bg};color:${p.c};width:46px;height:46px;font-size:15px">${initials(c.name)}</div>`}
+      <div style="flex:1;min-width:0">
+        <div style="font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escHtml(c.name)}</div>
+        <div style="font-size:13px;color:var(--text-sub);margin-top:2px">${c.phone?`<i class="ti ti-phone" style="font-size:12px"></i> ${escHtml(c.phone)}`:`<span style="color:#bbb">${t('noPhone')}</span>`}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+        <span class="badge ${tc}">${tl}</span>
+        ${pr>0?`<span style="font-size:11px;color:var(--amber)">${pr} תזכורות</span>`:''}
+        ${c.consent?'<span style="font-size:11px;color:var(--accent)">✅ חתם</span>':''}
+      </div>
+      <i class="ti ti-chevron-left" style="color:var(--text-sub);font-size:18px"></i>
+    </div>`;
+  }).join('');
+}
+
+function reClientsList(){
+  const q=S.search.toLowerCase();
+  const filtered=S.clients.filter(c=>c.name.toLowerCase().includes(q));
+  const el=document.getElementById('clients-list-container');
+  if(el)el.innerHTML=renderClientRows(filtered);
+}
+
+function openClientCard(id){S.activeId=id;S.clientListView=false;S.activeTab='overview';renderRoot()}
+function backToClientList(){S.clientListView=true;renderRoot()}
+
+function buildClientHeader(c){
+  const p=PALETTES[c.color%PALETTES.length];
+  const tm={vip:['b-vip','VIP'],new:['b-new','חדש'],regular:['b-reg','קבוע']};
+  const[tc,tl]=tm[c.tier]||['b-reg','קבוע'];
+  const src=getSrc(c.source);
+  return`<div class="mh">
+    ${c.photo_url?`<img src="${escHtml(c.photo_url)}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--border)">`:`<div class="mh-av" style="background:${p.bg};color:${p.c}">${initials(c.name)}</div>`}
+    <div class="mh-info"><div class="mh-name">${escHtml(c.name)}</div>
+    <div class="mh-sub"><span>גיל ${c.age||'?'} · ${escHtml(c.skin||'')}</span>${src?`<span class="source-chip"><i class="ti ${src.icon}" style="font-size:11px"></i>${src.label}</span>`:''}</div></div>
+    <span class="badge ${tc}">${tl}</span>
+    ${c.allergies&&c.allergies!=='אין ידועות'?`<span class="badge b-sens"><i class="ti ti-alert-triangle"></i></span>`:''}
+  </div>`;
+}
+
+function buildContent(c){
+  if(S.activeTab==='overview')return buildOverview(c);
+  if(S.activeTab==='treatments')return buildTreatments(c);
+  if(S.activeTab==='reminders')return buildReminders(c);
+  if(S.activeTab==='appointments')return buildClientAppts(c);
+  return buildProfile(c);
+}
+
+function buildOverview(c){
+  const treats=clientTreatments(c.id);const rems=clientReminders(c.id);
+  const rev=totalRev(c);const pr=rems.filter(r=>!r.done).length;
+  const last=treats[0]||null;
+  const nextAppt=clientAppts(c.id).filter(a=>a.date>=today())[0];
+  let h=`<div class="stat-row">${can('money')?`<div class="stat"><div class="stat-val">₪${rev.toLocaleString()}</div><div class="stat-lbl">${t('kpiRevenue')}</div></div>`:''}<div class="stat"><div class="stat-val">${treats.length}</div><div class="stat-lbl">${t('treatments')}</div></div><div class="stat"><div class="stat-val">${pr}</div><div class="stat-lbl">${t('reminders')}</div></div></div>`;
+  if(nextAppt){const pp=PALETTES[c.color%PALETTES.length];h+=`<div class="sec-label">${t('nextAppt')}</div><div class="card" style="margin-bottom:14px;display:flex;align-items:center;gap:12px"><div style="background:${pp.bg};color:${pp.c};padding:8px 12px;border-radius:9px;text-align:center;flex-shrink:0"><div style="font-size:17px;font-weight:600">${fmt(nextAppt.date).split(' ')[0]}</div><div style="font-size:10px">${fmt(nextAppt.date).split(' ')[1]}</div></div><div><div style="font-size:13px;font-weight:500">${escHtml(nextAppt.treatment)}</div><div style="font-size:12px;color:var(--text-sub);margin-top:2px">${nextAppt.time} · ${nextAppt.duration}דק׳</div></div><span class="badge ${nextAppt.status==='pending'?'b-sens':'b-new'}">${nextAppt.status==='pending'?'ממתין':'מאושר'}</span></div>`;}
+  h+=`<div class="sec-label">${t('clinicalNotes')}</div><div class="card" style="margin-bottom:14px"><div style="font-size:13px;line-height:1.65">${escHtml(c.notes)||`<span style="color:#bbb">${t('noNotesYet')}</span>`}</div></div>`;
+  if(last)h+=`<div class="sec-label">${t('lastTreatment')}</div><div class="card treat-card"><div class="treat-date">${fmt(last.date)}</div><div class="treat-body"><div class="treat-name">${escHtml(last.name)}</div><div class="treat-detail">${escHtml(last.provider||'')}${last.dose&&last.dose!=='—'?' · '+escHtml(last.dose):''}</div>${last.price?`<div class="treat-price">₪${last.price.toLocaleString()}</div>`:''}</div></div>`;
+  const up=rems.filter(r=>!r.done).slice(0,2);
+  if(up.length){h+=`<div class="sec-label" style="margin-top:14px">${t('reminders')}</div>`;up.forEach(r=>{const pp=duePri(r.due);const dc={overdue:'d-red',today:'d-amber',normal:'d-teal'}[pp];const cc={overdue:'overdue',today:'today-card',normal:''}[pp];h+=`<div class="card rem-card ${cc}"><div class="rem-dot ${dc}"></div><div class="rem-body"><div class="rem-text">${escHtml(r.text)}</div><div class="rem-due">${r.due?fmt(r.due):''}</div></div><button class="btn btn-secondary btn-sm" onclick="markDone('${r.id}')"><i class="ti ti-check"></i></button></div>`;});}
+  return h;
+}
+
+function buildTreatments(c){
+  const treats=clientTreatments(c.id);
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div class="sec-label" style="margin-bottom:0">${t('treatHistory')}</div>${can('treatments')?`<button class="btn btn-primary btn-sm" onclick="showModal('newTreatment')"><i class="ti ti-plus"></i> ${t('add')}</button>`:''}</div>`;
+  if(!treats.length)return h+`<div class="empty"><i class="ti ti-needle" style="font-size:28px;display:block;margin-bottom:8px"></i>${t('noTreatments')}</div>`;
+  treats.forEach(t=>{h+=`<div class="card treat-card"><div class="treat-date">${fmt(t.date)}</div><div class="treat-body"><div class="treat-name">${escHtml(t.name)}</div><div class="treat-detail">${escHtml(t.provider||'')}${t.dose&&t.dose!=='—'?' · '+escHtml(t.dose):''}</div>${t.notes?`<div class="treat-detail" style="font-style:italic;margin-top:3px">${escHtml(t.notes)}</div>`:''}${t.price?`<div class="treat-price">₪${t.price.toLocaleString()}</div>`:''}</div></div>`;});
+  return h;
+}
+
+function buildReminders(c){
+  const rems=clientReminders(c.id);const pend=rems.filter(r=>!r.done);const done=rems.filter(r=>r.done);
+  let h=`<div class="sec-label">${t('followupReminders')}</div>`;
+  if(!pend.length)h+=`<div class="empty"><i class="ti ti-check" style="font-size:26px;display:block;margin-bottom:8px"></i>${t('allDone')}</div>`;
+  pend.forEach(r=>{const pp=duePri(r.due);const dc={overdue:'d-red',today:'d-amber',normal:'d-teal'}[pp];const cc={overdue:'overdue',today:'today-card',normal:''}[pp];h+=`<div class="card rem-card ${cc}"><div class="rem-dot ${dc}"></div><div class="rem-body"><div class="rem-text">${escHtml(r.text)}</div><div class="rem-due">${r.due?fmt(r.due):''}</div></div><button class="btn btn-secondary btn-sm" onclick="markDone('${r.id}')"><i class="ti ti-check"></i> ${t('done')}</button></div>`;});
+  h+=`<div class="add-area"><textarea class="fi" id="newRemText" rows="2" placeholder="${t('newReminder')}" dir="rtl"></textarea><div class="add-row"><input type="date" class="fi" id="newRemDate" value="${today()}" style="flex:1"><button class="btn btn-primary" onclick="addReminder()"><i class="ti ti-plus"></i> ${t('add')}</button></div></div>`;
+  if(done.length){h+=`<div class="sec-label" style="margin-top:18px">${t('completed')}</div>`;done.forEach(r=>{h+=`<div class="card rem-card" style="opacity:.4"><div class="rem-dot" style="background:#ccc"></div><div class="rem-body"><div class="rem-text" style="text-decoration:line-through">${escHtml(r.text)}</div></div><button class="btn btn-secondary btn-sm" onclick="undoDone('${r.id}')">${t('undo')}</button></div>`;});}
+  return h;
+}
+
+function buildClientAppts(c){
+  const appts=clientAppts(c.id);
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div class="sec-label" style="margin-bottom:0">${t('appointments')}</div><button class="btn btn-primary btn-sm" onclick="showModal('newAppt')"><i class="ti ti-plus"></i> ${t('newAppt')}</button></div>`;
+  if(!appts.length)return h+`<div class="empty"><i class="ti ti-calendar" style="font-size:28px;display:block;margin-bottom:8px"></i>${t('noAppts')}</div>`;
+  appts.forEach(a=>{const isPast=a.date<today();const p=PALETTES[c.color%PALETTES.length];const sMap={pending:t('pending'),confirmed:t('confirmed'),done:t('finished')};h+=`<div class="card" style="display:flex;gap:12px;align-items:center;opacity:${isPast?.55:1}"><div style="background:${p.bg};color:${p.c};padding:8px 10px;border-radius:9px;text-align:center;flex-shrink:0;min-width:42px"><div style="font-size:15px;font-weight:600">${fmt(a.date).split(' ')[0]}</div><div style="font-size:10px">${fmt(a.date).split(' ')[1]}</div></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:500">${escHtml(a.treatment)}</div><div style="font-size:12px;color:var(--text-sub);margin-top:2px">${a.time} · ${a.duration}דק׳ · <span style="color:${a.status==='pending'?'var(--amber)':'var(--accent)'}">${sMap[a.status]||'מאושר'}</span></div></div><button class="btn btn-danger btn-sm" onclick="deleteAppt('${a.id}')"><i class="ti ti-trash"></i></button></div>`;});
+  return h;
+}
+
+function clientForms(cid){
+  const c=S.clients.find(x=>x.id===cid);
+  const forms=(S.forms||[]).filter(f=>f.client_id===cid);
+  // תאימות לאחור: לקוח שחתם במערכת הישנה (signature_url בלי רשומה ב-consent_forms)
+  if(c&&c.signature_url&&!forms.some(f=>f.form_type==='general')){
+    forms.push({client_id:cid,form_type:'general',signature_url:c.signature_url,signed_at:c.created_at||new Date().toISOString(),legacy:true});
+  }
+  return forms;
+}
+function getFormUrl(cid,type){return window.location.origin+window.location.pathname.replace('index.html','')+'consent.html?client='+cid+'&type='+type}
+
+function viewSignedForm(cid,type){
+  S.viewForm={cid,type};
+  S.modal='viewform';
+  renderRoot();
+}
+function buildFormsChecklist(c){
+  const signed=clientForms(c.id);
+  let h=`<div style="font-size:12px;color:var(--text-sub);margin-bottom:12px">${t('formsStatus')}</div>`;
+  FORM_TYPES_LIST().forEach(ft=>{
+    const rec=signed.find(s=>s.form_type===ft.key);
+    const isSigned=!!rec;
+    let dateStr='';
+    if(rec&&rec.signed_at){const d=new Date(rec.signed_at);dateStr=d.toLocaleDateString('he-IL')+' '+d.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});}
+    h+=`<div style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:9px;margin-bottom:8px;background:${isSigned?'#F4FBF7':'#fff'}">
+      <i class="ti ${ft.icon}" style="font-size:18px;color:${isSigned?'var(--accent)':'var(--text-sub)'}"></i>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500">${ft.label}</div>
+        ${isSigned?`<div style="font-size:11px;color:var(--accent)">✅ נחתם${dateStr?' '+dateStr:''}</div>`:'<div style="font-size:11px;color:var(--text-sub)">⬜ טרם נחתם</div>'}
+      </div>
+      ${isSigned
+        ? `<button class="btn btn-secondary btn-sm" onclick="viewSignedForm('${c.id}','${ft.key}')" title="${t('view')}"><i class="ti ti-file-text"></i> ${t('view')}</button><button class="btn btn-secondary btn-sm" onclick="sendFormLink('${c.id}','${ft.key}')" title="${t('sendAgain')}"><i class="ti ti-send"></i></button>`
+        : `<button class="btn btn-primary btn-sm" onclick="sendFormLink('${c.id}','${ft.key}')"><i class="ti ti-send"></i> ${t('send')}</button>`
+      }
+    </div>`;
+  });
+  return h;
+}
+
+function sendFormLink(cid,type){
+  const ft=FORM_TYPES_LIST().find(f=>f.key===type);
+  S.sendForm={cid,type,label:ft?ft.label:'טופס'};
+  S.modal='sendform';
+  renderRoot();
+}
+
+function buildProfile(c){
+  const src=getSrc(c.source);
+  const chips=(str,cls)=>(str||'').split(',').map(s=>`<span class="chip ${cls}">${escHtml(s.trim())}</span>`).join('');
+  return`<div class="sec-label">${t('contactDetails')}</div>
+  <div class="info-grid">
+    <div class="info-field"><span class="info-label">${t('phone')}</span><span class="info-value">${escHtml(c.phone)||'—'}</span></div>
+    <div class="info-field"><span class="info-label">${t('email')}</span><span class="info-value" style="font-size:12px">${escHtml(c.email)||'—'}</span></div>
+    <div class="info-field"><span class="info-label">${t('age')}</span><span class="info-value">${c.age||'—'}</span></div>
+    <div class="info-field"><span class="info-label">${t('consent')}</span><span class="info-value">${c.consent?'✅ נחתמה':'⏳ ממתין'}</span></div>
+    <div class="info-field"><span class="info-label">${t('source')}</span><span class="info-value">${src?`<span class="source-chip"><i class="ti ${src.icon}" style="font-size:11px"></i>${src.label}</span>`:'—'}</span></div>
+  </div>
+  <div class="sec-label">${t('skinType')}</div><div class="card" style="margin-bottom:12px">${chips(c.skin,'skin-chip')||'<span style="color:#aaa;font-size:13px">לא צוין</span>'}</div>
+  <div class="sec-label">${t('allergies')}</div><div class="card" style="margin-bottom:12px">${c.allergies&&c.allergies!=='אין ידועות'?chips(c.allergies,'allergy-chip'):`<span style="font-size:13px;color:#aaa">${t('noneKnown')}</span>`}</div>
+  <div class="sec-label">${t('docHistory')}</div>
+  ${c.notes&&c.notes.trim()?`<div class="card" style="margin-bottom:8px;max-height:200px;overflow-y:auto"><div style="font-size:13px;line-height:1.7;white-space:pre-wrap">${escHtml(c.notes)}</div></div>`:`<div class="card" style="margin-bottom:8px;color:#aaa;font-size:13px">${t('noDoc')}</div>`}
+  <div class="card" style="margin-bottom:12px"><textarea class="fi" rows="3" id="notesField" placeholder="${t('addDoc')}" dir="rtl"></textarea><div class="add-row" style="justify-content:flex-end"><button class="btn btn-primary btn-sm" onclick="saveNotes()"><i class="ti ti-plus"></i> ${t('addToDoc')}</button></div></div>
+  <div class="sec-label">${t('clientPhoto')}</div>
+  <div class="card" style="margin-bottom:12px">
+    ${c.photo_url?`<div style="text-align:center;margin-bottom:12px"><img src="${escHtml(c.photo_url)}" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--border)"></div>`:'<div style="text-align:center;margin-bottom:12px"><div style="width:100px;height:100px;border-radius:50%;background:var(--bg);border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:32px">👤</div></div>'}
+    <label style="display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-weight:500;color:var(--text)">
+      <i class="ti ti-upload" style="font-size:16px"></i> ${t('uploadPhoto')}
+      <input type="file" id="photo-upload" accept="image/*" onchange="uploadClientPhoto(this)" style="display:none">
+    </label>
+    <div id="photo-status" style="font-size:12px;color:var(--text-sub);text-align:center;margin-top:8px"></div>
+  </div>
+  <div class="sec-label">${t('consentForms')}</div>
+  <div class="card" style="margin-bottom:12px">
+    ${buildFormsChecklist(c)}
+  </div>
+  <div class="sec-label">${t('editDetails')}</div>
+  <div class="card" style="margin-bottom:12px">
+    <button class="btn btn-secondary" style="width:100%;justify-content:center;margin-bottom:8px" onclick="showModal('editClient')"><i class="ti ti-edit"></i> ${t('editClient')}</button>
+    <button class="btn btn-secondary" style="width:100%;justify-content:center;background:#25D366;border-color:#25D366;color:#fff" onclick="shareWhatsAppClient('${escHtml(c.phone||'')}','${escHtml(c.name)}')"><i class="ti ti-brand-whatsapp"></i> ${t('sendBookingWa')}</button>
+  </div>`;
+}
+
+// MODALS
+function buildModal(){
+  if(S.modal==='bookingLink'){
+    const url=getBookingUrl();
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-link"></i> ${t('bookingLinkTitle')}</div>
+      <div class="link-box"><div class="link-box-title"><i class="ti ti-world"></i> שלח ללקוחות</div><div class="link-box-url" onclick="copyBookingLink()"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px">${url}</span><i class="ti ti-copy" style="flex-shrink:0"></i></div></div>
+      <div class="ma">
+        <button class="btn btn-secondary" onclick="closeModal()">${t('close')}</button>
+        <button class="btn btn-primary" onclick="copyBookingLink()"><i class="ti ti-copy"></i> ${t('copyLink')}</button>
+        <button class="btn btn-success" onclick="shareWhatsApp()" style="background:#25D366;border-color:#25D366;color:#fff"><i class="ti ti-brand-whatsapp"></i> ${t('sendWhatsapp')}</button>
+      </div>
+    </div></div>`;
+  }
+
+  if(S.modal==='newClient'){
+    const sg=SOURCES_LIST().map(s=>`<div class="source-opt ${S.newSrc===s.key?'selected':''}" onclick="selectSrc('${s.key}')"><i class="ti ${s.icon}" style="font-size:18px;display:block;margin-bottom:3px"></i>${s.label}</div>`).join('');
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-user-plus"></i> ${t('newClient')}</div>
+      <div class="fg"><div class="fl">${t('fullNameReq')}</div><input class="fi" id="m-name" placeholder="${t('phClientName')}" dir="rtl" autofocus></div>
+      <div class="fg"><div class="fl">${t('phone')}</div><input class="fi" id="m-phone" type="tel" placeholder="050-..."></div>
+      <div class="fg"><div class="fl">${t('email')}</div><input class="fi" id="m-email" type="email" placeholder="email@example.com"></div>
+      <div class="fg"><div class="fl">${t('dobEmoji')}</div><input class="fi" id="m-dob" type="date"></div>
+      <div class="fg"><div class="fl">${t('skinType')}</div><input class="fi" id="m-skin" placeholder="${t('phSkinEx')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('allergies')}</div><input class="fi" id="m-allergy" placeholder="${t('phNone')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('source')}</div><div class="source-grid">${sg}</div></div>
+      <div class="fg"><div class="fl">${t('status')}</div><select class="fi" id="m-tier"><option value="new">${t('tierNew')}</option><option value="regular">${t('tierRegular')}</option><option value="vip">VIP</option></select></div>
+      <div class="ma"><button class="btn btn-secondary" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-primary" onclick="saveNewClient()"><i class="ti ti-check"></i> ${t('addClient')}</button></div>
+    </div></div>`;
+  }
+
+  if(S.modal==='editClient'){
+    const c=getC();if(!c)return'';
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-edit"></i> ${t('editClient')}</div>
+      <div class="fg"><div class="fl">שם מלא</div><input class="fi" id="e-name" value="${escHtml(c.name)}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('phone')}</div><input class="fi" id="e-phone" type="tel" value="${escHtml(c.phone||'')}"></div>
+      <div class="fg"><div class="fl">${t('email')}</div><input class="fi" id="e-email" type="email" value="${escHtml(c.email||'')}"></div>
+      <div class="fg"><div class="fl">גיל</div><input class="fi" id="e-age" type="number" value="${c.age||''}" min="1" max="120"></div>
+      <div class="fg"><div class="fl">${t('skinType')}</div><input class="fi" id="e-skin" value="${escHtml(c.skin||'')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('allergies')}</div><input class="fi" id="e-allergy" value="${escHtml(c.allergies||'')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('status')}</div><select class="fi" id="e-tier"><option value="new" ${c.tier==='new'?'selected':''}>לקוח חדש</option><option value="regular" ${c.tier==='regular'?'selected':''}>קבוע</option><option value="vip" ${c.tier==='vip'?'selected':''}>VIP</option></select></div>
+      <div class="ma"><button class="btn btn-secondary" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-primary" onclick="saveEditClient()"><i class="ti ti-device-floppy"></i> ${t('saveChanges')}</button></div>
+    </div></div>`;
+  }
+
+  if(S.modal==='newTreatment'){
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-needle"></i> ${t('registerTreat')}</div>
+      <div class="fg"><div class="fl">${t('treatNameReq')}</div><input class="fi" id="t-name" placeholder="${t('phTreatName')}" dir="rtl" autofocus></div>
+      <div class="fg"><div class="fl">${t('date')}</div><input class="fi" id="t-date" type="date" value="${today()}"></div>
+      <div class="fg"><div class="fl">${t('provider')}</div><input class="fi" id="t-prov" placeholder='ד"ר ...' dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('dose')}</div><input class="fi" id="t-dose" placeholder="${t('phDoseEx')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('notes')}</div><textarea class="fi" id="t-notes" rows="2" dir="rtl"></textarea></div>
+      ${can('money')?`<div class="fg"><div class="fl">${t('price')}</div><input class="fi" id="t-price" type="number" placeholder="0" min="0"></div>`:''}
+      <div class="ma"><button class="btn btn-secondary" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-primary" onclick="saveTreatment()"><i class="ti ti-device-floppy"></i> ${t('save')}</button></div>
+    </div></div>`;
+  }
+
+  if(S.modal==='newAppt'){
+    // אם נכנסים ללקוח וקובעים תור — מלא אוטומטית
+    const activeC=(S.activePage==='clients'&&!S.clientListView)?getC():null;
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-calendar-plus"></i> תור חדש${activeC?` — ${escHtml(activeC.name)}`:''}</div>
+      <div class="fg"><div class="fl">${t('clientNameReq')}</div><input class="fi" id="a-name" placeholder="${t('phName')}" dir="rtl" value="${activeC?escHtml(activeC.name):''}"></div>
+      <div class="fg"><div class="fl">${t('phone')}</div><input class="fi" id="a-phone" type="tel" placeholder="050-..." value="${activeC?escHtml(activeC.phone||''):''}"></div>
+      <div class="fg"><div class="fl">${t('emailConfirm')}</div><input class="fi" id="a-email" type="email" placeholder="email@example.com" value="${activeC?escHtml(activeC.email||''):''}"></div>
+      <div class="fg"><div class="fl">${t('treatment')}</div><input class="fi" id="a-treat" placeholder="${t('phTreatEx')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('date')}</div><input class="fi" id="a-date" type="date" value="${S.prefillDate||today()}"></div>
+      <div class="fg"><div class="fl">${t('time')}</div><input class="fi" id="a-time" type="time" value="${S.prefillTime||'10:00'}"></div>
+      <div class="fg"><div class="fl">${t('durationMin')}</div><input class="fi" id="a-dur" type="number" value="60" min="15" max="240"></div>
+      <div class="fg"><div class="fl">${t('notes')}</div><textarea class="fi" id="a-notes" rows="2" dir="rtl"></textarea></div>
+      <div class="ma"><button class="btn btn-secondary" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-primary" onclick="saveAppt()"><i class="ti ti-calendar-check"></i> ${t('setAppt')}</button></div>
+    </div></div>`;
+  }
+
+  if(S.modal&&S.modal.startsWith('link-')){
+    const aid=S.modal.split('-').slice(1).join('-');
+    const a=S.appointments.find(x=>x.id===aid);if(!a)return'';
+    const clientOpts=S.clients.map(c=>`<option value="${c.id}">${escHtml(c.name)}${c.phone?' · '+escHtml(c.phone):''}</option>`).join('');
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-user-plus"></i> ${t('linkToClient')}</div>
+      <div style="background:var(--bg);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:13px"><div style="font-weight:500">${escHtml(a.client_name||'לא ידוע')}</div><div style="color:var(--text-sub);margin-top:2px">${escHtml(a.treatment)} · ${a.date} ${a.time}</div></div>
+      <div class="fg"><div class="fl">${t('chooseExisting')}</div><select class="fi" id="link-client-id"><option value="">--- בחר לקוח ---</option>${clientOpts}</select></div>
+      <div style="text-align:center;color:#aaa;font-size:12px;margin:8px 0">— או —</div>
+      <button class="btn btn-secondary" style="width:100%;justify-content:center;margin-bottom:16px" onclick="createClientFromAppt('${aid}')"><i class="ti ti-user-plus"></i> צור לקוח חדש מנתוני התור</button>
+      <div class="ma"><button class="btn btn-secondary" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-primary" onclick="linkClientToAppt('${aid}')"><i class="ti ti-link"></i> שייך</button></div>
+    </div></div>`;
+  }
+
+  if(S.modal==='user')return buildUserModal();
+  if(S.modal==='viewform'&&S.viewForm){
+    const{cid,type}=S.viewForm;
+    const c=S.clients.find(x=>x.id===cid);if(!c)return'';
+    const ft=FORM_TYPES_LIST().find(f=>f.key===type);if(!ft)return'';
+    const rec=clientForms(cid).find(s=>s.form_type===type);
+    const dateStr=rec&&rec.signed_at?new Date(rec.signed_at).toLocaleDateString('he-IL'):new Date().toLocaleDateString('he-IL');
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal" style="max-width:560px">
+      <div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ${ft.icon}"></i> ${ft.label}  — ${t('signedForm')}</div>
+      <div style="background:#F8FBFE;border:1px solid var(--border);border-radius:12px;padding:18px;font-size:13px;line-height:1.8;color:#3A4A5E;max-height:50vh;overflow-y:auto">
+        <h3 style="color:#1A2332;font-size:15px;margin:0 0 12px">${ft.label}</h3>
+        <p style="margin-bottom:10px"><strong>הצהרת המטופל/ת:</strong> אני הח"מ, ${escHtml(c.name)}, מצהיר/ה כי קיבלתי הסבר מלא ומפורט מהצוות הרפואי של ד"ר פפיסמדוב מיכאל לגבי <strong>${ft.desc}</strong> המיועד לי, לרבות מהות הטיפול, יתרונותיו, חלופותיו, הסיכונים הכרוכים בו והתוצאות הצפויות.</p>
+        <p style="margin-bottom:10px"><strong>אחריות המטופל/ת:</strong> מסרתי פרטים מלאים ומדויקים על מצבי הרפואי, תרופות, אלרגיות וכל מידע רלוונטי. אני מודע/ת כי הסתרת מידע עלולה לסכן את בריאותי. קיבלתי הסבר על חלופות ועל האפשרות להימנע מהטיפול.</p>
+        <p style="margin-bottom:10px"><strong>הגבלת אחריות הקליניקה:</strong> ד"ר פפיסמדוב מיכאל אינה אחראית לתוצאות במקרים של אי-מסירת מידע מלא, אי-עמידה בהוראות לאחר הטיפול, תגובות אינדיווידואליות בלתי צפויות, גורמים חיצוניים שאינם בשליטת הקליניקה, או ציפיות לא מציאותיות שלא הוסכמו מראש בכתב.</p>
+        <p style="margin-bottom:10px"><strong>סיכונים ידועים — ${ft.desc}:</strong> ${ft.risks}</p>
+        <p style="margin-bottom:0"><strong>הצהרה סופית:</strong> קראתי והבנתי את כל האמור לעיל, קיבלתי מענה לשאלותיי, וחתימתי מהווה הסכמה מדעת חופשית לביצוע הטיפול.</p>
+      </div>
+      ${rec&&rec.signature_url?`<div style="margin-top:16px;text-align:center">
+        <div style="font-size:12px;color:var(--text-sub);margin-bottom:8px">${t('patientSig')}</div>
+        <img src="${escHtml(rec.signature_url)}" style="max-width:280px;max-height:120px;border:1.5px solid var(--border);border-radius:8px;background:#fff">
+        <div style="font-size:11px;color:var(--text-sub);margin-top:6px">${t('signedDigitally')} ${dateStr}</div>
+      </div>`:`<div style="text-align:center;color:var(--text-sub);font-size:12px;margin-top:12px">${t('noSig')}</div>`}
+      <div class="ma">
+        ${rec&&rec.signature_url?`<a href="${escHtml(rec.signature_url)}" target="_blank" class="btn btn-secondary"><i class="ti ti-download"></i> ${t('downloadSig')}</a>`:''}
+        <button class="btn btn-primary" onclick="closeModal()">${t('close')}</button>
+      </div>
+    </div></div>`;
+  }
+  if(S.modal==='sendform'&&S.sendForm){
+    const cid=S.sendForm.cid;const type=S.sendForm.type;const label=S.sendForm.label;
+    const c=S.clients.find(x=>x.id===cid);if(!c)return'';
+    const url=getFormUrl(cid,type);
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-send"></i> ${t('sendForm')}: ${escHtml(label)}</div>
+      <p style="font-size:13px;color:var(--text-sub);margin-bottom:16px">בחר כיצד לשלוח את הטופս ל-${escHtml(c.name)}:</p>
+      <div class="link-box" style="margin-bottom:14px">
+        <div class="link-box-url" onclick="copyText('${url}')"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px">${url}</span><i class="ti ti-copy"></i></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${c.email?`<button class="btn btn-primary" style="width:100%;justify-content:center" onclick="sendFormEmail()"><i class="ti ti-mail"></i> ${t('sendToEmail')} (${escHtml(c.email)})</button>`:`<div style="font-size:12px;color:var(--text-sub);text-align:center">${t('noEmailClient')}</div>`}
+        <button class="btn btn-success" style="width:100%;justify-content:center;background:#25D366;border-color:#25D366;color:#fff" onclick="sendFormWhatsApp()"><i class="ti ti-brand-whatsapp"></i> ${t('sendWhatsapp')}</button>
+        <button class="btn btn-secondary" style="width:100%;justify-content:center" onclick="copyText('${url}')"><i class="ti ti-copy"></i> ${t('copyLink')}</button>
+      </div>
+      <div class="ma"><button class="btn btn-secondary" onclick="closeModal()">${t('close')}</button></div>
+    </div></div>`;
+  }
+  if(S.modal&&S.modal.startsWith('editappt-')){
+    const aid=S.modal.split('-').slice(1).join('-');
+    const a=S.appointments.find(x=>x.id===aid);if(!a)return'';
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-edit"></i> ${t('editAppt')}</div>
+      <div class="fg"><div class="fl">${t('clientNameReq')}</div><input class="fi" id="ea-name" value="${escHtml(a.client_name||'')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('phone')}</div><input class="fi" id="ea-phone" type="tel" value="${escHtml(a.client_phone||'')}"></div>
+      <div class="fg"><div class="fl">${t('email')}</div><input class="fi" id="ea-email" type="email" value="${escHtml(a.client_email||'')}"></div>
+      <div class="fg"><div class="fl">${t('treatment')}</div><input class="fi" id="ea-treat" value="${escHtml(a.treatment||'')}" dir="rtl"></div>
+      <div class="fg"><div class="fl">${t('date')}</div><input class="fi" id="ea-date" type="date" value="${a.date}"></div>
+      <div class="fg"><div class="fl">${t('time')}</div><input class="fi" id="ea-time" type="time" value="${a.time}"></div>
+      <div class="fg"><div class="fl">${t('durationMin')}</div><input class="fi" id="ea-dur" type="number" value="${a.duration||60}" min="15" max="240"></div>
+      <div class="fg"><div class="fl">${t('notes')}</div><textarea class="fi" id="ea-notes" rows="2" dir="rtl">${escHtml(a.notes||'')}</textarea></div>
+      <div class="fg"><div class="fl">${t('status')}</div><select class="fi" id="ea-status"><option value="confirmed" ${a.status==='confirmed'?'selected':''}>מאושר</option><option value="pending" ${a.status==='pending'?'selected':''}>ממתין</option><option value="done" ${a.status==='done'?'selected':''}>הסתיים</option></select></div>
+      <div class="ma"><button class="btn btn-secondary" onclick="showApptDetail('${aid}')">${t('cancel')}</button><button class="btn btn-primary" onclick="saveEditAppt('${aid}')"><i class="ti ti-device-floppy"></i> ${t('saveChanges')}</button></div>
+    </div></div>`;
+  }
+  if(S.modal&&S.modal.startsWith('appt-')){
+    const aid=S.modal.split('-').slice(1).join('-');
+    const a=S.appointments.find(x=>x.id===aid);if(!a)return'';
+    const cname=a.client_name||getClientName(a.client_id);
+    const p=PALETTES[getClientColor(a.client_id)];
+    return`<div class="modal-bg" onclick="closeModalBg(event)"><div class="modal"><div class="modal-handle"></div>
+      <div class="modal-title"><i class="ti ti-calendar-event"></i> ${t('apptDetails')}</div>
+      <div class="card" style="background:${p.bg};border-color:${p.c}30;margin-bottom:16px">
+        <div style="font-size:15px;font-weight:600;color:${p.c}">${escHtml(cname)}</div>
+        <div style="font-size:13px;color:${p.c};opacity:.8;margin-top:4px">${escHtml(a.treatment)}</div>
+        ${a.client_phone?`<div style="font-size:12px;color:${p.c};opacity:.7;margin-top:4px">📞 ${escHtml(a.client_phone)}</div>`:''}
+        ${a.client_email?`<div style="font-size:12px;color:${p.c};opacity:.7;margin-top:2px">📧 ${escHtml(a.client_email)}</div>`:''}
+      </div>
+      <div class="info-grid">
+        <div class="info-field"><span class="info-label">${t('date')}</span><span class="info-value">${fmtFull(a.date)}</span></div>
+        <div class="info-field"><span class="info-label">${t('time')}</span><span class="info-value">${a.time}</span></div>
+        <div class="info-field"><span class="info-label">${t('duration')}</span><span class="info-value">${a.duration} דקות</span></div>
+        <div class="info-field"><span class="info-label">${t('status')}</span><span class="info-value">${{pending:'⏳ ממתין',confirmed:'✅ מאושר',done:'הסתיים'}[a.status]||'מאושר'}</span></div>
+      </div>
+      ${a.notes?`<div class="sec-label">הערות</div><div class="card" style="margin-bottom:12px">${escHtml(a.notes)}</div>`:''}
+      <div class="ma">
+        ${a.status==='pending'?`<button class="btn btn-success btn-sm" onclick="confirmAppt('${a.id}')"><i class="ti ti-check"></i> ${t('approve')}</button><button class="btn btn-danger btn-sm" onclick="cancelAppt('${a.id}')"><i class="ti ti-x"></i> ${t('reject')}</button>`:''}
+        <button class="btn btn-secondary btn-sm" onclick="editAppt('${a.id}')"><i class="ti ti-edit"></i> ${t('edit')}</button>
+        <button class="btn btn-success btn-sm" style="background:#25D366;border-color:#25D366;color:#fff" onclick="sendManageLink('${a.id}')"><i class="ti ti-brand-whatsapp"></i> ${t('manageLink')}</button>
+        <button class="btn btn-secondary btn-sm" onclick="showLinkClient('${a.id}')"><i class="ti ti-user-plus"></i> ${t('link')}</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteAppt('${a.id}')"><i class="ti ti-trash"></i></button>
+        <button class="btn btn-google btn-sm" onclick="exportApptToGoogle('${a.id}')"><i class="ti ti-brand-google"></i></button>
+        <button class="btn btn-primary" onclick="closeModal()">${t('close')}</button>
+      </div>
+    </div></div>`;
+  }
+  return'';
+}
+
+// ACTIONS
+function toggleSidebar(){S.sidebarOpen=!S.sidebarOpen;const sb=document.getElementById('sidebar');const ov=document.querySelector('.sidebar-overlay');if(sb){sb.classList.toggle('open',S.sidebarOpen);ov&&ov.classList.toggle('show',S.sidebarOpen)}}
+function closeSidebar(){S.sidebarOpen=false;renderRoot()}
+function searchToClients(){if(S.activePage!=='clients'||!S.clientListView){S.activePage='clients';S.clientListView=true;renderRoot();const inp=document.querySelector('#clients-list-container');setTimeout(()=>{const si=document.querySelector('#clients-list-container');},10);}else{reClientsList();}}
+function selectClient(id){S.activeId=id;S.activePage='clients';S.activeTab='overview';S.clientListView=false;S.sidebarOpen=false;renderRoot()}
+function gotoPage(p){S.activePage=p;if(p==='clients')S.clientListView=true;S.sidebarOpen=false;renderRoot()}
+function setTab(t){S.activeTab=t;renderRoot()}
+function showModal(type){S.modal=type;S.newSrc='';renderRoot()}
+function closeModal(){S.modal=null;S.prefillDate='';S.prefillTime='';S.sendForm=null;S.viewForm=null;S.editUser=null;renderRoot()}
+function closeModalBg(e){if(e.target===e.currentTarget)closeModal()}
+function selectSrc(k){S.newSrc=k;document.querySelectorAll('.source-opt').forEach(el=>{el.classList.toggle('selected',el.getAttribute('onclick').includes("'"+k+"'"))})}
+function showApptDetail(id){S.modal='appt-'+id;renderRoot()}
+function editAppt(id){S.modal='editappt-'+id;renderRoot()}
+async function saveEditAppt(aid){
+  const body={
+    client_name:document.getElementById('ea-name').value.trim(),
+    client_phone:document.getElementById('ea-phone').value.trim(),
+    client_email:document.getElementById('ea-email').value.trim(),
+    treatment:document.getElementById('ea-treat').value.trim()||'טיפול',
+    date:document.getElementById('ea-date').value,
+    time:document.getElementById('ea-time').value,
+    duration:parseInt(document.getElementById('ea-dur').value)||60,
+    notes:document.getElementById('ea-notes').value.trim(),
+    status:document.getElementById('ea-status').value
+  };
+  if(!body.client_name||!body.date||!body.time){alert(t('aFillNameDateTime'));return}
+  await sbPatch('appointments',`?id=eq.${aid}`,body);
+  S.appointments=S.appointments.map(a=>a.id===aid?{...a,...body}:a);
+  S.appointments.sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
+  S.modal=null;renderRoot();toast(t('tApptUpdated'));
+}
+function showLinkClient(aid){S.modal='link-'+aid;renderRoot()}
+function calPrev(){S.calWeek=addDays(S.calWeek,-7);renderRoot()}
+function calNext(){S.calWeek=addDays(S.calWeek,7);renderRoot()}
+function calToday(){S.calWeek=weekStart(new Date());renderRoot()}
+function calJumpTo(dateStr){if(!dateStr)return;S.calWeek=weekStart(new Date(dateStr));renderRoot()}
+function apptSearchInput(v){S.apptSearch=v;renderRoot()}
+function buildApptSearchResults(){
+  const q=(S.apptSearch||'').toLowerCase().trim();
+  if(!q)return'';
+  const matches=S.appointments.filter(a=>{
+    const name=(a.client_name||getClientName(a.client_id)||'').toLowerCase();
+    const treat=(a.treatment||'').toLowerCase();
+    const phone=(a.client_phone||'').toLowerCase();
+    return name.includes(q)||treat.includes(q)||phone.includes(q);
+  }).sort((a,b)=>b.date.localeCompare(a.date)||b.time.localeCompare(a.time));
+  if(!matches.length)return`<div style="padding:12px;text-align:center;color:var(--text-sub);font-size:12px;background:var(--white);border:1px solid var(--border);border-radius:9px">${t('noApptsFound')}</div>`;
+  return matches.slice(0,8).map(a=>{
+    const name=a.client_name||getClientName(a.client_id);
+    const p=PALETTES[getClientColor(a.client_id)];
+    const stMap={pending:'⏳ ממתין',confirmed:'✓ מאושר',done:'הסתיים'};
+    return`<div onclick="jumpToAppt('${a.id}','${a.date}')" style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--white);border:1px solid var(--border);border-radius:9px;margin-bottom:6px;cursor:pointer">
+      <div style="width:6px;height:34px;border-radius:3px;background:${p.c};flex-shrink:0"></div>
+      <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:500">${escHtml(name)}</div><div style="font-size:11px;color:var(--text-sub)">${escHtml(a.treatment)} · ${fmtFull(a.date)} · ${a.time}</div></div>
+      <span style="font-size:11px;color:var(--text-sub);white-space:nowrap">${stMap[a.status]||''}</span>
+    </div>`;
+  }).join('');
+}
+function jumpToAppt(id,date){S.calWeek=weekStart(new Date(date));S.apptSearch='';showApptDetail(id);}
+function quickAddAppt(date,time){S.prefillDate=date;S.prefillTime=time;showModal('newAppt')}
+function copyBookingLink(){navigator.clipboard.writeText(getBookingUrl()).then(()=>toast(t('tLinkCopied'))).catch(()=>toast(t('tCopyManually')))}
+
+async function markDone(rid){await sbPatch('reminders',`?id=eq.${rid}`,{done:true});S.reminders=S.reminders.map(r=>r.id===rid?{...r,done:true}:r);renderRoot();toast(t('tSaved'))}
+async function undoDone(rid){await sbPatch('reminders',`?id=eq.${rid}`,{done:false});S.reminders=S.reminders.map(r=>r.id===rid?{...r,done:false}:r);renderRoot()}
+async function addReminder(){const text=document.getElementById('newRemText').value.trim();const due=document.getElementById('newRemDate').value;if(!text)return;const c=getC();const res=await sbPost('reminders',{client_id:c.id,text,due:due||null,done:false});if(res&&res[0]){S.reminders.push(res[0]);renderRoot();toast(t('tReminderAdded'))}else toast(t('tErr'))}
+async function saveNotes(){
+  const val=document.getElementById('notesField').value.trim();
+  if(!val){toast(t('tEnterDoc'));return}
+  const c=getC();
+  const stamp=new Date().toLocaleDateString('he-IL')+' '+new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+  const entry=`[${stamp}]\n${val}`;
+  const newNotes=c.notes&&c.notes.trim()?entry+'\n\n'+c.notes:entry;
+  await sbPatch('clients',`?id=eq.${c.id}`,{notes:newNotes});
+  S.clients=S.clients.map(x=>x.id===c.id?{...x,notes:newNotes}:x);
+  renderRoot();
+  toast(t('tDocAdded'));
+}
+
+async function saveNewClient(){
+  const name=document.getElementById('m-name').value.trim();if(!name){alert(t('aEnterName'));return}
+  const dob=document.getElementById('m-dob').value||null;
+  const age=dob?Math.floor((Date.now()-new Date(dob).getTime())/(365.25*24*3600*1000)):null;
+  const body={name,phone:document.getElementById('m-phone').value.trim(),email:document.getElementById('m-email').value.trim(),dob,age,skin:document.getElementById('m-skin').value.trim()||'לא ידוע',allergies:document.getElementById('m-allergy').value.trim()||'אין ידועות',tier:document.getElementById('m-tier').value,source:S.newSrc||null,color:S.clients.length%PALETTES.length,consent:false,notes:''};
+  const res=await sbPost('clients',body);
+  if(res&&res[0]){S.clients.unshift(res[0]);S.activeId=res[0].id;S.activePage='clients';S.clientListView=false;S.activeTab='overview';S.modal=null;renderRoot();toast(t('tClientAdded'))}else toast(t('tErrSave'))
+}
+
+async function saveEditClient(){
+  const c=getC();if(!c)return;
+  const body={name:document.getElementById('e-name').value.trim(),phone:document.getElementById('e-phone').value.trim(),email:document.getElementById('e-email').value.trim(),age:parseInt(document.getElementById('e-age').value)||null,skin:document.getElementById('e-skin').value.trim(),allergies:document.getElementById('e-allergy').value.trim()||'אין ידועות',tier:document.getElementById('e-tier').value};
+  await sbPatch('clients',`?id=eq.${c.id}`,body);
+  S.clients=S.clients.map(x=>x.id===c.id?{...x,...body}:x);
+  S.modal=null;renderRoot();toast(t('tDetailsUpdated'));
+}
+
+async function saveTreatment(){
+  const name=document.getElementById('t-name').value.trim();if(!name){alert(t('aEnterTreatName'));return}
+  const c=getC();
+  const body={client_id:c.id,name,date:document.getElementById('t-date').value||today(),provider:document.getElementById('t-prov').value.trim()||null,dose:document.getElementById('t-dose').value.trim()||'—',notes:document.getElementById('t-notes').value.trim(),price:parseInt((document.getElementById('t-price')||{}).value)||0};
+  const res=await sbPost('treatments',body);
+  if(res&&res[0]){S.treatments.unshift(res[0]);S.modal=null;S.activeTab='treatments';renderRoot();toast(t('tTreatSaved'))}else toast(t('tErr'))
+}
+
+async function saveAppt(){
+  const name=(document.getElementById('a-name')||{}).value||'';
+  const phone=(document.getElementById('a-phone')||{}).value||'';
+  const email=(document.getElementById('a-email')||{}).value||'';
+  const treat=document.getElementById('a-treat').value.trim();
+  const date=document.getElementById('a-date').value;
+  const time=document.getElementById('a-time').value;
+  const dur=parseInt(document.getElementById('a-dur').value)||60;
+  const notes=document.getElementById('a-notes').value.trim();
+  if(!name.trim()){alert(t('aEnterClientName'));return}
+  if(!date||!time){alert(t('aFillDateTime'));return}
+  const body={client_name:name.trim(),client_phone:phone.trim(),client_email:email.trim(),treatment:treat||'טיפול',date,time,duration:dur,notes,status:'confirmed'};
+  // אם נכנסים ללקוח וקובעים תור — שייך אותו ללקוח
+  const activeC=(S.activePage==='clients'&&!S.clientListView)?getC():null;
+  if(activeC)body.client_id=activeC.id;
+  const res=await sbPost('appointments',body);
+  if(res&&res[0]){
+    S.appointments.push(res[0]);S.appointments.sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
+    S.modal=null;S.prefillDate='';S.prefillTime='';renderRoot();toast(t('tApptSet'));
+    if(email.trim())sendApptEmail(res[0]).then(()=>toast(t('tEmailSent')));
+  }else toast(t('tErrSave'))
+}
+
+async function confirmAppt(id){
+  await sbPatch('appointments',`?id=eq.${id}`,{status:'confirmed'});
+  const appt=S.appointments.find(a=>a.id===id);
+  S.appointments=S.appointments.map(a=>a.id===id?{...a,status:'confirmed'}:a);
+  S.modal=null;renderRoot();toast(t('tApptApproved'));
+  // שלח מייל אישור ללקוח
+  if(appt&&appt.client_email){
+    sendApptEmail({...appt,status:'confirmed'}).then(()=>toast(t('tEmailToClient')));
+  }
+}
+async function cancelAppt(id){if(!confirm(t('confirmRejectAppt')))return;await sbDelete('appointments',`?id=eq.${id}`);S.appointments=S.appointments.filter(a=>a.id!==id);S.modal=null;renderRoot();toast(t('tApptRejected'))}
+async function deleteAppt(id){if(!confirm(t('confirmDeleteAppt')))return;await sbDelete('appointments',`?id=eq.${id}`);S.appointments=S.appointments.filter(a=>a.id!==id);S.modal=null;renderRoot();toast(t('tApptDeleted'))}
+
+async function linkClientToAppt(aid){
+  const clientId=document.getElementById('link-client-id').value;if(!clientId){alert(t('aChooseClient'));return}
+  const c=S.clients.find(x=>x.id===clientId);
+  await sbPatch('appointments',`?id=eq.${aid}`,{client_id:clientId,client_name:c?c.name:'',client_phone:c?c.phone:''});
+  S.appointments=S.appointments.map(a=>a.id===aid?{...a,client_id:clientId,client_name:c?c.name:'',client_phone:c?c.phone:''}:a);
+  S.modal=null;renderRoot();toast(t('tLinked'));
+}
+
+async function createClientFromAppt(aid){
+  const a=S.appointments.find(x=>x.id===aid);if(!a)return;
+  if(!a.client_name){alert(t('noNameInAppt'));return}
+  const res=await sbPost('clients',{name:a.client_name,phone:a.client_phone||'',email:a.client_email||'',tier:'new',color:S.clients.length%8,consent:false,notes:'',allergies:'אין ידועות',skin:'לא ידוע'});
+  if(res&&res[0]){S.clients.unshift(res[0]);await sbPatch('appointments',`?id=eq.${aid}`,{client_id:res[0].id});S.appointments=S.appointments.map(a=>a.id===aid?{...a,client_id:res[0].id}:a);S.modal=null;S.activeId=res[0].id;S.activePage='clients';S.clientListView=false;S.activeTab='overview';renderRoot();toast(t('tClientCreated'));}else toast(t('tErr'))
+}
+
+// GOOGLE CALENDAR
+function padZ(n){return String(n).padStart(2,'0')}
+function toICS(dateStr,timeStr){const[y,m,d]=dateStr.split('-');const[h,min]=timeStr.split(':');return`${y}${padZ(m)}${padZ(d)}T${padZ(h)}${padZ(min)}00`}
+function dlICS(ics,filename){const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function exportApptToGoogle(id){const a=S.appointments.find(x=>x.id===id);if(!a)return;const cname=a.client_name||getClientName(a.client_id);const[h,min]=a.time.split(':').map(Number);const tot=h*60+min+(a.duration||60);const end=`${padZ(Math.floor(tot/60))}:${padZ(tot%60)}`;const ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Clinic CRM//HE\r\nBEGIN:VEVENT\r\nUID:appt-${a.id}@clinic\r\nDTSTART:${toICS(a.date,a.time)}\r\nDTEND:${toICS(a.date,end)}\r\nSUMMARY:${cname} — ${a.treatment}\r\nEND:VEVENT\r\nEND:VCALENDAR`;dlICS(ics,`tor-${a.date}.ics`);toast(t('tExportGoogle'))}
+function exportWeekToGoogle(){const dates=Array.from({length:7},(_,i)=>fmtDate(addDays(S.calWeek,i)));const appts=S.appointments.filter(a=>dates.includes(a.date));if(!appts.length){toast(t('tNoApptsWeek'));return}let events='';appts.forEach(a=>{const cname=a.client_name||getClientName(a.client_id);const[h,min]=a.time.split(':').map(Number);const tot=h*60+min+(a.duration||60);const end=`${padZ(Math.floor(tot/60))}:${padZ(tot%60)}`;events+=`BEGIN:VEVENT\r\nUID:appt-${a.id}@clinic\r\nDTSTART:${toICS(a.date,a.time)}\r\nDTEND:${toICS(a.date,end)}\r\nSUMMARY:${cname} — ${a.treatment}\r\nEND:VEVENT\r\n`;});dlICS(`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Clinic CRM//HE\r\n${events}END:VCALENDAR`,`clinic-week.ics`);toast(`📅 ${appts.length} תורים יוצאו!`)}
+
+
+
+function shareWhatsApp(){
+  waOpen('', wa(LANG,'waBook',{url:getBookingUrl()}));
+}
+function shareWhatsAppClient(phone,name){
+  const cl=S.clients.find(x=>x.name===name&&x.phone===phone);
+  const L=(cl&&cl.lang)||'he';
+  waOpen(phone, wa(L,'waBookName',{name:name,url:getBookingUrl()}));
+}
+function sendFormWhatsApp(){
+  if(!S.sendForm)return;
+  const cl=S.clients.find(x=>x.id===S.sendForm.cid);if(!cl)return;
+  const L=cl.lang||'he';
+  const label=(EMAIL_I18N[L]&&EMAIL_I18N[L].forms&&EMAIL_I18N[L].forms[S.sendForm.type])||S.sendForm.label;
+  waOpen(cl.phone, wa(L,'waForm',{name:cl.name,label:label,url:getFormUrl(S.sendForm.cid,S.sendForm.type)}));
+}
+async function sendFormEmail(){
+  if(!S.sendForm)return;
+  const cl=S.clients.find(x=>x.id===S.sendForm.cid);if(!cl||!cl.email)return;
+  const L=cl.lang||'he';
+  const url=getFormUrl(S.sendForm.cid,S.sendForm.type);
+  const label=(EMAIL_I18N[L]&&EMAIL_I18N[L].forms&&EMAIL_I18N[L].forms[S.sendForm.type])||S.sendForm.label;
+  const html=`<div dir="${et(L,'dir')}" style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;padding:24px">
+    <div style="background:linear-gradient(135deg,#154F7A,#1B6CA8,#4DB8C8);padding:24px;border-radius:12px;text-align:center;margin-bottom:24px">
+      <h2 style="color:#fff;margin:0">ד"ר פפיסמדוב מיכאל</h2>
+      <p style="color:rgba(255,255,255,.8);margin:4px 0 0;font-size:13px">${et(L,'clinicSub')}</p>
+    </div>
+    <p>${et(L,'hello')} <strong>${cl.name}</strong>,</p>
+    <p>${et(L,'formIntro')} <strong>${label}</strong>:</p>
+    <div style="text-align:center;margin:24px 0">
+      <a href="${url}" style="background:#1B6CA8;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-weight:600;display:inline-block">${et(L,'consentBtn')}</a>
+    </div>
+    <p style="font-size:12px;color:#888">${et(L,'orCopy')} ${url}</p>
+    <hr style="border:none;border-top:1px solid #DDE8F0;margin:24px 0">
+    <p style="font-size:11px;color:#aaa;text-align:center">ד"ר פפיסמדוב מיכאל | ${et(L,'clinicSub')}</p>
+  </div>`;
+  await sendEmail(cl.email,et(L,'formSubject')+' '+label+' — ד"ר פפיסמדוב מיכאל',html);
+  S.modal=null;S.sendForm=null;renderRoot();toast(t('tFormSent'));
+}
+function copyText(txt){navigator.clipboard.writeText(txt).then(()=>toast(t('tLinkCopied'))).catch(()=>toast(t('tCopyManually')))}
+
+async function uploadClientPhoto(input){
+  const file = input.files[0];
+  if(!file)return;
+  const c = getC();if(!c)return;
+  const statusEl = document.getElementById('photo-status');
+  if(statusEl)statusEl.textContent = 'מעלה תמונה…';
+
+  // Check size (max 5MB)
+  if(file.size > 5*1024*1024){
+    if(statusEl)statusEl.textContent = 'הקובץ גדול מדי (מקסימום 5MB)';
+    return;
+  }
+
+  const ext = file.name.split('.').pop();
+  const filename = `${c.id}-${Date.now()}.${ext}`;
+
+  try{
+    // Upload to Supabase Storage
+    const res = await fetch(`${SUPABASE_URL}/storage/v1/object/clinic-photos/${filename}`,{
+      method:'POST',
+      headers:{
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': file.type,
+        'x-upsert': 'true'
+      },
+      body: file
+    });
+
+    if(!res.ok){
+      const err = await res.text();
+      console.error('Upload error:', err);
+      if(statusEl)statusEl.textContent = 'שגיאה בהעלאה';
+      return;
+    }
+
+    // Get public URL
+    const photoUrl = `${SUPABASE_URL}/storage/v1/object/public/clinic-photos/${filename}`;
+
+    // Save URL to client record
+    await sbPatch('clients', `?id=eq.${c.id}`, {photo_url: photoUrl});
+    S.clients = S.clients.map(x => x.id===c.id ? {...x, photo_url: photoUrl} : x);
+
+    if(statusEl)statusEl.textContent = '✓ תמונה הועלתה בהצלחה!';
+    renderRoot();
+    toast(t('tPhotoUploaded'));
+  }catch(e){
+    console.error('Photo upload error:', e);
+    if(statusEl)statusEl.textContent = 'שגיאה בהעלאה';
+  }
+}
+
+// שחזור סיסמת מנהל מהסשן (לאחר רענון דף)
+if(isLoggedIn()){
+  ADMIN_PW=sessionStorage.getItem('clinic_pw')||'';
+  AUTH_USER=sessionStorage.getItem('clinic_user')||'admin';
+  try{ME=JSON.parse(sessionStorage.getItem('clinic_me')||'null');}catch(e){ME=null;}
+}
+renderRoot();
+if(isLoggedIn())loadAll();
+// ===== PWA =====
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
+}
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault();deferredPrompt=e;
+  const b=document.getElementById('installBtn');if(b)b.style.display='flex';
+});
+function installApp(){
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{deferredPrompt=null;const b=document.getElementById('installBtn');if(b)b.style.display='none';});
+  }else{
+    // iOS — אין prompt, מציגים הוראה
+    alert('להתקנה באייפון:\n\n1. לחץ על כפתור השיתוף (⬆️) למטה\n2. בחר "הוסף למסך הבית"');
+  }
+}
+window.addEventListener('appinstalled',()=>{const b=document.getElementById('installBtn');if(b)b.style.display='none';});
+
+</script>
+</body>
+</html>

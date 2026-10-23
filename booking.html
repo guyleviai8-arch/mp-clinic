@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>קביעת תור | ד"ר פפיסמדוב מיכאל</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B6CA8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ד&quot;ר קליניק">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1B6CA8;
+  --primary-dark:#154F7A;
+  --primary-light:#E8F4FD;
+  --accent:#2AA876;
+  --accent-light:#E8F7F2;
+  --teal:#4DB8C8;
+  --teal-light:#EAF8FA;
+  --text:#1A2332;
+  --text-sub:#5A6A7E;
+  --border:#DDE8F0;
+  --bg:#F4F8FB;
+  --white:#fff;
+  --gold:#C9A84C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HERO HEADER */
+.hero{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 50%,var(--teal) 100%);padding:36px 20px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at center,rgba(255,255,255,.06) 0%,transparent 60%);pointer-events:none}
+.hero-logo{width:64px;height:64px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:28px;backdrop-filter:blur(10px)}
+.hero-name{font-size:26px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:.5px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.75);font-weight:300;letter-spacing:.5px}
+.hero-divider{width:40px;height:2px;background:var(--gold);margin:14px auto;border-radius:99px}
+.lang-switch{position:absolute;top:14px;left:14px;z-index:20}
+.lang-toggle{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);color:#fff;font-size:12px;padding:7px 12px;border-radius:99px;cursor:pointer;font-family:'Heebo',sans-serif;transition:all .15s;backdrop-filter:blur(6px)}
+.lang-toggle:hover{background:rgba(255,255,255,.3)}
+.lang-toggle .chev{font-size:9px;opacity:.8;transition:transform .2s}
+.lang-switch.open .chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.18);overflow:hidden;min-width:150px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s}
+.lang-switch.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-item{display:flex;align-items:center;gap:9px;padding:11px 14px;cursor:pointer;font-size:13px;color:#1A2332;font-family:'Heebo',sans-serif;transition:background .12s;white-space:nowrap;text-align:left;direction:ltr}
+.lang-item:hover{background:#F0F6FC}
+.lang-item.active{background:#E8F4FD;font-weight:600;color:#1B6CA8}
+.lang-item .flag{font-size:15px}
+.lang-item .check{margin-left:auto;color:#1B6CA8;font-size:13px}
+.hero{position:relative}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:12px;padding:5px 14px;border-radius:99px;backdrop-filter:blur(8px)}
+
+/* MAIN */
+.wrap{max-width:480px;margin:-20px auto 0;padding:0 16px 40px;position:relative;z-index:1}
+
+/* STEPS */
+.steps-bar{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:24px;background:var(--white);border-radius:14px;padding:14px 20px;box-shadow:0 2px 16px rgba(27,108,168,.08);border:1px solid var(--border)}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;border:2px solid var(--border);color:var(--text-sub);background:#fff;transition:all .25s}
+.step-num.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(27,108,168,.3)}
+.step-num.done{background:var(--accent);border-color:var(--accent);color:#fff}
+.step-label{font-size:10px;color:var(--text-sub);font-weight:500}
+.step-label.active{color:var(--primary);font-weight:600}
+.step-connector{flex:none;width:32px;height:2px;background:var(--border);margin-bottom:14px;transition:background .25s}
+.step-connector.done{background:var(--accent)}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:14px;box-shadow:0 2px 12px rgba(27,108,168,.05)}
+.card-title{font-size:15px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px;color:var(--text)}
+.card-title .icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.icon-blue{background:var(--primary-light);color:var(--primary)}
+.icon-teal{background:var(--teal-light);color:var(--teal)}
+.icon-green{background:var(--accent-light);color:var(--accent)}
+
+/* FORM */
+.field{margin-bottom:14px}
+.label{font-size:12px;color:var(--text-sub);margin-bottom:6px;display:block;font-weight:500}
+input,select,textarea{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:15px;font-family:'Heebo',sans-serif;background:#fff;color:var(--text);outline:none;-webkit-appearance:none;transition:border .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(27,108,168,.08)}
+
+/* TREATMENT GRID */
+.treat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.treat-opt{padding:14px 10px;border:1.5px solid var(--border);border-radius:12px;font-size:13px;font-weight:500;cursor:pointer;text-align:center;background:#fff;transition:all .15s;user-select:none}
+.treat-opt:hover{border-color:var(--primary);background:var(--primary-light)}
+.treat-opt.selected{border-color:var(--primary);background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(27,108,168,.25)}
+.treat-icon{font-size:24px;display:block;margin-bottom:6px}
+
+/* SUB TYPES */
+.sub-title{font-size:12px;font-weight:600;color:var(--primary);margin:14px 0 8px;letter-spacing:.03em}
+.sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.sub-opt{padding:9px 10px;border:1.5px solid var(--border);border-radius:9px;font-size:12px;font-weight:500;cursor:pointer;text-align:center;background:#fff;transition:all .15s;user-select:none}
+.sub-opt:hover{border-color:var(--teal);background:var(--teal-light)}
+.sub-opt.selected{border-color:var(--teal);background:var(--teal);color:#fff}
+
+/* TIME SLOTS */
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.time-opt{padding:12px 6px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;background:#fff;transition:all .15s;user-select:none;color:var(--primary)}
+.time-opt:hover:not(.taken){border-color:var(--primary);background:var(--primary-light)}
+.time-opt.selected{border-color:var(--primary);background:var(--primary);color:#fff;box-shadow:0 3px 10px rgba(27,108,168,.2)}
+.time-opt.taken{background:#F5F5F5;color:#C5C5C5;cursor:not-allowed;border-color:#EBEBEB;text-decoration:line-through}
+
+/* DATE */
+.date-note{font-size:11px;color:var(--text-sub);margin-top:8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:4px}
+
+/* BUTTONS */
+.submit-btn{width:100%;padding:16px;border-radius:13px;border:none;background:linear-gradient(135deg,var(--primary),var(--teal));color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:'Heebo',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;box-shadow:0 4px 16px rgba(27,108,168,.3);transition:opacity .15s;letter-spacing:.3px}
+.submit-btn:active{opacity:.88}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.back-btn{padding:16px 22px;border-radius:13px;border:1.5px solid var(--border);background:#fff;font-size:15px;font-weight:500;cursor:pointer;font-family:'Heebo',sans-serif;flex-shrink:0;color:var(--text-sub);transition:all .15s}
+.back-btn:hover{border-color:var(--primary);color:var(--primary)}
+.btn-row{display:flex;gap:10px;margin-top:4px}
+
+/* SUMMARY */
+.summary-box{background:var(--primary-light);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px}
+.summary-row{font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.summary-row:last-child{margin-bottom:0}
+.summary-label{color:var(--text-sub)}
+.summary-val{font-weight:600;color:var(--primary)}
+
+/* ERROR */
+.error-msg{background:#FEF0F0;border:1px solid #FBBABA;border-radius:10px;padding:12px 14px;font-size:13px;color:#C0392B;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+
+/* SUCCESS */
+.success-page{text-align:center;padding:20px 0 40px}
+.success-hero{background:linear-gradient(135deg,var(--accent),var(--teal));border-radius:20px;padding:32px 24px;margin-bottom:20px;color:#fff}
+.success-icon{font-size:56px;margin-bottom:12px}
+.success-title{font-size:22px;font-weight:700;margin-bottom:6px}
+.success-sub{font-size:14px;opacity:.85;font-weight:300}
+.success-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;text-align:right}
+.success-detail{font-size:13px;color:var(--text);margin-bottom:10px;display:flex;gap:10px;align-items:center}
+.success-detail:last-child{margin-bottom:0}
+.success-detail .s-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:var(--primary-light)}
+.new-btn{padding:14px 28px;border-radius:12px;border:1.5px solid var(--border);background:#fff;font-size:14px;font-weight:500;cursor:pointer;font-family:'Heebo',sans-serif;color:var(--primary)}
+.loading-slots{text-align:center;padding:24px;color:var(--text-sub);font-size:13px}
+.spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;margin-left:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.closed-note{background:var(--primary-light);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--primary);text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="lang-switch" id="lang-switch">
+    <button class="lang-toggle" onclick="event.stopPropagation();toggleLangMenu()">
+      <span>🌐</span><span id="lang-current">עברית</span><span class="chev">▼</span>
+    </button>
+    <div class="lang-menu" id="lang-menu"></div>
+  </div>
+  <div class="hero-logo">✦</div>
+  <div class="hero-name">ד"ר פפיסמדוב מיכאל</div>
+  <div class="hero-sub" id="hero-sub">קליניקה לרפואה אסתטית</div>
+  <div class="hero-divider"></div>
+  <div class="hero-tag" id="hero-tag">קביעת תור אונליין</div>
+</div>
+
+<div class="wrap">
+  <div id="content"></div>
+</div>
+
+<script>
+const SUPABASE_URL='https://ppbxmqrddkjgyzkjpgxx.supabase.co';
+const SUPABASE_KEY='sb_publishable_VDzu1TNHOUAdAFw1bDkeiA_NVTwjxaR';
+
+// ============ מערכת שפות ============
+const I18N={
+  he:{
+    dir:'rtl', sub:'קליניקה לרפואה אסתטית', tag:'קביעת תור אונליין',
+    dLong:['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'],
+    mLong:['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'],
+    dayPrefix:'יום ',
+    personalDetails:'פרטים אישיים', fullName:'שם מלא *', namePlaceholder:'שם ושם משפחה',
+    phone:'מספר טלפון *', email:'אימייל (לקבלת אישור)',
+    chooseTreatment:'בחר טיפול', chooseSubType:'בחר סוג',
+    continueToDate:'המשך לבחירת תאריך ←', chooseDate:'בחר תאריך',
+    continueToConfirm:'המשך לאישור ←', chooseTime:'בחר שעה',
+    strikeTaken:'שעות מוקרעות — תפוסות', summary:'סיכום ואישור',
+    name:'שם', treatment:'טיפול', date:'תאריך', time:'שעה',
+    notes:'הערות (אופציונלי)', notesPlaceholder:'משהו שכדאי שנדע?',
+    submit:'שלח בקשת תור', sending:'שולח…', back:'← חזור',
+    successTitle:'הבקשה התקבלה!', successSub:'התור ממתין לאישור הקליניקה',
+    emailSent:'📧 שלחנו לך אימייל אישור.', willUpdate:'נעדכן אותך ברגע שהתור יאושר סופית!',
+    newBooking:'קביעת תור נוסף',
+    errName:'נא להזין שם תקין (אותיות)', errPhone:'נא להזין מספר טלפון תקין (לדוגמה: 0501234567)',
+    errNameEmpty:'נא למלא שם מלא', errPhoneEmpty:'נא למלא מספר טלפון',
+    errTreatment:'נא לבחור סוג טיפול', errSubType:'נא לבחור תת-סוג טיפול',
+    errDate:'נא לבחור תאריך (לא שישי/שבת)', errTime:'נא לבחור שעה',
+    errSave:'שגיאה בשמירת התור. נסה שוב.', errConn:'שגיאת חיבור. בדוק אינטרנט ונסה שוב.',
+    closedDay:'הקליניקה סגורה בימי שישי ושבת', loading:'טוען שעות פנויות…',
+    minutes:'דק׳',
+    emSubject:'בקשת תור התקבלה — ד"ר פפיסמדוב מיכאל',emHello:'שלום',
+    emBody:'בקשתך לתור התקבלה ונמצאת כעת <strong style="color:#EF9F27">בהמתנה לאישור</strong> מהקליניקה.',
+    emTreatment:'טיפול',emDate:'תאריך',emTime:'שעה',
+    emFooter:'⏳ נעדכן אותך באימייל נוסף ברגע שהתור יאושר סופית.',emClinicSub:'קליניקה לרפואה אסתטית',
+    treatments:{botox:'בוטוקס',filler:'פילר',profhilo:'פרופהילו',peel:'פילינג',laser:'לייזר',consult:'ייעוץ'},
+    subs:{forehead:'מצח',glabella:'גלבלה (בין הגבות)',crowsfeet:'עורביים (עיניים)',forehead_glabella:'מצח + גלבלה',fullface:'פנים מלא',
+      lips:'שפתיים',nasolabial:'קפלי אף-שפה',cheeks:'לחיים',undereye:'תחת עיניים',chin:'סנטר',
+      face:'פנים',neck:'צוואר',hands:'ידיים',
+      superficial:'פילינג שטחי',medium_tca:'פילינג בינוני (TCA)',chemical:'פילינג כימי',fruit:'פילינג פירות',
+      hairremoval:'הסרת שיער',spots:'כתמים',vessels:'כלי דם',pigmentation:'פיגמנטציה',
+      general:'ייעוץ כללי',skinanalysis:'ניתוח עור',treatmentplan:'תכנית טיפולים'}
+  },
+  ka:{
+    dir:'ltr', sub:'ესთეტიკური მედიცინის კლინიკა', tag:'ონლაინ ჩაწერა',
+    dLong:['კვირა','ორშაბათი','სამშაბათი','ოთხშაბათი','ხუთშაბათი','პარასკევი','შაბათი'],
+    mLong:['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'],
+    dayPrefix:'',
+    personalDetails:'პირადი ინფორმაცია', fullName:'სრული სახელი *', namePlaceholder:'სახელი და გვარი',
+    phone:'ტელეფონის ნომერი *', email:'ელ. ფოსტა (დადასტურებისთვის)',
+    chooseTreatment:'აირჩიეთ პროცედურა', chooseSubType:'აირჩიეთ ტიპი',
+    continueToDate:'თარიღის არჩევა →', chooseDate:'აირჩიეთ თარიღი',
+    continueToConfirm:'დადასტურება →', chooseTime:'აირჩიეთ დრო',
+    strikeTaken:'გადახაზული საათები — დაკავებულია', summary:'შეჯამება და დადასტურება',
+    name:'სახელი', treatment:'პროცედურა', date:'თარიღი', time:'დრო',
+    notes:'შენიშვნები (არასავალდებულო)', notesPlaceholder:'რამე რაც უნდა ვიცოდეთ?',
+    submit:'ჯავშნის გაგზავნა', sending:'იგზავნება…', back:'← უკან',
+    successTitle:'მოთხოვნა მიღებულია!', successSub:'ჯავშანი ელოდება კლინიკის დადასტურებას',
+    emailSent:'📧 დადასტურების წერილი გამოგზავნილია.', willUpdate:'შეგატყობინებთ როგორც კი ჯავშანი დადასტურდება!',
+    newBooking:'ახალი ჩაწერა',
+    errName:'გთხოვთ შეიყვანოთ სწორი სახელი', errPhone:'გთხოვთ შეიყვანოთ სწორი ტელეფონის ნომერი',
+    errNameEmpty:'გთხოვთ შეავსოთ სახელი', errPhoneEmpty:'გთხოვთ შეავსოთ ტელეფონის ნომერი',
+    errTreatment:'გთხოვთ აირჩიოთ პროცედურა', errSubType:'გთხოვთ აირჩიოთ ქვეტიპი',
+    errDate:'გთხოვთ აირჩიოთ თარიღი (არა პარ/შაბ)', errTime:'გთხოვთ აირჩიოთ დრო',
+    errSave:'შენახვის შეცდომა. სცადეთ თავიდან.', errConn:'კავშირის შეცდომა. შეამოწმეთ ინტერნეტი.',
+    closedDay:'კლინიკა დაკეტილია პარასკევს და შაბათს', loading:'იტვირთება თავისუფალი საათები…',
+    minutes:'წთ',
+    emSubject:'ჯავშნის მოთხოვნა მიღებულია — დოქტორ კლინიკი',emHello:'გამარჯობა',
+    emBody:'თქვენი მოთხოვნა მიღებულია და <strong style="color:#EF9F27">ელოდება კლინიკის დადასტურებას</strong>.',
+    emTreatment:'პროცედურა',emDate:'თარიღი',emTime:'დრო',
+    emFooter:'⏳ დაგიკავშირდებით დამატებითი წერილით, როგორც კი ჯავშანი დადასტურდება.',emClinicSub:'ესთეტიკური მედიცინის კლინიკა',
+    treatments:{botox:'ბოტოქსი',filler:'ფილერი',profhilo:'პროფაილო',peel:'პილინგი',laser:'ლაზერი',consult:'კონსულტაცია'},
+    subs:{forehead:'შუბლი',glabella:'წარბებს შორის',crowsfeet:'თვალის კუთხეები',forehead_glabella:'შუბლი + წარბებს შორის',fullface:'სრული სახე',
+      lips:'ტუჩები',nasolabial:'ნაზოლაბიალური ნაოჭები',cheeks:'ლოყები',undereye:'თვალქვეშ',chin:'ნიკაპი',
+      face:'სახე',neck:'კისერი',hands:'ხელები',
+      superficial:'ზედაპირული პილინგი',medium_tca:'საშუალო პილინგი (TCA)',chemical:'ქიმიური პილინგი',fruit:'ხილის პილინგი',
+      hairremoval:'თმის მოცილება',spots:'ლაქები',vessels:'სისხლძარღვები',pigmentation:'პიგმენტაცია',
+      general:'ზოგადი კონსულტაცია',skinanalysis:'კანის ანალიზი',treatmentplan:'მკურნალობის გეგმა'}
+  },
+  ru:{
+    dir:'ltr', sub:'Клиника эстетической медицины', tag:'Онлайн-запись',
+    dLong:['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+    mLong:['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'],
+    dayPrefix:'',
+    personalDetails:'Личные данные', fullName:'Полное имя *', namePlaceholder:'Имя и фамилия',
+    phone:'Номер телефона *', email:'Email (для подтверждения)',
+    chooseTreatment:'Выберите процедуру', chooseSubType:'Выберите тип',
+    continueToDate:'Выбрать дату →', chooseDate:'Выберите дату',
+    continueToConfirm:'К подтверждению →', chooseTime:'Выберите время',
+    strikeTaken:'Зачёркнутое время — занято', summary:'Итог и подтверждение',
+    name:'Имя', treatment:'Процедура', date:'Дата', time:'Время',
+    notes:'Примечания (необязательно)', notesPlaceholder:'Что нам следует знать?',
+    submit:'Отправить заявку', sending:'Отправка…', back:'← Назад',
+    successTitle:'Заявка принята!', successSub:'Запись ожидает подтверждения клиники',
+    emailSent:'📧 Письмо с подтверждением отправлено.', willUpdate:'Мы сообщим вам, как только запись будет подтверждена!',
+    newBooking:'Записаться ещё раз',
+    errName:'Пожалуйста, введите корректное имя', errPhone:'Введите корректный номер телефона (напр. 0501234567)',
+    errNameEmpty:'Пожалуйста, введите имя', errPhoneEmpty:'Пожалуйста, введите номер телефона',
+    errTreatment:'Пожалуйста, выберите процедуру', errSubType:'Пожалуйста, выберите подтип',
+    errDate:'Выберите дату (не пт/сб)', errTime:'Пожалуйста, выберите время',
+    errSave:'Ошибка сохранения. Попробуйте снова.', errConn:'Ошибка соединения. Проверьте интернет.',
+    closedDay:'Клиника закрыта в пятницу и субботу', loading:'Загрузка свободного времени…',
+    minutes:'мин',
+    emSubject:'Заявка на запись получена — Доктор Клиник',emHello:'Здравствуйте',
+    emBody:'Ваша заявка получена и <strong style="color:#EF9F27">ожидает подтверждения</strong> клиники.',
+    emTreatment:'Процедура',emDate:'Дата',emTime:'Время',
+    emFooter:'⏳ Мы отправим вам ещё одно письмо, как только запись будет подтверждена.',emClinicSub:'Клиника эстетической медицины',
+    treatments:{botox:'Ботокс',filler:'Филлер',profhilo:'Профайло',peel:'Пилинг',laser:'Лазер',consult:'Консультация'},
+    subs:{forehead:'Лоб',glabella:'Межбровье',crowsfeet:'Гусиные лапки',forehead_glabella:'Лоб + межбровье',fullface:'Всё лицо',
+      lips:'Губы',nasolabial:'Носогубные складки',cheeks:'Скулы',undereye:'Под глазами',chin:'Подбородок',
+      face:'Лицо',neck:'Шея',hands:'Руки',
+      superficial:'Поверхностный пилинг',medium_tca:'Срединный пилинг (TCA)',chemical:'Химический пилинг',fruit:'Фруктовый пилинг',
+      hairremoval:'Удаление волос',spots:'Пигментные пятна',vessels:'Сосуды',pigmentation:'Пигментация',
+      general:'Общая консультация',skinanalysis:'Анализ кожи',treatmentplan:'План лечения'}
+  },
+  en:{
+    dir:'ltr', sub:'Aesthetic Medicine Clinic', tag:'Online Booking',
+    dLong:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+    mLong:['January','February','March','April','May','June','July','August','September','October','November','December'],
+    dayPrefix:'',
+    personalDetails:'Personal Details', fullName:'Full Name *', namePlaceholder:'First and last name',
+    phone:'Phone Number *', email:'Email (for confirmation)',
+    chooseTreatment:'Choose Treatment', chooseSubType:'Choose type',
+    continueToDate:'Continue to Date →', chooseDate:'Choose Date',
+    continueToConfirm:'Continue to Confirm →', chooseTime:'Choose Time',
+    strikeTaken:'Crossed out times — unavailable', summary:'Summary & Confirmation',
+    name:'Name', treatment:'Treatment', date:'Date', time:'Time',
+    notes:'Notes (optional)', notesPlaceholder:'Anything we should know?',
+    submit:'Send Booking Request', sending:'Sending…', back:'← Back',
+    successTitle:'Request Received!', successSub:'Your appointment awaits clinic approval',
+    emailSent:'📧 Confirmation email sent.', willUpdate:"We'll notify you once your appointment is confirmed!",
+    newBooking:'Book Another',
+    errName:'Please enter a valid name', errPhone:'Please enter a valid phone number (e.g. 0501234567)',
+    errNameEmpty:'Please enter your full name', errPhoneEmpty:'Please enter your phone number',
+    errTreatment:'Please select a treatment', errSubType:'Please select a sub-type',
+    errDate:'Please select a date (not Fri/Sat)', errTime:'Please select a time',
+    errSave:'Error saving appointment. Please try again.', errConn:'Connection error. Check your internet.',
+    closedDay:'The clinic is closed on Fridays and Saturdays', loading:'Loading available times…',
+    minutes:'min',
+    emSubject:'Booking Request Received — Dr. Clinic',emHello:'Hello',
+    emBody:'Your booking request has been received and is <strong style="color:#EF9F27">awaiting clinic approval</strong>.',
+    emTreatment:'Treatment',emDate:'Date',emTime:'Time',
+    emFooter:"⏳ We'll send you another email as soon as your appointment is confirmed.",emClinicSub:'Aesthetic Medicine Clinic',
+    treatments:{botox:'Botox',filler:'Filler',profhilo:'Profhilo',peel:'Peeling',laser:'Laser',consult:'Consultation'},
+    subs:{forehead:'Forehead',glabella:'Glabella (between brows)',crowsfeet:"Crow's Feet",forehead_glabella:'Forehead + Glabella',fullface:'Full Face',
+      lips:'Lips',nasolabial:'Nasolabial Folds',cheeks:'Cheeks',undereye:'Under Eyes',chin:'Chin',
+      face:'Face',neck:'Neck',hands:'Hands',
+      superficial:'Superficial Peel',medium_tca:'Medium Peel (TCA)',chemical:'Chemical Peel',fruit:'Fruit Peel',
+      hairremoval:'Hair Removal',spots:'Spots',vessels:'Blood Vessels',pigmentation:'Pigmentation',
+      general:'General Consultation',skinanalysis:'Skin Analysis',treatmentplan:'Treatment Plan'}
+  }
+};
+
+const LANGS=[
+  {code:'he',name:'עברית',flag:'🇮🇱'},
+  {code:'ru',name:'Русский',flag:'🇷🇺'},
+  {code:'ka',name:'ქართული',flag:'🇬🇪'},
+  {code:'en',name:'English',flag:'🇬🇧'}
+];
+let LANG=localStorage.getItem('clinic_lang')||detectBrowserLang();
+function detectBrowserLang(){
+  const nav=(navigator.language||navigator.userLanguage||'he').toLowerCase();
+  if(nav.startsWith('ru'))return 'ru';
+  if(nav.startsWith('ka'))return 'ka';
+  if(nav.startsWith('he')||nav.startsWith('iw'))return 'he';
+  if(nav.startsWith('en'))return 'en';
+  return 'he';
+}
+if(!I18N[LANG])LANG='he';
+function t(key){return (I18N[LANG]&&I18N[LANG][key])||I18N.he[key]||key;}
+function toggleLangMenu(){
+  const el=document.getElementById('lang-switch');
+  if(el)el.classList.toggle('open');
+}
+function setLang(l){
+  LANG=l;
+  try{localStorage.setItem('clinic_lang',l);}catch(e){}
+  const el=document.getElementById('lang-switch');if(el)el.classList.remove('open');
+  applyLang();
+  if(B.step===1)renderStep1();else if(B.step===2)renderStep2();else renderStep3();
+}
+function applyLang(){
+  document.documentElement.lang=LANG;
+  document.body.dir=I18N[LANG].dir;
+  const hs=document.getElementById('hero-sub');if(hs)hs.textContent=t('sub');
+  const ht=document.getElementById('hero-tag');if(ht)ht.textContent=t('tag');
+  const cur=LANGS.find(x=>x.code===LANG);
+  const lc=document.getElementById('lang-current');if(lc&&cur)lc.textContent=cur.name;
+  const menu=document.getElementById('lang-menu');
+  if(menu){
+    menu.innerHTML=LANGS.map(l=>`<div class="lang-item ${l.code===LANG?'active':''}" onclick="event.stopPropagation();setLang('${l.code}')"><span class="flag">${l.flag}</span><span>${l.name}</span>${l.code===LANG?'<span class="check">✓</span>':''}</div>`).join('');
+  }
+}
+// סגירת התפריט בלחיצה בחוץ
+document.addEventListener('click',()=>{
+  const el=document.getElementById('lang-switch');
+  if(el)el.classList.remove('open');
+});
+
+
+
+const TREATMENTS=[
+  {key:'botox',icon:'💉',duration:45,subs:['forehead','glabella','crowsfeet','forehead_glabella','fullface']},
+  {key:'filler',icon:'✨',duration:60,subs:['lips','nasolabial','cheeks','undereye','chin']},
+  {key:'profhilo',icon:'💧',duration:60,subs:['face','neck','hands']},
+  {key:'peel',icon:'🌟',duration:45,subs:['superficial','medium_tca','chemical','fruit']},
+  {key:'laser',icon:'⚡',duration:30,subs:['hairremoval','spots','vessels','pigmentation']},
+  {key:'consult',icon:'🩺',duration:30,subs:['general','skinanalysis','treatmentplan']},
+];
+// שמות טיפולים מתורגמים
+function treatName(key){return (I18N[LANG].treatments&&I18N[LANG].treatments[key])||I18N.he.treatments[key]||key;}
+function subName(key){return (I18N[LANG].subs&&I18N[LANG].subs[key])||I18N.he.subs[key]||key;}
+
+const WORK_HOURS=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00'];
+const CLOSED_DAYS=[5,6]; // שישי=5, שבת=6
+
+let B={name:'',phone:'',email:'',treatment:'',treatmentLabel:'',treatmentDuration:60,subType:'',date:'',time:'',notes:'',step:1,takenSlots:[],error:''};
+
+function localISO(d){const dt=new Date(d);const off=dt.getTimezoneOffset();return new Date(dt.getTime()-off*60000).toISOString().slice(0,10)}
+function today(){return localISO(new Date())}
+
+function getMinDate(){
+  // מחר — בדיקה שלא שישי/שבת
+  const d=new Date();d.setDate(d.getDate()+1);
+  while(CLOSED_DAYS.includes(d.getDay()))d.setDate(d.getDate()+1);
+  return localISO(d);
+}
+
+function isClosedDay(dateStr){
+  if(!dateStr)return false;
+  const d=new Date(dateStr);
+  return CLOSED_DAYS.includes(d.getDay());
+}
+
+function fmtDate(d){
+  if(!d)return'';
+  const[y,m,day]=d.split('-');
+  const M=I18N[LANG].mLong||I18N.he.mLong;
+  const days=I18N[LANG].dLong||I18N.he.dLong;
+  const dt=new Date(d);
+  return`${I18N[LANG].dayPrefix||''}${days[dt.getDay()]}, ${+day} ${M[+m-1]} ${y}`;
+}
+
+function isSlotTaken(time){
+  return B.takenSlots.some(a=>{
+    const[ah,am]=a.time.split(':').map(Number);
+    const[th,tm]=time.split(':').map(Number);
+    const aStart=ah*60+am;const aEnd=aStart+(a.duration||60);
+    const tStart=th*60+tm;
+    return tStart>=aStart&&tStart<aEnd;
+  });
+}
+
+function escHtml(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function stepsBar(active){
+  const steps=['פרטים','תאריך ושעה','אישור'];
+  return`<div class="steps-bar">
+    ${steps.map((s,i)=>{
+      const num=i+1;
+      const cls=num<active?'done':num===active?'active':'';
+      const lbl=num===active?'active':'';
+      return`${i>0?`<div class="step-connector ${num<=active?'done':''}"></div>`:''}
+      <div class="step-item">
+        <div class="step-num ${cls}">${num<active?'✓':num}</div>
+        <div class="step-label ${lbl}">${s}</div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+async function fetchSlots(date){
+  try{
+    const res=await fetch(`${SUPABASE_URL}/functions/v1/clinic-api`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${SUPABASE_KEY}`},
+      body:JSON.stringify({action:'select',table:'appointments',select:'time,duration,date'})
+    });
+    if(res.ok){const j=await res.json();B.takenSlots=(j.data||[]).filter(a=>a.date===date);}
+  }catch(e){B.takenSlots=[];}
+  renderTimeSlots();
+}
+
+function renderStep1(){
+  const currentTreat=TREATMENTS.find(x=>x.key===B.treatment);
+  document.getElementById('content').innerHTML=`
+    ${stepsBar(1)}
+    <div class="card">
+      <div class="card-title"><div class="icon icon-blue">👤</div>${t('personalDetails')}</div>
+      <div class="field">
+        <label class="label">${t('fullName')}</label>
+        <input type="text" id="b-name" placeholder="${t('namePlaceholder')}" dir="${I18N[LANG].dir}" value="${escHtml(B.name)}" oninput="B.name=this.value">
+      </div>
+      <div class="field">
+        <label class="label">${t('phone')}</label>
+        <input type="tel" inputmode="numeric" id="b-phone" placeholder="050-..." value="${escHtml(B.phone)}" oninput="B.phone=this.value">
+      </div>
+      <div class="field">
+        <label class="label">${t('email')}</label>
+        <input type="email" id="b-email" placeholder="email@example.com" value="${escHtml(B.email||'')}" oninput="B.email=this.value">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><div class="icon icon-teal">💆</div>${t('chooseTreatment')}</div>
+      <div class="treat-grid">
+        ${TREATMENTS.map(tr=>`
+          <div class="treat-opt ${B.treatment===tr.key?'selected':''}" onclick="selectTreat('${tr.key}')">
+            <span class="treat-icon">${tr.icon}</span>${treatName(tr.key)}
+          </div>`).join('')}
+      </div>
+      ${currentTreat?`
+        <div class="sub-title">${t('chooseSubType')} — ${treatName(currentTreat.key)}:</div>
+        <div class="sub-grid">
+          ${currentTreat.subs.map(s=>`
+            <div class="sub-opt ${B.subType===s?'selected':''}" onclick="selectSub('${s}')">${subName(s)}</div>
+          `).join('')}
+        </div>`:''}
+    </div>
+    ${B.error?`<div class="error-msg">⚠️ ${B.error}</div>`:''}
+    <button class="submit-btn" onclick="goStep2()">${t('continueToDate')}</button>`;
+}
+
+function selectTreat(key){
+  const nameEl=document.getElementById('b-name');
+  const phoneEl=document.getElementById('b-phone');
+  if(nameEl)B.name=nameEl.value;
+  if(phoneEl)B.phone=phoneEl.value;
+  const tr=TREATMENTS.find(x=>x.key===key);B.treatment=key;B.treatmentLabel=tr?treatName(tr.key):'';B.treatmentDuration=tr?tr.duration:60;B.subType='';
+  renderStep1();
+}
+
+function selectSub(sub){
+  B.subType=sub;
+  document.querySelectorAll('.sub-opt').forEach(el=>el.classList.toggle('selected',el.textContent===sub));
+}
+
+function renderStep2(){
+  document.getElementById('content').innerHTML=`
+    ${stepsBar(2)}
+    <div class="card">
+      <div class="card-title"><div class="icon icon-blue">📅</div>${t('chooseDate')}</div>
+      <input type="date" id="b-date" min="${getMinDate()}" value="${B.date}"
+        onchange="onDateChange(this.value)"
+        style="width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:15px;font-family:'Heebo',sans-serif;outline:none;-webkit-appearance:none;color:var(--text)">
+      <div class="date-note">📅 ניתן לקבוע מחר ואילך · ימי שישי ושבת סגורים</div>
+    </div>
+    <div id="time-slots-wrap">
+      ${B.date&&!isClosedDay(B.date)?`<div class="loading-slots"><div class="spinner"></div> טוען שעות פנויות…</div>`:''}
+      ${B.date&&isClosedDay(B.date)?`<div class="closed-note">⛔ הקליניקה סגורה בשישי ושבת. אנא בחר יום אחר.</div>`:''}
+    </div>
+    ${B.error?`<div class="error-msg">⚠️ ${B.error}</div>`:''}
+    <div class="btn-row">
+      <button class="back-btn" onclick="goStep1()">${t('back')}</button>
+      <button class="submit-btn" onclick="goStep3()">${t('continueToConfirm')}</button>
+    </div>`;
+  if(B.date&&!isClosedDay(B.date))fetchSlots(B.date);
+}
+
+function renderTimeSlots(){
+  const wrap=document.getElementById('time-slots-wrap');
+  if(!wrap||!B.date||isClosedDay(B.date))return;
+  wrap.innerHTML=`
+    <div class="card">
+      <div class="card-title"><div class="icon icon-teal">🕐</div>${t('chooseTime')} — ${fmtDate(B.date)}</div>
+      <div class="time-grid">
+        ${WORK_HOURS.map(hr=>{
+          const taken=isSlotTaken(hr);
+          return`<div class="time-opt ${taken?'taken':''}${B.time===hr&&!taken?' selected':''}"
+            onclick="${taken?'':'selectTime(\''+hr+'\')'}">${hr}</div>`;
+        }).join('')}
+      </div>
+      <div style="font-size:11px;color:var(--text-sub);margin-top:10px;text-align:center">${t('strikeTaken')}</div>
+    </div>`;
+}
+
+function onDateChange(date){
+  if(isClosedDay(date)){
+    B.date=date;B.time='';B.takenSlots=[];
+    const wrap=document.getElementById('time-slots-wrap');
+    if(wrap)wrap.innerHTML=`<div class="closed-note">⛔ הקליניקה סגורה בשישי ושבת. אנא בחר יום אחר.</div>`;
+    return;
+  }
+  B.date=date;B.time='';B.takenSlots=[];
+  const wrap=document.getElementById('time-slots-wrap');
+  if(wrap)wrap.innerHTML=`<div class="loading-slots"><div class="spinner"></div> טוען שעות פנויות…</div>`;
+  fetchSlots(date);
+}
+
+function selectTime(time){
+  B.time=time;
+  document.querySelectorAll('.time-opt:not(.taken)').forEach(el=>el.classList.toggle('selected',el.textContent.trim()===time));
+}
+
+function renderStep3(){
+  const treat=TREATMENTS.find(x=>x.key===B.treatment);
+  const fullLabel=B.subType?`${treat?treatName(treat.key):''} — ${subName(B.subType)}`:treat?treatName(treat.key):'';
+  document.getElementById('content').innerHTML=`
+    ${stepsBar(3)}
+    <div class="card">
+      <div class="card-title"><div class="icon icon-green">✅</div>${t('summary')}</div>
+      <div class="summary-box">
+        <div class="summary-row"><span class="summary-label">${t('name')}</span><span class="summary-val">${escHtml(B.name)}</span></div>
+        <div class="summary-row"><span class="summary-label">${t('phone').replace(" *","")}</span><span class="summary-val">${escHtml(B.phone)}</span></div>
+        <div class="summary-row"><span class="summary-label">${t('treatment')}</span><span class="summary-val">${treat?treat.icon:''} ${escHtml(fullLabel)}</span></div>
+        <div class="summary-row"><span class="summary-label">${t('date')}</span><span class="summary-val">${fmtDate(B.date)}</span></div>
+        <div class="summary-row"><span class="summary-label">${t('time')}</span><span class="summary-val">${B.time}</span></div>
+      </div>
+      <div class="field">
+        <label class="label">${t('notes')}</label>
+        <textarea id="b-notes" rows="2" placeholder="${t('notesPlaceholder')}" dir="${I18N[LANG].dir}" oninput="B.notes=this.value">${escHtml(B.notes)}</textarea>
+      </div>
+    </div>
+    ${B.error?`<div class="error-msg">⚠️ ${B.error}</div>`:''}
+    <div class="btn-row">
+      <button class="back-btn" onclick="goStep2()">${t('back')}</button>
+      <button class="submit-btn" id="submitBtn" onclick="submitBooking()">${t('submit')}</button>
+    </div>`;
+}
+
+function renderSuccess(){
+  const treat=TREATMENTS.find(x=>x.key===B.treatment);
+  const fullLabel=B.subType?`${treat?treatName(treat.key):''} — ${subName(B.subType)}`:treat?treatName(treat.key):'';
+  document.getElementById('content').innerHTML=`
+    <div class="success-page">
+      <div class="success-hero">
+        <div class="success-icon">⏳</div>
+        <div class="success-title">${t('successTitle')}</div>
+        <div class="success-sub">${t('successSub')}</div>
+      </div>
+      <div class="success-card">
+        <div class="success-detail"><div class="s-icon">📅</div><span>${fmtDate(B.date)}</span></div>
+        <div class="success-detail"><div class="s-icon">🕐</div><span>שעה ${B.time}</span></div>
+        <div class="success-detail"><div class="s-icon">${treat?treat.icon:'💆'}</div><span>${escHtml(fullLabel)}</span></div>
+        <div class="success-detail"><div class="s-icon">👤</div><span>${escHtml(B.name)}</span></div>
+        <div class="success-detail"><div class="s-icon">📞</div><span>${escHtml(B.phone)}</span></div>
+      </div>
+      <div style="font-size:13px;color:var(--text-sub);margin-bottom:20px;line-height:1.6">
+        ${B.email?'📧 שלחנו לך אימייל אישור.<br>':''}נעדכן אותך ברגע שהתור יאושר סופית!
+      </div>
+      <button class="new-btn" onclick="resetBooking()">+ קבע תור נוסף</button>
+    </div>`;
+}
+
+function goStep1(){B.step=1;B.error='';renderStep1();window.scrollTo(0,0)}
+
+function goStep2(){
+  const nameEl=document.getElementById('b-name');
+  const phoneEl=document.getElementById('b-phone');
+  if(nameEl)B.name=nameEl.value.trim();
+  if(phoneEl)B.phone=phoneEl.value.trim();
+  // שם — חייב להכיל אותיות, לפחות 2 תווים
+  if(!B.name){B.error=t('errNameEmpty');renderStep1();return}
+  if(B.name.length<2||!/[a-zA-Zא-ת]/.test(B.name)){B.error=t('errName');renderStep1();return}
+  // טלפון — חייב להיות מספרים בלבד, 9-10 ספרות
+  const cleanPhone=B.phone.replace(/[-\s]/g,'');
+  if(!B.phone){B.error=t('errPhoneEmpty');renderStep1();return}
+  if(!/^0\d{8,9}$/.test(cleanPhone)){B.error=t('errPhone');renderStep1();return}
+  if(!B.treatment){B.error=t('errTreatment');renderStep1();return}
+  if(!B.subType){B.error=t('errSubType');renderStep1();return}
+  B.error='';B.step=2;renderStep2();window.scrollTo(0,0);
+}
+
+function goStep3(){
+  if(!B.date||isClosedDay(B.date)){B.error=t('errDate');renderStep2();return}
+  if(!B.time){B.error=t('errTime');renderStep2();return}
+  B.error='';B.step=3;renderStep3();window.scrollTo(0,0);
+}
+
+async function submitBooking(){
+  const notesEl=document.getElementById('b-notes');
+  if(notesEl)B.notes=notesEl.value.trim();
+  const treat=TREATMENTS.find(x=>x.key===B.treatment);
+  const fullLabel=B.subType?`${treat?treatName(treat.key):''} — ${subName(B.subType)}`:treat?treatName(treat.key):'';
+  const btn=document.getElementById('submitBtn');
+  if(btn){btn.disabled=true;btn.innerHTML='<div class="spinner" style="border-color:rgba(255,255,255,.3);border-top-color:#fff;width:18px;height:18px"></div> שולח…';}
+  try{
+    const res=await fetch(`${SUPABASE_URL}/functions/v1/clinic-api`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${SUPABASE_KEY}`},
+      body:JSON.stringify({action:'insert',table:'appointments',data:{client_name:B.name,client_phone:B.phone,client_email:B.email||'',treatment:fullLabel,date:B.date,time:B.time,duration:B.treatmentDuration,notes:B.notes,status:'pending',lang:LANG}})
+    });
+    if(res.ok){
+      // שלח מייל "ממתין לאישור" ללקוח
+      if(B.email){
+        try{
+          await fetch(`${SUPABASE_URL}/functions/v1/send-email`,{
+            method:'POST',
+            headers:{'Content-Type':'application/json','Authorization':`Bearer ${SUPABASE_KEY}`},
+            body:JSON.stringify({
+              to:B.email,
+              subject:t('emSubject'),
+              html:`<div dir="${I18N[LANG].dir}" style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;padding:24px;color:#1A2332">
+                <div style="background:linear-gradient(135deg,#154F7A,#1B6CA8,#4DB8C8);padding:24px;border-radius:12px;text-align:center;margin-bottom:24px">
+                  <h2 style="color:#fff;margin:0">ד"ר פפיסמדוב מיכאל</h2>
+                  <p style="color:rgba(255,255,255,.8);margin:4px 0 0;font-size:13px">${t('emClinicSub')}</p>
+                </div>
+                <p>${t('emHello')} <strong>${B.name}</strong>,</p>
+                <p>${t('emBody')}</p>
+                <div style="background:#FFF7E8;border:1px solid #FAC775;border-radius:10px;padding:16px;margin:16px 0">
+                  <p style="margin:0 0 6px"><strong>${t('emTreatment')}:</strong> ${fullLabel}</p>
+                  <p style="margin:0 0 6px"><strong>${t('emDate')}:</strong> ${B.date}</p>
+                  <p style="margin:0"><strong>${t('emTime')}:</strong> ${B.time}</p>
+                </div>
+                <p>${t('emFooter')}</p>
+                <hr style="border:none;border-top:1px solid #DDE8F0;margin:24px 0">
+                <p style="font-size:11px;color:#aaa;text-align:center">ד"ר פפיסמדוב מיכאל | ${t('emClinicSub')}</p>
+              </div>`
+            })
+          });
+        }catch(e){}
+      }
+      renderSuccess();
+    }
+    else{B.error=t('errSave');renderStep3();}
+  }catch(e){B.error=t('errConn');renderStep3();}
+}
+
+function resetBooking(){
+  B={name:'',phone:'',treatment:'',treatmentLabel:'',treatmentDuration:60,subType:'',date:'',time:'',notes:'',step:1,takenSlots:[],error:''};
+  renderStep1();window.scrollTo(0,0);
+}
+
+applyLang();
+renderStep1();
+// ===== PWA =====
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
+}
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault();deferredPrompt=e;
+  const b=document.getElementById('installBtn');if(b)b.style.display='flex';
+});
+function installApp(){
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{deferredPrompt=null;const b=document.getElementById('installBtn');if(b)b.style.display='none';});
+  }else{
+    // iOS — אין prompt, מציגים הוראה
+    alert('להתקנה באייפון:\n\n1. לחץ על כפתור השיתוף (⬆️) למטה\n2. בחר "הוסף למסך הבית"');
+  }
+}
+window.addEventListener('appinstalled',()=>{const b=document.getElementById('installBtn');if(b)b.style.display='none';});
+
+</script>
+</body>
+</html>
