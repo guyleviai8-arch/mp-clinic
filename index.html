@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -608,7 +608,7 @@ function t(key,vars){let s=(I18N[LANG]&&I18N[LANG][key])||I18N.he[key]||key;if(v
 function toggleLangMenu(){const el=document.getElementById('lang-switch');if(el)el.classList.toggle('open');}
 function setLang(l){LANG=l;try{localStorage.setItem('clinic_lang',l);}catch(e){}
   const el=document.getElementById('lang-switch');if(el)el.classList.remove('open');
-  document.documentElement.lang=LANG;document.body.dir=I18N[LANG].dir;
+  document.documentElement.lang=LANG;document.documentElement.dir=I18N[LANG].dir;document.body.dir=I18N[LANG].dir;
   if(typeof S!=='undefined'&&S.calWeek)S.calWeek=weekStart(addDays(S.calWeek,3));
   renderRoot();}
 function langMenuHTML(){
@@ -1162,7 +1162,7 @@ function buildGuide(){
 .gd-tip{background:var(--primary-light);border:1px solid var(--border-strong);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--text-sub);margin-top:2px}
 .gd-tip b{color:var(--primary-dark)}
 </style>
-    <div class="gd">
+    <div class="gd" dir="rtl">
       <div class="gd-hero"><h2>📘 הדרכה — איך עובדים עם המערכת</h2><p>צעד אחר צעד, עם צילומי מסך מהמערכת. אפשר לחזור לכאן בכל רגע.</p></div>
       ${stepHtml}
       <div class="gd-tip"><b>טיפ:</b> בטלפון אפשר להתקין את המערכת כאפליקציה — פותחים את הכתובת בדפדפן ובוחרים «הוסף למסך הבית».</div>
@@ -2038,6 +2038,7 @@ if(isLoggedIn()){
   AUTH_USER=sessionStorage.getItem('clinic_user')||'admin';
   try{ME=JSON.parse(sessionStorage.getItem('clinic_me')||'null');}catch(e){ME=null;}
 }
+try{document.documentElement.dir=I18N[LANG].dir;document.documentElement.lang=LANG;if(document.body)document.body.dir=I18N[LANG].dir;}catch(e){}
 renderRoot();
 if(isLoggedIn())loadAll();
 // ===== PWA =====
