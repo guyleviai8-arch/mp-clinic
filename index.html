@@ -311,7 +311,7 @@ const I18N={
  he:{dir:'rtl',
   welcome:'ברוכים הבאים 👋',loginSub:'התחברו כדי להמשיך',username:'שם משתמש',password:'סיסמה',
   login:'כניסה',loggingIn:'מתחבר…',loginErr:'שם משתמש או סיסמה שגויים',sysName:'מערכת ניהול',sysFull:'מערכת ניהול קליניקה',
-  nav:'ניווט',dashboard:'דשבורד',calendar:'יומן תורים',calendarShort:'יומן',clients:'לקוחות',bookingLink:'קישור הזמנה',
+  nav:'ניווט',dashboard:'דשבורד',calendar:'יומן תורים',calendarShort:'יומן',clients:'לקוחות',bookingLink:'קישור הזמנה',guide:'הדרכה',
   newClient:'לקוח חדש',logout:'יציאה',loading:'טוען נתונים…',
   hello:'שלום',apptsToday:'תורים היום',noApptsToday:'אין תורים היום',newAppt:'תור חדש',appt:'תור',client:'לקוח',
   kpiClients:'לקוחות',kpiTreatments:'טיפולים',kpiRevenue:'הכנסה',kpiPending:'תורים ממתינים',
@@ -385,7 +385,7 @@ const I18N={
  ru:{dir:'ltr',
   welcome:'Добро пожаловать 👋',loginSub:'Войдите, чтобы продолжить',username:'Имя пользователя',password:'Пароль',
   login:'Вход',loggingIn:'Вход…',loginErr:'Неверное имя пользователя или пароль',sysName:'Система управления',sysFull:'Система управления клиникой',
-  nav:'Навигация',dashboard:'Панель',calendar:'Календарь записей',calendarShort:'Календарь',clients:'Клиенты',bookingLink:'Ссылка на запись',
+  nav:'Навигация',dashboard:'Панель',calendar:'Календарь записей',calendarShort:'Календарь',clients:'Клиенты',bookingLink:'Ссылка на запись',guide:'Обучение',
   newClient:'Новый клиент',logout:'Выход',loading:'Загрузка данных…',
   hello:'Здравствуйте',apptsToday:'Записи на сегодня',noApptsToday:'Сегодня записей нет',newAppt:'Новая запись',appt:'Запись',client:'Клиент',
   kpiClients:'Клиенты',kpiTreatments:'Процедуры',kpiRevenue:'Доход',kpiPending:'Ожидают',
@@ -458,7 +458,7 @@ const I18N={
  ka:{dir:'ltr',
   welcome:'კეთილი იყოს თქვენი მობრძანება 👋',loginSub:'შედით გასაგრძელებლად',username:'მომხმარებელი',password:'პაროლი',
   login:'შესვლა',loggingIn:'შესვლა…',loginErr:'არასწორი მომხმარებელი ან პაროლი',sysName:'მართვის სისტემა',sysFull:'კლინიკის მართვის სისტემა',
-  nav:'ნავიგაცია',dashboard:'პანელი',calendar:'ჯავშნების კალენდარი',calendarShort:'კალენდარი',clients:'კლიენტები',bookingLink:'ჩაწერის ბმული',
+  nav:'ნავიგაცია',dashboard:'პანელი',calendar:'ჯავშნების კალენდარი',calendarShort:'კალენდარი',clients:'კლიენტები',bookingLink:'ჩაწერის ბმული',guide:'სახელმძღვანელო',
   newClient:'ახალი კლიენტი',logout:'გასვლა',loading:'მონაცემები იტვირთება…',
   hello:'გამარჯობა',apptsToday:'დღევანდელი ჯავშნები',noApptsToday:'დღეს ჯავშნები არ არის',newAppt:'ახალი ჯავშანი',appt:'ჯავშანი',client:'კლიენტი',
   kpiClients:'კლიენტები',kpiTreatments:'პროცედურები',kpiRevenue:'შემოსავალი',kpiPending:'მოლოდინში',
@@ -531,7 +531,7 @@ const I18N={
  en:{dir:'ltr',
   welcome:'Welcome 👋',loginSub:'Log in to continue',username:'Username',password:'Password',
   login:'Log in',loggingIn:'Logging in…',loginErr:'Incorrect username or password',sysName:'Management System',sysFull:'Clinic Management System',
-  nav:'Navigation',dashboard:'Dashboard',calendar:'Appointments',calendarShort:'Calendar',clients:'Clients',bookingLink:'Booking Link',
+  nav:'Navigation',dashboard:'Dashboard',calendar:'Appointments',calendarShort:'Calendar',clients:'Clients',bookingLink:'Booking Link',guide:'Guide',
   newClient:'New Client',logout:'Log out',loading:'Loading data…',
   hello:'Hello',apptsToday:"Today's Appointments",noApptsToday:'No appointments today',newAppt:'New Appointment',appt:'Appointment',client:'Client',
   kpiClients:'Clients',kpiTreatments:'Treatments',kpiRevenue:'Revenue',kpiPending:'Pending',
@@ -953,7 +953,7 @@ function buildApp(){
   const filtered=S.clients.filter(c=>c.name.toLowerCase().includes(q));
   const urgentRems=allPendingRem().filter(r=>duePri(r.due)!=='normal').length;
   const pendingAppts=S.appointments.filter(a=>a.status==='pending').length;
-  const pageLabels={dashboard:t('dashboard'),calendar:t('calendar'),clients:t('clients'),users:t('usersTitle')};
+  const pageLabels={dashboard:t('dashboard'),calendar:t('calendar'),clients:t('clients'),users:t('usersTitle'),guide:t('guide')};
 
 
   const sidebar=`<div class="sidebar ${S.sidebarOpen?'open':''}" id="sidebar">
@@ -966,6 +966,7 @@ function buildApp(){
       <div class="nav-item ${S.activePage==='calendar'?'active':''}" onclick="gotoPage('calendar')"><i class="ti ti-calendar-event"></i>${t('calendar')}${pendingAppts>0?`<span class="nav-badge">${pendingAppts}</span>`:''}</div>
       <div class="nav-item ${S.activePage==='clients'?'active':''}" onclick="gotoPage('clients')"><i class="ti ti-users"></i>${t('clients')}</div>
       <div class="nav-item" onclick="showModal('bookingLink')"><i class="ti ti-link"></i>${t('bookingLink')}</div>
+      <div class="nav-item ${S.activePage==='guide'?'active':''}" onclick="gotoPage('guide')"><i class="ti ti-help-circle"></i>${t('guide')}</div>
       ${can('users')?`<div class="nav-item ${S.activePage==='users'?'active':''}" onclick="gotoPage('users')"><i class="ti ti-user-shield"></i>${t('users')}</div>`:''}
     </div>
     <div style="flex:1"></div>
@@ -992,6 +993,7 @@ function buildApp(){
   let pageContent='';
   if(S.activePage==='dashboard'){pageContent=`<div class="page-scroll"><div class="page-pad">${buildDashboard()}</div></div>`;}
   else if(S.activePage==='users'){pageContent=`<div class="page-scroll"><div class="page-pad">${buildUsers()}</div></div>`;}
+  else if(S.activePage==='guide'){pageContent=`<div class="page-scroll"><div class="page-pad">${buildGuide()}</div></div>`;}
   else if(S.activePage==='calendar'){pageContent=`<div style="flex:1;overflow:hidden;display:flex;flex-direction:column"><div class="cal-wrap page-pad" style="flex:1">${buildCalendar()}</div></div>`;}
   else{
     const c=getC();
@@ -1114,6 +1116,40 @@ async function loadUsers(){
     if(ME&&u.id===ME.id)return true;
     return (ROLE_META[u.role]?ROLE_META[u.role].rank:0)<myRank();
   });
+}
+
+function buildGuide(){
+  const steps=[
+    {ic:'ti-login',t:'התחברות',d:'נכנסים לכתובת המערכת ומתחברים עם שם המשתמש והסיסמה שקיבלתם. אפשר לבחור את שפת המערכת מהתפריט.'},
+    {ic:'ti-layout-dashboard',t:'המסך הראשי (דשבורד)',d:'תמונת מצב של היום — מספר הלקוחות, התורים, ההכנסה ותורים שממתינים לאישור. מאשרים תור בלחיצה על ✓ (הלקוח מקבל מייל) או דוחים ב-✗.'},
+    {ic:'ti-users',t:'ניהול לקוחות',d:'רשימת כל הלקוחות עם חיפוש מהיר. לחיצה על לקוח פותחת כרטיס מלא: היסטוריית טיפולים, הערות קליניות, תמונות וטפסי הסכמה. להוספה — כפתור "לקוח חדש".'},
+    {ic:'ti-calendar-event',t:'יומן וקביעת תורים',d:'היומן מציג את כל התורים בתצוגה שבועית לפי סטטוס. לקביעת תור לוחצים "תור" וממלאים שם, טלפון, טיפול, תאריך ושעה. אם מולא אימייל — הלקוח מקבל אישור אוטומטי.'},
+    {ic:'ti-link',t:'הזמנת תור אונליין',d:'ב"קישור הזמנה" מקבלים לינק אישי לשליחה ללקוחות (גם בוואטסאפ). הלקוח קובע תור בעצמו, והוא נכנס ליומן כ"ממתין לאישור".'},
+    {ic:'ti-notebook',t:'יומן התראות',d:'הפעמון בפינה מרכז את כל ההתראות — תורים שממתינים לאישור, ימי הולדת של לקוחות ותזכורות.'},
+    {ic:'ti-user-shield',t:'משתמשים והרשאות',d:'המנהל מוסיף עובדים ונותן לכל אחד תפקיד: מנהל, מטפל או קבלה. כל עובד יכול לנהל רק את מי שמתחתיו — כך המידע הרגיש נשאר מוגן.'}
+  ];
+  const cards=steps.map((s,i)=>`
+    <div style="display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:16px 18px">
+      <div style="flex:0 0 auto;width:46px;height:46px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;position:relative">
+        <i class="ti ${s.ic}" style="font-size:24px"></i>
+        <span style="position:absolute;top:-6px;right:-6px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center">${i+1}</span>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:4px">${s.t}</div>
+        <div style="font-size:14px;color:var(--text-sub);line-height:1.6">${s.d}</div>
+      </div>
+    </div>`).join('');
+  return`
+    <div style="max-width:720px;margin:0 auto">
+      <div style="background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:18px">
+        <div style="font-size:20px;font-weight:700;margin-bottom:6px"><i class="ti ti-help-circle"></i> הדרכה — איך עובדים עם המערכת</div>
+        <div style="font-size:14px;opacity:.9">צעדים קצרים שיעשו לכם סדר. אפשר לחזור לכאן בכל רגע.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">${cards}</div>
+      <div style="margin-top:18px;background:var(--primary-light);border:1px solid var(--border-strong);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--text-sub)">
+        <b style="color:var(--primary-dark)">טיפ:</b> בטלפון אפשר להתקין את המערכת כאפליקציה — פותחים את הכתובת בדפדפן ובוחרים "הוסף למסך הבית".
+      </div>
+    </div>`;
 }
 
 function buildUsers(){
